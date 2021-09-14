@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+/* Carousel Banner */
+.owl-dots {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+
+.owl-dot.active span {
+  background-color: white !important;
+  width: 15px !important;
+
+}
+
+
+.owl-dot span {
+  background-color: white !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 5px;
+  margin: 2px !important;
+}
+
+/* End of Carousel Banner */
+
+/* Carousel Category */
+.owl-carousel.category .owl-dots {
+  display: none;
+}
+
+footer a {
+  display: none;
+}
+
+footer li.active .logo-footer {
+  display: none;
+}
+
+
+/* End of Carousel Category */
+#profile{
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#profile.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+#content-profile {
+  opacity: 0.1;
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#content-profile.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile-aksi{
+  font-family:'Poppins',sans-serif;
+}
+
+.profile-logout{
+  font-family:'Poppins',sans-serif;
+}
