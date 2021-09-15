@@ -400,7 +400,7 @@
                   </a>
                 </div>
                 <div class="profile-aksi-group py-6">
-                  <a href="" class=" flex font-black items-center">
+                  <a id="open-cara-order" class=" flex font-black items-center cursor-pointer">
                     <div class="aksi-icon pr-4">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -538,8 +538,10 @@
     <!-- End of Promo -->
 
     <!-- Konfirmasi Pembayaran -->
-    <div id="modal-konfirmasi-pembayaran" class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
-      <div id="konfirmasi-pembayaran-close" class="konfirmasi-pembayaran-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+    <div id="modal-konfirmasi-pembayaran"
+      class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+      <div id="konfirmasi-pembayaran-close"
+        class="konfirmasi-pembayaran-header flex items-center mt-5 ml-5 fixed cursor-pointer">
         <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
             fill="#737373" />
@@ -552,7 +554,8 @@
             <div class="card-konfirmasi-pembayaran bg-white rounded-2xl mb-5 text-center pb-4">
               <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
               <h2 class="text-lg font-bold">Pesanan Berhasil</h2>
-              <p class="mt-4 text-sm">Paketmu akan kami kirim segera ke alamatmu, terimakasih telah belanja di toko kami.</p>
+              <p class="mt-4 text-sm">Paketmu akan kami kirim segera ke alamatmu, terimakasih telah belanja di toko
+                kami.</p>
               <p class="mt-4">Silahkan transfer sejumlah.</p>
               <h2 class="text-xl font-bold text-red-600">Rp.xxx.xxx</h2>
               <p class="">Kemudian lakukan konfirmasi pembayaran</p>
@@ -607,6 +610,62 @@
 
     </div>
     <!-- End of Blog -->
+
+    <!-- Cara Order -->
+    <div id="modal-cara-order"
+      class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+      <div id="cara-order-close" class="cara-order-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="font-bold pl-5">Cara Order</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+        <div class="pembungkus h-screen">
+          <div class="cara-order-content mx-10 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+            <div class="card-cara-order rounded-2xl mb-5">
+              <div class="cara-order-list flex text-sm">
+                <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">1</h3>
+                <p>Pilih produk beserta varianya</p>
+              </div>
+              <div class="cara-order-divider h-9 bg-gray-400 w-0.5 m-3"></div>
+              <div class="cara-order-list flex text-sm">
+                <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">2</h3>
+                <p>Tentukan Qtynya</p>
+              </div>
+              <div class="cara-order-divider h-9 bg-gray-400 w-0.5 m-3"></div>
+              <div class="cara-order-list flex text-sm">
+                <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">3</h3>
+                <p>Buka halaman Cart</p>
+              </div>
+              <div class="cara-order-divider h-9 bg-gray-400 w-0.5 m-3"></div>
+              <div class="cara-order-list flex text-sm">
+                <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">4</h3>
+                <p>Isi data pengiriman</p>
+              </div>
+              <div class="cara-order-divider h-9 bg-gray-400 w-0.5 m-3"></div>
+              <div class="cara-order-list flex items-center text-sm">
+                <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full px-2 mr-2">5</h3>
+                <div class="cara-order-rekening leading-snug">
+                  <p>Silahkan transfer ke salah satu rekening berikut ini:</p>
+                  <p>Mandiri 131-00-0280192</p>
+                  <p>BCA 0541086853</p>
+                  <p>BRI 0100-01-078772-50-4</p>
+                  <p>Rekening Semua atas nama AI TETI MARYATI</p>
+                </div>
+              </div>
+              <div class="cara-order-divider h-9 bg-gray-400 w-0.5 m-3"></div>
+              <div class="cara-order-list flex text-sm">
+                <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">6</h3>
+                <p>Pilih produk beserta varianya</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of cara order -->
 
     <!-- Cek Ongkir -->
     <div id="modal-cek-ongkir"

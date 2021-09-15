@@ -103,6 +103,17 @@
          $("#modal-konfirmasi-pembayaran").removeClass('active');
     });
 
+
+//  Cara order
+    $("#open-cara-order").on('click',function(){
+         $("#modal-cara-order").addClass('active');
+    });
+    $("#cara-order-close").on('click',function(){
+         $("#modal-cara-order").removeClass('active');
+    });
+
+    
+
     //     $(".slides").on('scroll', function () {
 
     //     })
