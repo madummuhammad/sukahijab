@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
 /* Carousel Banner */
 .banner .owl-dots {
@@ -85,6 +87,9 @@ footer li.active .logo-footer {
 .profile-aksi {
   font-family: 'Poppins', sans-serif;
 }
+#modal-promo {
+  font-family: 'Poppins', sans-serif;
+}
 
 .profile-logout {
   font-family: 'Poppins', sans-serif;
@@ -140,6 +145,19 @@ footer li.active .logo-footer {
 }
 
 #modal-cek-ongkir.active{
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#modal-promo{
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#modal-promo.active{
   visibility: visible;
   opacity: 1;
   transform: translateY(0);

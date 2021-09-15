@@ -75,6 +75,13 @@
          $("#modal-cek-ongkir").removeClass('active');
     });
 
+    $("#open-promo").on('click',function(){
+         $("#modal-promo").addClass('active');
+    });
+    $("#promo-close").on('click',function(){
+         $("#modal-promo").removeClass('active');
+    });
+
     //     $(".slides").on('scroll', function () {
 
     //     })

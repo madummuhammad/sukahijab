@@ -94,7 +94,7 @@
       </div>
     </section>
     <section class="content section-two bg-gradient-to-br w-full from-pink-400 to-pink-200  p-4 pb-20">
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-2 gap-2" style="font-family: 'Inter', sans-serif;">
         <div data-target="#detil-produk1" class="h-72 bg-white rounded-2xl relative produk">
           <div class="product-image">
             <img class="rounded-2xl relative" src="public/img/product/content-1.jpg" alt="asdf">
@@ -220,7 +220,7 @@
           </svg>
         </div>
         <div class="content absolute top-0 mt-7 left-0 right-0 pt-6">
-          <div class="profile-header grid grid-cols-3 w-full mx-2">
+          <div class="profile-header grid grid-cols-3 w-full mx-2" style="font-family: 'Inter', sans-serif;">
             <div class="profile-description flex justify-center items-center  col-span-2">
               <div class="profile-image rounded-full  border-4 border-blue-400 w-20">
                 <img class="rounded-full" src="public/img/da3caf20934ffbe330cb723cdeda910d.jpg" alt="">
@@ -239,7 +239,8 @@
               </div>
             </div>
           </div>
-          <div class="profile-saldo grid grid-cols-2 gap-2 mt-6 mx-12 text-white">
+          <div class="profile-saldo grid grid-cols-2 gap-2 mt-6 mx-12 text-white"
+            style="font-family: 'Inter', sans-serif;">
             <div class="saldo bg-gradient-to-r from-pink-700 to-pink-500 rounded-md p-2">
               <p>Saldo</p>
               <p class="font-bold">Rp1.315.000</p>
@@ -251,7 +252,7 @@
           </div>
           <div class="profile-group w-full mt-8 bg-white rounded-t-3xl px-8 pt-8 h-screen">
             <div class="overflow-y-scroll  divide-y divide-solid divide-gray-300 h-96">
-              <div class="profile-pesanan pb-6">
+              <div class="profile-pesanan pb-6" style="font-family: 'Inter', sans-serif;">
                 <div class="pesanan-title font-bold text-gray-500">
                   <h2>Pesanan Saya</h2>
                 </div>
@@ -349,7 +350,7 @@
               </div>
               <div class="profile-aksi flex flex-col">
                 <div class="profile-aksi-group py-6">
-                  <a href="" class=" flex justify-items-start font-black">
+                  <a id="open-promo" class=" flex justify-items-start font-black">
                     <div class="aksi-icon pr-4"><svg width="22" height="24" viewBox="0 0 22 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0)">
@@ -497,6 +498,46 @@
     </div>
     <!-- End of profile -->
 
+    <!-- Promo -->
+    <div id="modal-promo" class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+      <div id="promo-close" class="promo-header flex items-center mt-5 ml-5 fixed">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="font-bold pl-5">Promo</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+        <div class="pembungkus h-screen">
+          <div class="promo-content mx-10 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+            <div class="card-promo bg-white p-3 rounded-2xl mb-5">
+              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Promo</h2>
+              <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
+              <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="card-promo bg-white p-3 rounded-2xl mb-5">
+              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Promo</h2>
+              <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
+              <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="card-promo bg-white p-3 rounded-2xl mb-5 w-full">
+              <div class="header-content-promo flex items-center">
+                <h2 class="text-gray-200 text-sm justify-items-center mr-1"><i class="fas fa-circle"></i></h2>
+                <div class="w-12 h-3 bg-gray-200"></div>
+              </div>
+              <div class="w-full h-44 bg-gray-200 rounded-2xl">
+              </div>
+              <p class="w-full h-3 rounded-xl bg-gray-200 mb-1 mt-2"></p>
+              <p class="w-full rounded-xl h-3 bg-gray-200"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of Promo -->
+
+    <!-- Cek Ongkir -->
     <div id="modal-cek-ongkir"
       class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20 overflow-y-scroll">
       <div id="cek-ongkir-close" class="cek-ongkir-header flex items-center mt-5 ml-5 fixed">
@@ -551,6 +592,9 @@
         </div>
       </div>
     </div>
+    <!-- End of cek ongkir -->
+
+
     <!-- Detil Produk -->
     <div id="detil-produk"
       class="detil-produk fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20 hidden">
