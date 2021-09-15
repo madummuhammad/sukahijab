@@ -136,6 +136,14 @@
          $("#modal-tentang-kami").removeClass('active');
     });
 
+    //     Menunggu Pembayaran
+    $("#open-menunggu-pembayaran").on('click', function () {
+         $("#modal-menunggu-pembayaran").addClass('active');
+    });
+    $("#menunggu-pembayaran-close").on('click', function () {
+         $("#modal-menunggu-pembayaran").removeClass('active');
+    });
+
 
 
     //     $(".slides").on('scroll', function () {

@@ -248,3 +248,17 @@ footer li.active .logo-footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+#modal-menunggu-pembayaran{
+  font-family: 'Poppins', sans-serif;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#modal-menunggu-pembayaran.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
