@@ -350,7 +350,7 @@
               </div>
               <div class="profile-aksi flex flex-col">
                 <div class="profile-aksi-group py-6">
-                  <a id="open-promo" class=" flex justify-items-start font-black">
+                  <a id="open-promo" class=" flex justify-items-start font-black cursor-pointer">
                     <div class="aksi-icon pr-4"><svg width="22" height="24" viewBox="0 0 22 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0)">
@@ -385,7 +385,7 @@
                   </a>
                 </div>
                 <div class="profile-aksi-group py-6">
-                  <a href="" class=" flex font-black items-center">
+                  <a id="open-blog" class=" flex font-black items-center">
                     <div class="aksi-icon pr-4">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -396,7 +396,7 @@
                           stroke="#0CC896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </div>
-                    <div class="aksi-title">Feed</div>
+                    <div class="aksi-title">Blog</div>
                   </a>
                 </div>
                 <div class="profile-aksi-group py-6">
@@ -500,7 +500,7 @@
 
     <!-- Promo -->
     <div id="modal-promo" class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
-      <div id="promo-close" class="promo-header flex items-center mt-5 ml-5 fixed">
+      <div id="promo-close" class="promo-header flex items-center mt-5 ml-5 fixed cursor-pointer">
         <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
             fill="#737373" />
@@ -536,6 +536,49 @@
 
     </div>
     <!-- End of Promo -->
+
+    <!-- Blog -->
+    <div id="modal-blog" class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+      <div id="blog-close" class="blog-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="font-bold pl-5">Blog</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+        <div class="pembungkus h-screen">
+          <div class="blog-content mx-10 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+            <div class="card-blog bg-white p-3 rounded-2xl mb-5">
+              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Blog</h2>
+              <img class="rounded-xl mt-2" src="public/img/product/content-1.jpg" alt="">
+              <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <div class="card-blog-footer flex justify-start mt-2">
+                <p>Dec 12, 2020 <i class="fas fa-circle"></i></p>
+                <p class="ml-2">Less than a minute</p>
+              </div>
+            </div>
+            <div class="card-blog bg-white p-3 rounded-2xl mb-5 w-full">
+              <div class="header-content-blog flex items-center">
+                <h2 class="text-gray-200 text-sm justify-items-center mr-1"><i class="fas fa-circle"></i></h2>
+                <div class="w-12 h-3 bg-gray-200"></div>
+              </div>
+              <div class="w-full h-44 bg-gray-200 rounded-2xl">
+              </div>
+              <p class="w-full h-3 rounded-xl bg-gray-200 mb-1 mt-2"></p>
+              <p class="w-full rounded-xl h-3 bg-gray-200"></p>
+              <div class="card-blog-footer flex justify-between items-center w-1/2 mt-2">
+                <p class="w-16 h-3 rounded-xl bg-gray-200 "></p>
+                <p class="text-gray-300"><i class="fas fa-circle"></i></p>
+                <p class="w-16 rounded-xl h-3 bg-gray-200"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of Blog -->
 
     <!-- Cek Ongkir -->
     <div id="modal-cek-ongkir"

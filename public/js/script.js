@@ -68,6 +68,7 @@
 
     });
 
+// Cek Ongkir
     $("#cek-ongkir").on('click',function(){
          $("#modal-cek-ongkir").addClass('active');
     });
@@ -75,11 +76,22 @@
          $("#modal-cek-ongkir").removeClass('active');
     });
 
+
+// Promo
     $("#open-promo").on('click',function(){
          $("#modal-promo").addClass('active');
     });
     $("#promo-close").on('click',function(){
          $("#modal-promo").removeClass('active');
+    });
+
+
+// Blog
+    $("#open-blog").on('click',function(){
+         $("#modal-blog").addClass('active');
+    });
+    $("#blog-close").on('click',function(){
+         $("#modal-blog").removeClass('active');
     });
 
     //     $(".slides").on('scroll', function () {

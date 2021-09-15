@@ -87,6 +87,7 @@ footer li.active .logo-footer {
 .profile-aksi {
   font-family: 'Poppins', sans-serif;
 }
+
 #modal-promo {
   font-family: 'Poppins', sans-serif;
 }
@@ -137,27 +138,42 @@ footer li.active .logo-footer {
   /* transform: translateX(0); */
 }
 
-#modal-cek-ongkir{
+#modal-cek-ongkir {
   opacity: 0;
   visibility: hidden;
   transition: 0.5s;
   transform: translateY(100%);
 }
 
-#modal-cek-ongkir.active{
+#modal-cek-ongkir.active {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
 
-#modal-promo{
+#modal-promo {
   opacity: 0;
   visibility: hidden;
   transition: 0.5s;
   transform: translateY(100%);
 }
 
-#modal-promo.active{
+#modal-promo.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#modal-blog {
+  font-family: 'Poppins', sans-serif;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(100%);
+
+}
+
+#modal-blog.active {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
