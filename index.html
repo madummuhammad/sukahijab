@@ -369,7 +369,7 @@
                   </a>
                 </div>
                 <div class="profile-aksi-group py-6">
-                  <a href="" class=" flex font-black items-center">
+                  <a id="open-konfirmasi-pembayaran" class=" flex font-black items-center cursor-pointer">
                     <div class="aksi-icon pr-4">
                       <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -536,6 +536,34 @@
 
     </div>
     <!-- End of Promo -->
+
+    <!-- Konfirmasi Pembayaran -->
+    <div id="modal-konfirmasi-pembayaran" class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+      <div id="konfirmasi-pembayaran-close" class="konfirmasi-pembayaran-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="pl-5">Konfirmasi Pembayaran</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+        <div class="pembungkus h-screen">
+          <div class="konfirmasi-pembayaran-content mx-5 flex flex-col overflow-y-scroll pb-32">
+            <div class="card-konfirmasi-pembayaran bg-white rounded-2xl mb-5 text-center pb-4">
+              <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
+              <h2 class="text-lg font-bold">Pesanan Berhasil</h2>
+              <p class="mt-4 text-sm">Paketmu akan kami kirim segera ke alamatmu, terimakasih telah belanja di toko kami.</p>
+              <p class="mt-4">Silahkan transfer sejumlah.</p>
+              <h2 class="text-xl font-bold text-red-600">Rp.xxx.xxx</h2>
+              <p class="">Kemudian lakukan konfirmasi pembayaran</p>
+            </div>
+            <button class="w-full rounded-full bg-red-600 shadow py-2 text-white text-sm">Konfirmasi Pembayaran</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of konfirmasi pembayaran -->
 
     <!-- Blog -->
     <div id="modal-blog" class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">

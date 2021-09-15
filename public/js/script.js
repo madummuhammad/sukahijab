@@ -94,6 +94,15 @@
          $("#modal-blog").removeClass('active');
     });
 
+
+//     Konfirmasi Pembayaran
+    $("#open-konfirmasi-pembayaran").on('click',function(){
+         $("#modal-konfirmasi-pembayaran").addClass('active');
+    });
+    $("#konfirmasi-pembayaran-close").on('click',function(){
+         $("#modal-konfirmasi-pembayaran").removeClass('active');
+    });
+
     //     $(".slides").on('scroll', function () {
 
     //     })
