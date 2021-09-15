@@ -497,24 +497,58 @@
     </div>
     <!-- End of profile -->
 
-    <div id="modal-cek-ongkir "
-      class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20 hidden">
-      <div id="cek-ongkir-close" class="cek-ongkir-header flex items-center mt-5 ml-5">
+    <div id="modal-cek-ongkir"
+      class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20 overflow-y-scroll">
+      <div id="cek-ongkir-close" class="cek-ongkir-header flex items-center mt-5 ml-5 fixed">
         <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
             fill="#737373" />
         </svg>
         <h4 class="font-bold pl-5">Cek</h4>
       </div>
-      <div class="cek-ongkir-content mx-10 grid grid-rows-2 gap-5">
-        <div class="card-ongkir bg-white">
-          <h2>Ongkos Kirim</h2>
-          <div class="ongkir-input-group flex ">
-            <label for="">Berat</label>
-            <input type="text">
+      <div class="cek-ongkir-content mx-10 flex flex-col text-gray-500 mt-16 overflow-y-scroll">
+        <div class="card-ongkir bg-white p-7 rounded-2xl mb-20">
+          <h2 class="text-pink-500 text-center">Ongkos Kirim</h2>
+          <div class="ongkir-input-group flex justify-around items-center h-14 relative">
+            <label for="" class="w-4/12">Berat</label>
+            <input type="text" class="w-full border-b-2 h-12 focus:outline-none">
+            <p class="absolute right-0 text-gray-500">Gram</p>
+          </div>
+          <div class="ongkir-input-group flex justify-around items-center h-14 relative custom-select">
+            <label for="" class="w-4/12">Provinsi</label>
+            <select type="text" class="w-full border-b-2 h-12">
+              <option class="w-8" selected></option>
+              <option value="">Jawa Tengah</option>
+            </select>
+          </div>
+          <div class="ongkir-input-group flex justify-around items-center h-14 relative custom-select">
+            <label for="" class="w-4/12">Kota</label>
+            <select type="text" class="w-full border-b-2 h-12">
+              <option class="w-8" selected></option>
+              <option value="">Purwokerto</option>
+            </select>
+          </div>
+          <div class="button-cari mt-5 w-full flex items-center justify-center">
+            <button class="bg-pink-400 text-white rounded-full w-1/2 text-center font-bold py-1">Cari</button>
           </div>
         </div>
-        <div class="card-resi bg-white">asdfasdf</div>
+        <div class="card-resi bg-white p-7 rounded-2xl">
+          <h2 class="text-pink-500 text-center">Resi</h2>
+          <div class="ongkir-input-group flex justify-around items-center h-14 relative">
+            <label for="" class="w-4/12">No Resi</label>
+            <input type="text" class="w-full border-b-2 h-12 focus:outline-none">
+          </div>
+          <div class="ongkir-input-group flex justify-around items-center h-14 relative custom-select">
+            <label for="" class="w-4/12">Ekspedisi</label>
+            <select type="text" class="w-full border-b-2 h-12">
+              <option class="w-8" selected></option>
+              <option value="">J & T</option>
+            </select>
+          </div>
+          <div class="button-cari mt-5 w-full flex items-center justify-center">
+            <button class="bg-pink-400 text-white rounded-full w-1/2 text-center font-bold py-1">Cari</button>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Detil Produk -->

@@ -60,15 +60,19 @@
          $("#content-profile").removeClass("active");
     })
 
-    $("#cek-ongkir").on('click', function () {
-         alert('asdfasdf');
-    });
 
     $(".produk").on('click', function () {
          let target = $(".produk").data('target');
          //     alert(target);
          //     $(target).addClass('active');
 
+    });
+
+    $("#cek-ongkir").on('click',function(){
+         $("#modal-cek-ongkir").addClass('active');
+    });
+    $("#cek-ongkir-close").on('click',function(){
+         $("#modal-cek-ongkir").removeClass('active');
     });
 
     //     $(".slides").on('scroll', function () {
