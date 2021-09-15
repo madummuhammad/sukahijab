@@ -68,51 +68,59 @@
 
     });
 
-// Cek Ongkir
-    $("#cek-ongkir").on('click',function(){
+    // Cek Ongkir
+    $("#cek-ongkir").on('click', function () {
          $("#modal-cek-ongkir").addClass('active');
     });
-    $("#cek-ongkir-close").on('click',function(){
+    $("#cek-ongkir-close").on('click', function () {
          $("#modal-cek-ongkir").removeClass('active');
     });
 
 
-// Promo
-    $("#open-promo").on('click',function(){
+    // Promo
+    $("#open-promo").on('click', function () {
          $("#modal-promo").addClass('active');
     });
-    $("#promo-close").on('click',function(){
+    $("#promo-close").on('click', function () {
          $("#modal-promo").removeClass('active');
     });
 
 
-// Blog
-    $("#open-blog").on('click',function(){
+    // Blog
+    $("#open-blog").on('click', function () {
          $("#modal-blog").addClass('active');
     });
-    $("#blog-close").on('click',function(){
+    $("#blog-close").on('click', function () {
          $("#modal-blog").removeClass('active');
     });
 
 
-//     Konfirmasi Pembayaran
-    $("#open-konfirmasi-pembayaran").on('click',function(){
+    //     Konfirmasi Pembayaran
+    $("#open-konfirmasi-pembayaran").on('click', function () {
          $("#modal-konfirmasi-pembayaran").addClass('active');
     });
-    $("#konfirmasi-pembayaran-close").on('click',function(){
+    $("#konfirmasi-pembayaran-close").on('click', function () {
          $("#modal-konfirmasi-pembayaran").removeClass('active');
     });
 
 
-//  Cara order
-    $("#open-cara-order").on('click',function(){
+    //  Cara order
+    $("#open-cara-order").on('click', function () {
          $("#modal-cara-order").addClass('active');
     });
-    $("#cara-order-close").on('click',function(){
+    $("#cara-order-close").on('click', function () {
          $("#modal-cara-order").removeClass('active');
     });
 
-    
+    //     Join Reseller
+    $("#open-join-reseller").on('click', function () {
+         $("#modal-join-reseller").addClass('active');
+    });
+    $("#join-reseller-close").on('click', function () {
+         $("#modal-join-reseller").removeClass('active');
+    });
+
+
 
     //     $(".slides").on('scroll', function () {
 
