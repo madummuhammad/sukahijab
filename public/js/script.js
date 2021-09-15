@@ -128,6 +128,14 @@
          $("#modal-testimoni").removeClass('active');
     });
 
+    //     Tentang kami
+    $("#open-tentang-kami").on('click', function () {
+         $("#modal-tentang-kami").addClass('active');
+    });
+    $("#tentang-kami-close").on('click', function () {
+         $("#modal-tentang-kami").removeClass('active');
+    });
+
 
 
     //     $(".slides").on('scroll', function () {
