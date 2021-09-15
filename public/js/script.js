@@ -120,6 +120,14 @@
          $("#modal-join-reseller").removeClass('active');
     });
 
+    //     Testimoni
+    $("#open-testimoni").on('click', function () {
+         $("#modal-testimoni").addClass('active');
+    });
+    $("#testimoni-close").on('click', function () {
+         $("#modal-testimoni").removeClass('active');
+    });
+
 
 
     //     $(".slides").on('scroll', function () {
