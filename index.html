@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="public/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="public/fontawesome/css/all.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://tailwindcomponents.com/css/component.checkboxes.css" rel="stylesheet">
   <title>Document</title>
 </head>
 
@@ -30,7 +31,7 @@
             <input class="w-full pl-2 border-none text-gray-500 outline-none placeholder-red-500 font-bold text-xs"
               style="font-family: 'Poopins', sans-serif;" type="search" placeholder="Kamu Suka apa" />
           </div>
-          <div class="chart flex justify-between">
+          <div id="open-cart" class="chart flex justify-between">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M10.5 25.6667C11.1443 25.6667 11.6666 25.1444 11.6666 24.5C11.6666 23.8557 11.1443 23.3334 10.5 23.3334C9.85565 23.3334 9.33331 23.8557 9.33331 24.5C9.33331 25.1444 9.85565 25.6667 10.5 25.6667Z"
@@ -198,6 +199,100 @@
         </li>
       </ul>
     </footer>
+
+    <!-- Cart -->
+    <div id="modal-cart" class="fixed bottom-0 right-0 left-0 top-0 bg-red-500 z-20">
+      <div id="cart-close" class="cart-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM19 10.5L2 10.5V13.5L19 13.5V10.5Z"
+            fill="white" />
+        </svg>
+        <h4 class="pl-5 text-white">Cart</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full bg-white">
+        <div class="pembungkus h-screen">
+          <div class="cart-content mx-5 flex flex-col overflow-y-scroll pb-32">
+            <div class="card-cart bg-white rounded-2xl mb-5 pb-4 p-4">
+              <div class="cart-list-group flex  w-full justify-around items-center mb-10">
+                <div class="checkbox pr-5">
+                  <input type="checkbox" class="form-checkbox h-5 w-5 text-red-600 border-gray-500 border-2">
+                </div>
+                <div class="cart-produk flex w-3/4  justify-around items-center">
+                  <img class="rounded-xl w-20 h-20" src="public/img/product/content-1.jpg" alt="">
+                  <div class="cart-produk-detil pl-5 w-full">
+                    <p>Pashmina - Eliza pashmina Plisket</p>
+                    <h2>Rp. 200.000</h2>
+                  </div>
+                </div>
+                <div class="cart-adding w-1/5">
+                  <div class="custom-number-input h-10 pt-2">
+                    <div class="flex flex-row rounded-lg  bg-transparent">
+                      <button data-action="decrement" class=" w-20 rounded-l cursor-pointer outline-none text-red-600">
+                        <span class="m-auto font-thin"></span>
+                        <i class="fas fa-minus-circle"></i>
+                      </button>
+                      <input type="number"
+                        class="outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center   outline-none"
+                        name="custom-input-number" value="0">
+
+                      <button data-action="increment" class="h-full w-20 cursor-pointer text-red-600">
+                        <span class="m-auto font-thin text-center"></span>
+                        <i class="fas fa-plus-circle"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-list-group flex  w-full justify-around items-center mb-10">
+                <div class="checkbox pr-5">
+                  <input type="checkbox" class="form-checkbox h-5 w-5 text-red-600 border-gray-500 border-2">
+                </div>
+                <div class="cart-produk flex w-3/4  justify-around items-center">
+                  <img class="rounded-xl w-20 h-20" src="public/img/product/content-1.jpg" alt="">
+                  <div class="cart-produk-detil pl-5 w-full">
+                    <p>Pashmina - Eliza pashmina Plisket</p>
+                    <h2>Rp. 200.000</h2>
+                  </div>
+                </div>
+                <div class="cart-adding w-1/5">
+                  <div class="custom-number-input h-10 pt-2">
+                    <div class="flex flex-row rounded-lg  bg-transparent">
+                      <button data-action="decrement" class=" w-20 rounded-l cursor-pointer outline-none text-red-600">
+                        <span class="m-auto font-thin"></span>
+                        <i class="fas fa-minus-circle"></i>
+                      </button>
+                      <input type="number"
+                        class="outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center"
+                        name="custom-input-number" value="0">
+
+                      <button data-action="increment" class="h-full w-20 cursor-pointer text-red-600">
+                        <span class="m-auto font-thin text-center"></span>
+                        <i class="fas fa-plus-circle"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="cart-footer fixed bottom-0 bg-white right-0 left-0 rounded-t-3xl p-7 divide-y-2 text-gray-600">
+        <div class="cart-footer-header flex justify-between pb-5 ">
+          <label for="">Pilih Semua</label>
+          <input type="checkbox" class="form-checkbox h-5 w-5 text-red-600 border-gray-500 border-2">
+        </div>
+        <div class="cart-footer-footer flex justify-between pt-4">
+          <div class="total">
+            <p>Total</p>
+            <h2 class="text-red-400">Rp. 200.000</h2>
+          </div>
+          <button class="button-checkout bg-red-600  rounded-full w-8/12 text-white">Checkout</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Profile -->
     <div id="profile"
@@ -615,12 +710,14 @@
         <div class="pembungkus h-screen">
           <div class="promo-content mx-10 flex flex-col text-gray-500 overflow-y-scroll pb-32">
             <div class="card-promo bg-white p-3 rounded-2xl mb-5">
-              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Promo</h2>
+              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Promo
+              </h2>
               <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
               <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
             <div class="card-promo bg-white p-3 rounded-2xl mb-5">
-              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Promo</h2>
+              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Promo
+              </h2>
               <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
               <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
             </div>
@@ -664,7 +761,8 @@
               <h2 class="text-xl font-bold text-red-600">Rp.xxx.xxx</h2>
               <p class="">Kemudian lakukan konfirmasi pembayaran</p>
             </div>
-            <button class="w-full rounded-full bg-red-600 shadow py-2 text-white text-sm">Konfirmasi Pembayaran</button>
+            <button class="w-full rounded-full bg-red-600 shadow py-2 text-white text-sm">Konfirmasi
+              Pembayaran</button>
           </div>
         </div>
       </div>
@@ -905,7 +1003,8 @@
               </div>
               <h2 class="text-lg font-bold text-center">Sukahijab</h2>
               <p class="text-sm text-center">v 4.0.0</p>
-              <p class="mt-4 text-sm">Sukahijab adalah perusahaan yang bergerak dibidang penjualan dan produksi pakaian
+              <p class="mt-4 text-sm">Sukahijab adalah perusahaan yang bergerak dibidang penjualan dan produksi
+                pakaian
                 baik beruupa gamis, khimar dan aksesorisnya.</p>
               <p class="mt-4 text-sm">Sukahijab sebagai perusahaan yang didirikan pada tahun 2017, kami menyediakan
                 solusi bisnis yang inovatif kepada perusahaan yang menjadi mitra kami, yang mana kami selalu
