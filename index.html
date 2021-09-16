@@ -233,7 +233,7 @@
                         <i class="fas fa-minus-circle"></i>
                       </button>
                       <input type="number"
-                        class="outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center   outline-none"
+                        class="outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center"
                         name="custom-input-number" value="0">
 
                       <button data-action="increment" class="h-full w-20 cursor-pointer text-red-600">
@@ -289,10 +289,96 @@
             <p>Total</p>
             <h2 class="text-red-400">Rp. 200.000</h2>
           </div>
-          <button class="button-checkout bg-red-600  rounded-full w-8/12 text-white">Checkout</button>
+          <a id="open-checkout"
+            class="button-checkout bg-red-600  rounded-full w-8/12 text-white text-center pt-3">Checkout</a>
         </div>
       </div>
     </div>
+    <!-- End of cart -->
+
+    <!-- Checkout -->
+    <div id="modal-checkout" class="fixed bottom-0 right-0 left-0 top-0 bg-red-500 z-20">
+      <div id="checkout-close" class="checkout-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM19 10.5L2 10.5V13.5L19 13.5V10.5Z"
+            fill="white" />
+        </svg>
+        <h4 class="pl-5 text-white">Alamat Pengiriman</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full bg-white">
+        <div class="pembungkus h-screen">
+          <div class="checkout-content mx-2 flex flex-col overflow-y-scroll pb-10">
+            <div class="card-checkout bg-white rounded-2xl mb-5 pb-4 p-4">
+              <div id="input-provinsi" class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input type="text"
+                  class="w-full border-b-2 border-gray-600 h-12 focus:outline-none bg-white placeholder-gray-700"
+                  placeholder="Provinsi" disabled>
+                <p class="absolute right-0 text-gray-600"><i class="fas fa-sort-down"></i></p>
+              </div>
+              <div class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input type="text"
+                  class="w-full border-b-2 h-12 focus:outline-none bg-white placeholder-gray-700 border-gray-600"
+                  placeholder="Kota / Kabupaten" disabled>
+                <p class="absolute right-0 text-gray-600"><i class="fas fa-sort-down"></i></p>
+              </div>
+              <div class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input type="text"
+                  class="w-full border-b-2 h-12 focus:outline-none bg-white placeholder-gray-700 border-gray-600"
+                  placeholder="Kecamatan" disabled>
+                <p class="absolute right-0 text-gray-600"><i class="fas fa-sort-down"></i></p>
+              </div>
+              <div class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input type="text" class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
+                <p class="absolute left-0 text-gray-700">Kode Pos</p>
+              </div>
+              <div class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input type="text" class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
+                <p class="absolute left-0 text-gray-700">Alamat Lengkap</p>
+              </div>
+              <div class="checkout-input-group flex justify-between items-center h-14 relative">
+                <input type="checkbox"
+                  class="form-checkbox h-5 w-5 text-red-600 border-gray-500 border-2 ml-3 focus:outline-none">
+                <label for="">Simpan Alamat Pengiriman</label>
+              </div>
+              <div class="button-checkout mt-5 w-full flex items-center justify-center">
+                <button class="bg-red-600 text-white rounded-full w-full text-center py-3">Lanjutkan Ke
+                  Pembayaran</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div id="checkout-option-provinsi" class="checkout-option-provinsi">
+        <div
+          class="checkout-option-background bottom-0 bg-black opacity-60 right-0 left-0 top-0 p-7 divide-y-2 text-gray-600 fixed">
+        </div>
+        <div
+          class="pembungkus-checkout-option absolute bottom-0 left-0 right-0 bg-white opacity-100 rounded-t-3xl p-7 text-gray-500">
+          <div class="option-close text-xl flex justify-end mb-5">
+            <i id="option-close" class="fas fa-times bg-gray-300 px-2 py-1 rounded-full"></i>
+          </div>
+          <div class="checkout-option-header justify-between pb-5 ">
+            <div class="checkout-input-group flex justify-around items-center h-14 relative">
+              <input type="text" class="w-full border-b-2 h-16 focus:outline-none border-black">
+              <p class="absolute left-0 text-gray-700">Cari Provinsi</p>
+              <p class="absolute right-0 text-gray-700"><i class="fas fa-search"></i></p>
+            </div>
+          </div>
+          <div class="pembungkus-provinsi overflow-y-scroll h-32">
+            <div class="checkout-option-footer divide-y-2 text-black">
+              <p class="py-2">Jawa Barat</p>
+              <p class="py-2">Jawa Tengah</p>
+              <p class="py-2">Jawa Timur</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- End of checkout -->
 
     <!-- Profile -->
     <div id="profile"

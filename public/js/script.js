@@ -145,13 +145,32 @@
     });
 
     //     cart
-    
+
     $("#open-cart").on('click', function () {
          $("#modal-cart").addClass('active');
     });
     $("#cart-close").on('click', function () {
          $("#modal-cart").removeClass('active');
     });
+
+    //     Checkout
+    $("#open-checkout").on('click', function () {
+         $("#modal-checkout").addClass('active');
+    });
+    $("#checkout-close").on('click', function () {
+         $("#modal-checkout").removeClass('active');
+    });
+    $("#input-provinsi").on('click', function () {
+         $("#checkout-option-provinsi .checkout-option-background").addClass('active');
+
+         $("#checkout-option-provinsi .pembungkus-checkout-option").addClass('active');
+    });
+    $("#option-close").on('click', function () {
+         $("#checkout-option-provinsi .checkout-option-background").removeClass('active');
+
+         $("#checkout-option-provinsi .pembungkus-checkout-option").removeClass('active');
+    });
+
 
 
     //     $(document).ready(function () {
