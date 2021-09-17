@@ -277,7 +277,7 @@ footer li.active .logo-footer {
   transform: translateX(0);
 }
 
-#modal-checkout {
+#modal-checkut {
   font-family: 'Poppins', sans-serif;
   visibility: hidden;
   opacity: 0;
@@ -294,12 +294,10 @@ footer li.active .logo-footer {
 #checkout-option-provinsi .checkout-option-background{
   /* transition: 0.5s; */
   visibility: hidden;
-  /* transform: translateY(100%); */
 }
 
 #checkout-option-provinsi .checkout-option-background.active{
   visibility: visible;
-  /* transform: translateY(0); */
 }
 
 #checkout-option-provinsi .pembungkus-checkout-option{

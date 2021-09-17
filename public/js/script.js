@@ -160,25 +160,56 @@
     $("#checkout-close").on('click', function () {
          $("#modal-checkout").removeClass('active');
     });
+
+     // Input provinsi
+
     $("#input-provinsi").on('click', function () {
          $("#checkout-option-provinsi .checkout-option-background").addClass('active');
 
          $("#checkout-option-provinsi .pembungkus-checkout-option").addClass('active');
-    });
-    $("#option-close").on('click', function () {
-         $("#checkout-option-provinsi .checkout-option-background").removeClass('active');
 
+         $("#checkout-option-provinsi .checkout-option-footer p").on('click', function () {
+              var value = $(this).html();
+
+              $("#input-provinsi input").val(value);
+              $("#checkout-option-provinsi .checkout-option-background").removeClass('active');
+
+
+              $("#checkout-option-provinsi .pembungkus-checkout-option").removeClass('active');
+
+         })
+
+
+         $("#option-close").on('click', function () {
+              $("#input-provinsi input").val("");
+              $("#input-provinsi input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
+              $("#input-provinsi p").addClass('text-red-600');
+         });
+
+         $("#input-provinsi input").removeClass('border-red-600 pb-8 text-xs placeholder-red-500');
+
+         $("#input-provinsi p").removeClass('text-red-600');
+
+         $("#checkout-option-provinsi .checkout-option-background").on('click', function () {
+              $("#input-provinsi input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
+              $("#input-provinsi p").addClass('text-red-600');
+         });
+
+    });
+
+    $("#checkout-option-provinsi .checkout-option-background").on('click', function () {
+         $(this).removeClass('active');
          $("#checkout-option-provinsi .pembungkus-checkout-option").removeClass('active');
     });
 
+    $("#option-close").on('click', function () {
+         $("#checkout-option-provinsi .checkout-option-background").removeClass('active');
 
 
-    //     $(document).ready(function () {
-    //          jml_cartadding = $('.cart-adding').length;
-    //          for (let i = 0; i < jml_cartadding; i++) {
-    //               $('.cart-adding').slice(i).addClass('cuk' + i);
-    //          }
-    //     })
+         $("#checkout-option-provinsi .pembungkus-checkout-option").removeClass('active');
+    });
+//  End of input provinsi
+
 
     function decrement(e) {
          const btn = e.target.parentNode.parentElement.querySelector(
