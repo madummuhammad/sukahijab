@@ -161,7 +161,7 @@
          $("#modal-checkout").removeClass('active');
     });
 
-     // Input provinsi
+    // Input provinsi
 
     $("#input-provinsi").on('click', function () {
          $("#checkout-option-provinsi .checkout-option-background").addClass('active');
@@ -180,7 +180,7 @@
          })
 
 
-         $("#option-close").on('click', function () {
+         $("#option-close-provinsi").on('click', function () {
               $("#input-provinsi input").val("");
               $("#input-provinsi input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
               $("#input-provinsi p").addClass('text-red-600');
@@ -191,8 +191,12 @@
          $("#input-provinsi p").removeClass('text-red-600');
 
          $("#checkout-option-provinsi .checkout-option-background").on('click', function () {
-              $("#input-provinsi input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
-              $("#input-provinsi p").addClass('text-red-600');
+              if ($("#input-provinsi input").val().length == 0) {
+                   $("#input-provinsi input").val("");
+                   $("#input-provinsi input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
+                   $("#input-provinsi p").addClass('text-red-600');
+              }
+
          });
 
     });
@@ -202,13 +206,156 @@
          $("#checkout-option-provinsi .pembungkus-checkout-option").removeClass('active');
     });
 
-    $("#option-close").on('click', function () {
+    $("#option-close-provinsi").on('click', function () {
          $("#checkout-option-provinsi .checkout-option-background").removeClass('active');
 
 
          $("#checkout-option-provinsi .pembungkus-checkout-option").removeClass('active');
     });
-//  End of input provinsi
+    //  End of input provinsi
+
+
+    //     Input kota
+    $("#input-kota").on('click', function () {
+         $("#checkout-option-kota .checkout-option-background").addClass('active');
+
+         $("#checkout-option-kota .pembungkus-checkout-option").addClass('active');
+
+         $("#checkout-option-kota .checkout-option-footer p").on('click', function () {
+              var value = $(this).html();
+
+              $("#input-kota input").val(value);
+              $("#checkout-option-kota .checkout-option-background").removeClass('active');
+
+
+              $("#checkout-option-kota .pembungkus-checkout-option").removeClass('active');
+
+         })
+
+
+         $("#option-close-kota").on('click', function () {
+              $("#input-kota input").val("");
+              $("#input-kota input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
+              $("#input-kota p").addClass('text-red-600');
+         });
+
+         $("#input-kota input").removeClass('border-red-600 pb-8 text-xs placeholder-red-500');
+
+         $("#input-kota p").removeClass('text-red-600');
+
+         $("#checkout-option-kota .checkout-option-background").on('click', function () {
+              if ($("#input-kota input").val().length == 0) {
+                   $("#input-kota input").val("");
+                   $("#input-kota input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
+                   $("#input-kota p").addClass('text-red-600');
+              }
+
+         });
+
+    });
+
+    $("#checkout-option-kota .checkout-option-background").on('click', function () {
+         $(this).removeClass('active');
+         $("#checkout-option-kota .pembungkus-checkout-option").removeClass('active');
+    });
+
+    $("#option-close-kota").on('click', function () {
+         $("#checkout-option-kota .checkout-option-background").removeClass('active');
+
+
+         $("#checkout-option-kota .pembungkus-checkout-option").removeClass('active');
+    });
+    // End of input kota
+
+    //     Input kecamatan
+
+    $("#input-kecamatan").on('click', function () {
+         $("#checkout-option-kecamatan .checkout-option-background").addClass('active');
+
+         $("#checkout-option-kecamatan .pembungkus-checkout-option").addClass('active');
+
+         $("#checkout-option-kecamatan .checkout-option-footer p").on('click', function () {
+              var value = $(this).html();
+
+              $("#input-kecamatan input").val(value);
+              $("#checkout-option-kecamatan .checkout-option-background").removeClass('active');
+
+
+              $("#checkout-option-kecamatan .pembungkus-checkout-option").removeClass('active');
+
+         })
+
+
+         $("#option-close-kecamatan").on('click', function () {
+              $("#input-kecamatan input").val("");
+              $("#input-kecamatan input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
+              $("#input-kecamatan p").addClass('text-red-600');
+         });
+
+         $("#input-kecamatan input").removeClass('border-red-600 pb-8 text-xs placeholder-red-500');
+
+         $("#input-kecamatan p").removeClass('text-red-600');
+
+         $("#checkout-option-kecamatan .checkout-option-background").on('click', function () {
+              if ($("#input-kecamatan input").val().length == 0) {
+                   $("#input-kecamatan input").val("");
+                   $("#input-kecamatan input").addClass('border-red-600 pb-8 text-xs placeholder-red-500');
+                   $("#input-kecamatan p").addClass('text-red-600');
+              }
+
+         });
+
+    });
+
+    $("#checkout-option-kecamatan .checkout-option-background").on('click', function () {
+         $(this).removeClass('active');
+         $("#checkout-option-kecamatan .pembungkus-checkout-option").removeClass('active');
+    });
+
+    $("#option-close-kecamatan").on('click', function () {
+         $("#checkout-option-kecamatan .checkout-option-background").removeClass('active');
+
+
+         $("#checkout-option-kecamatan .pembungkus-checkout-option").removeClass('active');
+    });
+    // End of input kecamatan
+
+    //     Input kode pos
+    $("#input-kode-pos").on('click', function () {
+         $("#input-kode-pos label").addClass('pb-10 text-red-500 text-xs');
+         $("#input-kode-pos input").addClass('border-red-500');
+         $("#input-kode-pos input").on('keyup', function () {
+              $(this).on('keyup', function () {
+                   if ($(this).val().length > 0) {
+                        $(this).removeClass('border-red-500');
+                        $("#input-kode-pos label").removeClass('text-red-500');
+                   } else {
+                        $("#input-kode-pos input").addClass('border-red-500');
+                        $("#input-kode-pos label").addClass('text-red-500');
+                   }
+              })
+         })
+    })
+
+    // End of input kode pos
+
+    //     Input alamat lengkap
+    $("#input-checkout-alamat").on('click', function () {
+         $("#input-checkout-alamat label").addClass('pb-10 text-red-500 text-xs');
+         $("#input-checkout-alamat input").addClass('border-red-500');
+         $("#input-checkout-alamat input").on('keyup', function () {
+              $(this).on('keyup', function () {
+                   if ($(this).val().length > 0) {
+                        $(this).removeClass('border-red-500');
+                        $("#input-checkout-alamat label").removeClass('text-red-500');
+                   } else {
+                        $("#input-checkout-alamat input").addClass('border-red-500');
+                        $("#input-checkout-alamat label").addClass('text-red-500');
+                   }
+              })
+         })
+    })
+    // End of input alamat lengkap
 
 
     function decrement(e) {

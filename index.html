@@ -316,25 +316,26 @@
                   placeholder="Provinsi" disabled>
                 <p class="absolute right-0 text-gray-600 "><i class="fas fa-sort-down"></i></p>
               </div>
-              <div class="checkout-input-group flex justify-around items-center h-14 relative">
-                <input type="text"
-                  class="w-full border-b-2 h-12 focus:outline-none bg-white placeholder-gray-700 border-gray-600"
+              <div id="input-kota" class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input id="option" type="text"
+                  class="w-full border-b-2 border-gray-600 h-12 focus:outline-none bg-white placeholder-gray-700 duration-100"
                   placeholder="Kota / Kabupaten" disabled>
-                <p class="absolute right-0 text-gray-600"><i class="fas fa-sort-down"></i></p>
+                <p class="absolute right-0 text-gray-600 "><i class="fas fa-sort-down"></i></p>
               </div>
-              <div class="checkout-input-group flex justify-around items-center h-14 relative">
-                <input type="text"
-                  class="w-full border-b-2 h-12 focus:outline-none bg-white placeholder-gray-700 border-gray-600"
+              <div id="input-kecamatan" class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input id="option" type="text"
+                  class="w-full border-b-2 border-gray-600 h-12 focus:outline-none bg-white placeholder-gray-700 duration-100"
                   placeholder="Kecamatan" disabled>
-                <p class="absolute right-0 text-gray-600"><i class="fas fa-sort-down"></i></p>
+                <p class="absolute right-0 text-gray-600 "><i class="fas fa-sort-down"></i></p>
               </div>
-              <div class="checkout-input-group flex justify-around items-center h-14 relative">
-                <input type="text" class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
-                <p class="absolute left-0 text-gray-700">Kode Pos</p>
+              <div id="input-kode-pos" class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input id="kode-pos" type="number" class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
+                <label for="kode-pos" class="absolute left-0 text-gray-700 duration-100">Kode Pos</label>
               </div>
-              <div class="checkout-input-group flex justify-around items-center h-14 relative">
-                <input type="text" class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
-                <p class="absolute left-0 text-gray-700">Alamat Lengkap</p>
+
+              <div id="input-checkout-alamat" class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input id="checkout-alamat" type="text" class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
+                <label for="checkout-alamat" class="absolute left-0 text-gray-700 duration-100">Alamat Lengkap</label>
               </div>
               <div class="checkout-input-group flex justify-between items-center h-14 relative">
                 <input type="checkbox"
@@ -351,6 +352,8 @@
         </div>
 
       </div>
+
+      <!-- Checkout option provinsi -->
       <div id="checkout-option-provinsi" class="checkout-option-provinsi">
         <div
           class="checkout-option-background bottom-0 bg-black opacity-60 right-0 left-0 top-0 p-7 divide-y-2 text-gray-600 fixed">
@@ -358,7 +361,7 @@
         <div
           class="pembungkus-checkout-option absolute bottom-0 left-0 right-0 bg-white opacity-100 rounded-t-3xl p-7 text-gray-500">
           <div class="option-close text-xl flex justify-end mb-5">
-            <i id="option-close" class="fas fa-times bg-gray-300 px-2 py-1 rounded-full"></i>
+            <i id="option-close-provinsi" class="fas fa-times bg-gray-300 px-2 py-1 rounded-full"></i>
           </div>
           <div class="checkout-option-header justify-between pb-5 ">
             <div class="checkout-input-group flex justify-around items-center h-14 relative">
@@ -377,6 +380,66 @@
 
         </div>
       </div>
+      <!-- End of checkout option provinsi -->
+
+      <!-- Checkout Option Kota -->
+      <div id="checkout-option-kota" class="checkout-option-kota">
+        <div
+          class="checkout-option-background bottom-0 bg-black opacity-60 right-0 left-0 top-0 p-7 divide-y-2 text-gray-600 fixed">
+        </div>
+        <div
+          class="pembungkus-checkout-option absolute bottom-0 left-0 right-0 bg-white opacity-100 rounded-t-3xl p-7 text-gray-500">
+          <div class="option-close text-xl flex justify-end mb-5">
+            <i id="option-close-kota" class="fas fa-times bg-gray-300 px-2 py-1 rounded-full"></i>
+          </div>
+          <div class="checkout-option-header justify-between pb-5 ">
+            <div class="checkout-input-group flex justify-around items-center h-14 relative">
+              <input type="text" class="w-full border-b-2 h-16 focus:outline-none border-black">
+              <p class="absolute left-0 text-gray-700">Cari Provinsi</p>
+              <p class="absolute right-0 text-gray-700"><i class="fas fa-search"></i></p>
+            </div>
+          </div>
+          <div class="pembungkus-kota overflow-y-scroll h-32">
+            <div class="checkout-option-footer divide-y-2 text-black">
+              <p class="py-2">Salatiga</p>
+              <p class="py-2">Semarang</p>
+              <p class="py-2">Banyumas</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- End of checkout option Kota -->
+
+      <!-- Checkout option kecamatan -->
+      <div id="checkout-option-kecamatan" class="checkout-option-kecamatan">
+        <div
+          class="checkout-option-background bottom-0 bg-black opacity-60 right-0 left-0 top-0 p-7 divide-y-2 text-gray-600 fixed">
+        </div>
+        <div
+          class="pembungkus-checkout-option absolute bottom-0 left-0 right-0 bg-white opacity-100 rounded-t-3xl p-7 text-gray-500">
+          <div class="option-close text-xl flex justify-end mb-5">
+            <i id="option-close-kecamatan" class="fas fa-times bg-gray-300 px-2 py-1 rounded-full"></i>
+          </div>
+          <div class="checkout-option-header justify-between pb-5 ">
+            <div class="checkout-input-group flex justify-around items-center h-14 relative">
+              <input type="text" class="w-full border-b-2 h-16 focus:outline-none border-black">
+              <p class="absolute left-0 text-gray-700">Cari Provinsi</p>
+              <p class="absolute right-0 text-gray-700"><i class="fas fa-search"></i></p>
+            </div>
+          </div>
+          <div class="pembungkus-kecamatan overflow-y-scroll h-32">
+            <div class="checkout-option-footer divide-y-2 text-black">
+              <p class="py-2">Coba1</p>
+              <p class="py-2">Coba2</p>
+              <p class="py-2">Coba3</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- End of checkout option kecamatan -->
+
     </div>
     <!-- End of checkout -->
 

@@ -277,6 +277,8 @@ footer li.active .logo-footer {
   transform: translateX(0);
 }
 
+/* Chekout */
+
 #modal-checkout {
   font-family: 'Poppins', sans-serif;
   visibility: hidden;
@@ -291,23 +293,72 @@ footer li.active .logo-footer {
   transform: translateX(0);
 }
 
-#checkout-option-provinsi .checkout-option-background{
+/* End of Checkout */
+
+/* Option Provinsi */
+
+#checkout-option-provinsi .checkout-option-background {
   /* transition: 0.5s; */
   visibility: hidden;
 }
 
-#checkout-option-provinsi .checkout-option-background.active{
+#checkout-option-provinsi .checkout-option-background.active {
   visibility: visible;
 }
 
-#checkout-option-provinsi .pembungkus-checkout-option{
+#checkout-option-provinsi .pembungkus-checkout-option {
   transition: 0.5s;
   transform: translateY(100%);
 }
 
-#checkout-option-provinsi .pembungkus-checkout-option.active{
+#checkout-option-provinsi .pembungkus-checkout-option.active {
   transform: translateY(0);
 }
+
+/* End of option Provinsi */
+
+
+
+/* Option Kota */
+#checkout-option-kota .checkout-option-background {
+  visibility: hidden;
+}
+
+#checkout-option-kota .checkout-option-background.active {
+  visibility: visible;
+}
+
+#checkout-option-kota .pembungkus-checkout-option {
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#checkout-option-kota .pembungkus-checkout-option.active {
+  transform: translateY(0);
+}
+
+/* End of option kota */
+
+
+/* Option kecamatan */
+#checkout-option-kecamatan .checkout-option-background {
+  visibility: hidden;
+}
+
+#checkout-option-kecamatan .checkout-option-background.active {
+  visibility: visible;
+}
+
+#checkout-option-kecamatan .pembungkus-checkout-option {
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#checkout-option-kecamatan .pembungkus-checkout-option.active {
+  transform: translateY(0);
+}
+
+/* End of option kecamatan */
 
 
 
