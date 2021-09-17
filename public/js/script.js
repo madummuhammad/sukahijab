@@ -357,6 +357,16 @@
     })
     // End of input alamat lengkap
 
+    //     Pembayaran
+    $("#open-pembayaran").on('click', function () {
+         $("#modal-pembayaran").addClass('active');
+    });
+    $("#pembayaran-close").on('click', function () {
+         $("#modal-pembayaran").removeClass('active');
+    });
+
+    // End of pembayaran
+
 
     function decrement(e) {
          const btn = e.target.parentNode.parentElement.querySelector(

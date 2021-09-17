@@ -333,8 +333,10 @@
                 <label for="kode-pos" class="absolute left-0 text-gray-700 duration-100">Kode Pos</label>
               </div>
 
-              <div id="input-checkout-alamat" class="checkout-input-group flex justify-around items-center h-14 relative">
-                <input id="checkout-alamat" type="text" class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
+              <div id="input-checkout-alamat"
+                class="checkout-input-group flex justify-around items-center h-14 relative">
+                <input id="checkout-alamat" type="text"
+                  class="w-full border-b-2 h-12 focus:outline-none border-gray-600">
                 <label for="checkout-alamat" class="absolute left-0 text-gray-700 duration-100">Alamat Lengkap</label>
               </div>
               <div class="checkout-input-group flex justify-between items-center h-14 relative">
@@ -343,7 +345,7 @@
                 <label for="">Simpan Alamat Pengiriman</label>
               </div>
               <div class="button-checkout mt-5 w-full flex items-center justify-center">
-                <button class="bg-red-600 text-white rounded-full w-full text-center py-3">Lanjutkan Ke
+                <button id="open-pembayaran" class="bg-red-600 text-white rounded-full w-full text-center py-3">Lanjutkan Ke
                   Pembayaran</button>
               </div>
 
@@ -442,6 +444,66 @@
 
     </div>
     <!-- End of checkout -->
+
+    <!-- Pembayaran -->
+    <div id="modal-pembayaran" class="fixed bottom-0 right-0 left-0 top-0 bg-red-600 z-20">
+      <div id="pembayaran-close" class="pembayaran-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM19 10.5L2 10.5V13.5L19 13.5V10.5Z"
+            fill="white" />
+        </svg>
+        <h4 class="pl-5 text-white">Pembayaran</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full bg-gray-100">
+        <div class="pembungkus h-screen">
+          <div class="pembayaran-content mx-5 flex flex-col overflow-y-scroll pb-32">
+            <div class="card-cart  rounded-2xl mb-5 pb-4 py-4 px-2">
+              <div class="metode-pengiriman mb-12">
+                <h2 class="text-red-600 font-bold mb-4 text-lg">Metode Pengiriman</h2>
+                <div class="metode-pengiriman-group">
+                  <div class="metode-pengiriman-list flex justify-start items-center w-full">
+                    <img class="w w-20 mr-7 bg-white rounded-xl py-4 px-1" src="public/img/logo-jne.png" alt="">
+                    <p>JNE Express</p>
+                  </div>
+                  <div class="metode-pengiriman-list flex justify-start items-center w-full">
+                    <img class="w w-20 mr-7 bg-white rounded-xl py-4 px-1" src="public/img/logo-jnt.png" alt="">
+                    <p>J & T Express</p>
+                  </div>
+                  <div class="metode-pengiriman-list flex justify-start items-center w-full">
+                    <img class="w-20 mr-7 bg-white rounded-xl py-4 px-3" src="public/img/logo-toko.png" alt="">
+                    <p>Ambil Di Toko</p>
+                  </div>
+                </div>
+              </div>
+              <div class="metode-pembayaran mb-12">
+                <h2 class="text-red-600 font-bold mb-4 text-lg">Metode Pengiriman</h2>
+                <div class="metode-pembayaran-group">
+                  <div class="metode-pembayaran-list flex justify-start items-center w-full">
+                    <img class="w w-20 mr-7 bg-white rounded-xl py-4 px-1" src="public/img/logo-bca.png" alt="">
+                    <p>Bank Central Indonesia</p>
+                  </div>
+                  <div class="metode-pengiriman-list flex justify-start items-center w-full">
+                    <img class="w w-20 mr-7 bg-white rounded-xl py-4 px-1" src="public/img/logo-bri.png" alt="">
+                    <p>Bank Rakyat Indonesia</p>
+                  </div>
+                  <div class="metode-pengiriman-list flex justify-start items-center w-full">
+                    <img class="w-20 mr-7 bg-white rounded-xl py-4 px-3" src="public/img/logo-dolar.png" alt="">
+                    <p>Saldo ( Rp. 123,123.00 )</p>
+                  </div>
+                </div>
+              </div>
+              <div class="button-order flex w-full">
+                <a class="bg-red-600 w-full text-center py-2 text-white rounded-full">Order</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- End of pembayaran -->
 
     <!-- Profile -->
     <div id="profile"

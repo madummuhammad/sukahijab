@@ -360,6 +360,23 @@ footer li.active .logo-footer {
 
 /* End of option kecamatan */
 
+/* Pembayaran */
+#modal-pembayaran {
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#modal-pembayaran.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* End of pembayaran */
+
 
 
 input[type='number']::-webkit-inner-spin-button,
