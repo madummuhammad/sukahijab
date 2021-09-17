@@ -377,6 +377,23 @@ footer li.active .logo-footer {
 
 /* End of pembayaran */
 
+/* Preview */
+#modal-preview {
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#modal-preview.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* End of preview */
+
 
 
 input[type='number']::-webkit-inner-spin-button,

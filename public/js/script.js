@@ -364,8 +364,16 @@
     $("#pembayaran-close").on('click', function () {
          $("#modal-pembayaran").removeClass('active');
     });
-
     // End of pembayaran
+
+    //     Preview
+    $("#open-preview").on('click', function () {
+         $("#modal-preview").addClass('active');
+    });
+    $("#preview-close").on('click', function () {
+         $("#modal-preview").removeClass('active');
+    });
+    // End of preview
 
 
     function decrement(e) {
