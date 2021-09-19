@@ -367,7 +367,7 @@ footer li.active .logo-footer {
 #modal-preview,
 #modal-detil-profile,
 #modal-kelola-alamat,
-#modal-tambah-alamat {
+#modal-tambah-alamat, .modal-detil-blog{
   font-family: 'Poppins', sans-serif;
   opacity: 0;
   visibility: hidden;
@@ -378,7 +378,7 @@ footer li.active .logo-footer {
 #modal-preview.active,
 #modal-detil-profile.active,
 #modal-kelola-alamat.active,
-#modal-tambah-alamat.active {
+#modal-tambah-alamat.active, .modal-detil-blog.active{
   visibility: visible;
   opacity: 1;
   transform: translateY(0);

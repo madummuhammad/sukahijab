@@ -1406,7 +1406,16 @@
       <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
         <div class="pembungkus h-screen">
           <div class="blog-content mx-10 flex flex-col text-gray-500 overflow-y-scroll pb-32">
-            <div class="card-blog bg-white p-3 rounded-2xl mb-5">
+            <div data-toggle="modal" data-target="#modal-detil-blog1" class="card-blog bg-white p-3 rounded-2xl mb-5">
+              <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Blog</h2>
+              <img class="rounded-xl mt-2" src="public/img/product/content-1.jpg" alt="">
+              <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <div class="card-blog-footer flex justify-start mt-2">
+                <p>Dec 12, 2020 <i class="fas fa-circle"></i></p>
+                <p class="ml-2">Less than a minute</p>
+              </div>
+            </div>
+            <div data-toggle="modal" data-target="#modal-detil-blog2" class="card-blog bg-white p-3 rounded-2xl mb-5">
               <h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Blog</h2>
               <img class="rounded-xl mt-2" src="public/img/product/content-1.jpg" alt="">
               <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -1436,6 +1445,93 @@
 
     </div>
     <!-- End of Blog -->
+
+    <!-- Detil Blog -->
+    <div id="modal-detil-blog1"
+      class="modal-detil-blog fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+      <div class="detil-blog-close blog-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="font-bold pl-5">Blog 1</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+        <div class="pembungkus h-screen">
+          <div class="blog-content mx-4 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+            <div class="card-blog bg-white p-3 rounded-2xl mb-5 relative">
+              <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
+              <div class="card-blog-header mt-2">
+                <div class="detil-blog-icon flex justify-between">
+                  <div class="icon-left px-3 border-2 border-gray-400 rounded-full flex items-center py-1">
+                    <p class="text-sm"><i class="fas fa-circle text-gray-300 text-xs"></i> Promo</p>
+                  </div>
+                  <div class="icon-right flex">
+                    <div class="icon-view flex items-center">
+                      <i class="fas fa-eye"></i>
+                      <p class="ml-2">2k+</p>
+                    </div>
+                    <div class="icon-like flex items-center ml-4">
+                      <i class="far fa-heart"></i>
+                      <p class="ml-2">1k+</p>
+                    </div>
+                  </div>
+                </div>
+                <h2 class="t text-2xl text-black font-bold mb-3">Produk Baru Sukahijab</h2>
+                <p class="mb-3">Aug 21, 2021 - Sukahijab</p>
+                <div class="detil-blog-keterangan">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio harum maxime labore hic voluptatibus asperiores laboriosam velit dignissimos itaque error facere, quas, veritatis libero explicabo facilis molestias nulla provident dolore.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div id="modal-detil-blog2"
+      class="modal-detil-blog fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+      <div class="detil-blog-close blog-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="font-bold pl-5">Blog 2</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+        <div class="pembungkus h-screen">
+          <div class="blog-content mx-4 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+            <div class="card-blog bg-white p-3 rounded-2xl mb-5 relative">
+              <img class="rounded-xl" src="public/img/product/content-1.jpg" alt="">
+              <div class="card-blog-header mt-2">
+                <div class="detil-blog-icon flex justify-between">
+                  <div class="icon-left px-3 border-2 border-gray-400 rounded-full flex items-center py-1">
+                    <p class="text-sm"><i class="fas fa-circle text-gray-300 text-xs"></i> Promo</p>
+                  </div>
+                  <div class="icon-right flex">
+                    <div class="icon-view flex items-center">
+                      <i class="fas fa-eye"></i>
+                      <p class="ml-2">2k+</p>
+                    </div>
+                    <div class="icon-like flex items-center ml-4">
+                      <i class="far fa-heart"></i>
+                      <p class="ml-2">1k+</p>
+                    </div>
+                  </div>
+                </div>
+                <h2 class="t text-2xl text-black font-bold mb-3">Produk Baru Sukahijab</h2>
+                <p class="mb-3">Aug 21, 2021 - Sukahijab</p>
+                <div class="detil-blog-keterangan">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio harum maxime labore hic voluptatibus asperiores laboriosam velit dignissimos itaque error facere, quas, veritatis libero explicabo facilis molestias nulla provident dolore.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of detil blog -->
 
     <!-- Cara Order -->
     <div id="modal-cara-order"

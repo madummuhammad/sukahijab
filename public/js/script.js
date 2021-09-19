@@ -93,15 +93,18 @@
     $("#blog-close").on('click', function () {
          $("#modal-blog").removeClass('active');
     });
+    $(".detil-blog-close").on('click', function () {
+         $(".modal-detil-blog").removeClass('active');
+    });
 
 
     //     Konfirmasi Pembayaran
     $("#preview-sub-button").on('click', function () {
          $("#modal-konfirmasi-pembayaran").addClass('active');
     });
-//     $("#konfirmasi-pembayaran-close").on('click', function () {
-//          $("#modal-konfirmasi-pembayaran").removeClass('active');
-//     });
+    //     $("#konfirmasi-pembayaran-close").on('click', function () {
+    //          $("#modal-konfirmasi-pembayaran").removeClass('active');
+    //     });
 
 
     //  Cara order
@@ -547,6 +550,19 @@
     incrementButtons.forEach(btn => {
          btn.addEventListener("click", increment);
     });
+
+    // Modal blog
+    var button_modal = $("[data-toggle=modal]");
+    var target = $("[data-toggle=modal").data('target');
+    for (let i = 0; i < button_modal.length; i++) {
+         button_modal[i].onclick = function () {
+              var id_target = $(this).data('target');
+              $(id_target).addClass('active');
+         }
+
+         // End of modal blog
+
+    }
 
 
 
