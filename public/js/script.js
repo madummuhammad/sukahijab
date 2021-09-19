@@ -387,6 +387,15 @@
     });
     // End of preview
 
+    //     Detil profile
+    $("#open-detil-profile").on('click', function () {
+         $("#modal-detil-profile").addClass('active');
+    });
+    $("#detil-profile-close").on('click', function () {
+         $("#modal-detil-profile").removeClass('active');
+    });
+    // End of detil profile
+
 
     function decrement(e) {
          const btn = e.target.parentNode.parentElement.querySelector(

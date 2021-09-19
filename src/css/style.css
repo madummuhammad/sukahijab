@@ -377,8 +377,8 @@ footer li.active .logo-footer {
 
 /* End of pembayaran */
 
-/* Preview */
-#modal-preview {
+/* Preview , detil profile*/
+#modal-preview, #modal-detil-profile {
   font-family: 'Poppins', sans-serif;
   opacity: 0;
   visibility: hidden;
@@ -386,7 +386,7 @@ footer li.active .logo-footer {
   transform: translateY(100%);
 }
 
-#modal-preview.active {
+#modal-preview.active, #modal-detil-profile.active {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -411,6 +411,17 @@ footer li.active .logo-footer {
 }
 
 /* End of preview */
+
+/* Detil Profile */
+/* .detil-profile-foto::after{
+  content: url('/public/img/camera-icon.png');
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: fit-content;
+  display: block;
+} */
+/* End of detil profil */
 
 
 
