@@ -567,13 +567,43 @@
               </div>
 
               <div class="button-order flex w-full mt-10">
-                <a class="bg-red-600 w-full text-center py-2 text-white rounded-full">Lanjutkan</a>
+                <a id="preview-button-utama" class="bg-red-600 w-full text-center py-2 text-white rounded-full">Lanjutkan</a>
               </div>
 
             </div>
           </div>
         </div>
 
+      </div>
+      <div id="preview-total" class="preview-total">
+        <div
+          class="preview-total-background bottom-0 bg-black opacity-60 right-0 left-0 top-0 p-7 divide-y-2 text-gray-600 fixed">
+        </div>
+        <div
+          class="pembungkus-preview-total absolute bottom-0 left-0 right-0 bg-white opacity-100 rounded-t-3xl p-7 text-gray-500">
+          <div id="preview-sub-close" class=" text-xl flex justify-end mb-5">
+            <i id="preview-total-close" class="fas fa-times bg-gray-300 px-2 py-1 rounded-full"></i>
+          </div>
+          <div class="preview-total-content divide-y-2">
+            <div class="preview-total-header justify-between pb-5">
+              <div class="flex justify-between">
+                <p>Subtotal Produk</p>
+                <p class="text-red-600">Rp. 200.000</p>
+              </div>
+              <div class="flex justify-between">
+                <p>Jasa Pengiriman</p>
+                <p class="text-red-600">Rp. 13.500</p>
+              </div>
+            </div>
+            <div class="flex justify-between w-full items-center pt-4">
+              <div class="w-40">
+                <p>Total</p>
+                <p class="text-red-600">Rp. 213.500</p>
+              </div>
+              <a class="bg-red-600 py-2 w-full text-center drop-shadow-2xl shadow-button text-white rounded-full">Lanjutkan</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- End of preview -->

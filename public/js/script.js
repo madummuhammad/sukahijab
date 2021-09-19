@@ -373,6 +373,18 @@
     $("#preview-close").on('click', function () {
          $("#modal-preview").removeClass('active');
     });
+    $("#preview-button-utama").on('click', function () {
+         $("#preview-total .preview-total-background").addClass('active');
+         $("#preview-total .pembungkus-preview-total").addClass('active');
+         $("#preview-sub-close").on('click', function () {
+              $("#preview-total .preview-total-background").removeClass('active');
+              $("#preview-total .pembungkus-preview-total").removeClass('active');
+         });
+         $("#preview-total .preview-total-background").on('click', function () {
+              $("#preview-total .preview-total-background").removeClass('active');
+              $("#preview-total .pembungkus-preview-total").removeClass('active');
+         });
+    });
     // End of preview
 
 
