@@ -84,6 +84,9 @@
     $("#promo-close").on('click', function () {
          $("#modal-promo").removeClass('active');
     });
+    $(".detil-promo-close").on('click', function () {
+         $(".modal-detil-promo").removeClass('active');
+    });
 
 
     // Blog
