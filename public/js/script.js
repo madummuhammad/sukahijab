@@ -96,12 +96,12 @@
 
 
     //     Konfirmasi Pembayaran
-    $("#open-konfirmasi-pembayaran").on('click', function () {
+    $("#preview-sub-button").on('click', function () {
          $("#modal-konfirmasi-pembayaran").addClass('active');
     });
-    $("#konfirmasi-pembayaran-close").on('click', function () {
-         $("#modal-konfirmasi-pembayaran").removeClass('active');
-    });
+//     $("#konfirmasi-pembayaran-close").on('click', function () {
+//          $("#modal-konfirmasi-pembayaran").removeClass('active');
+//     });
 
 
     //  Cara order
@@ -137,12 +137,103 @@
     });
 
     //     Menunggu Pembayaran
-    $("#open-menunggu-pembayaran").on('click', function () {
-         $("#modal-menunggu-pembayaran").addClass('active');
+    $("#pesanan-saya-close").on('click', function () {
+         $("#modal-pesanan-saya").removeClass('active');
+         $("#pesanan-saya-tabs li").removeClass('border-b-2 border-red-500 text-red-500');
+         $("#dikemas-content").removeClass('active');
+         $("#belum-bayar-content").removeClass('active');
+         $("#dikirim-content").removeClass('active');
+         $("#pesanan-selesai-content").removeClass('active');
     });
-    $("#menunggu-pembayaran-close").on('click', function () {
-         $("#modal-menunggu-pembayaran").removeClass('active');
+
+    $("#open-belum-bayar").on('click', function () {
+         $("#modal-pesanan-saya").addClass('active');
+         $("#belum-bayar-content").addClass('active');
+         $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
     });
+
+    $("#open-konfirmasi-pembayaran").on('click', function () {
+         $("#modal-pesanan-saya").addClass('active');
+         $("#belum-bayar-content").addClass('active');
+         $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
+    });
+
+    //     Belum bayar
+    $("#belum-bayar").on('click', function () {
+         $("#belum-bayar-content").addClass('active');
+         $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
+
+         $("#dikemas-content").removeClass('active');
+         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#dikirim-content").removeClass('active');
+         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#pesanan-selesai-content").removeClass('active');
+         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+    });
+    //     End of belum bayar
+
+    //     Dikemas
+    $("#open-dikemas").on('click', function () {
+         $("#modal-pesanan-saya").addClass('active');
+         $("#dikemas-content").addClass('active');
+         $("#pesanan-saya-tabs #dikemas").addClass('border-b-2 border-red-500 text-red-500');
+    });
+
+    $("#dikemas").on('click', function () {
+         $("#dikemas-content").addClass('active');
+         $("#pesanan-saya-tabs #dikemas").addClass('border-b-2 border-red-500 text-red-500');
+
+         $("#belum-bayar-content").removeClass('active');
+         $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#dikirim-content").removeClass('active');
+         $("#pesanan-saya-tabs #dikirim").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#pesanan-selesai-content").removeClass('active');
+         $("#pesanan-saya-tabs #pesanan-selesai").removeClass('border-b-2 border-red-500 text-red-500');
+    });
+    // End of dikemas
+
+    //     Dikirim
+    $("#open-dikirim").on('click', function () {
+         $("#modal-pesanan-saya").addClass('active');
+         $("#dikirim-content").addClass('active');
+         $("#pesanan-saya-tabs #dikirim").addClass('border-b-2 border-red-500 text-red-500');
+    });
+
+    $("#dikirim").on('click', function () {
+         $("#dikemas-content").removeClass('active');
+         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#belum-bayar-content").removeClass('active');
+         $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#dikirim-content").addClass('active');
+         $("#pesanan-saya-tabs #dikirim").addClass('border-b-2 border-red-500 text-red-500');
+
+         $("#pesanan-selesai-content").removeClass('active');
+         $("#pesanan-saya-tabs #pesanan-selesai").removeClass('border-b-2 border-red-500 text-red-500');
+    });
+    // End of dikirim
+
+    //     Pesanan selesai content
+    $("#pesanan-selesai").on('click', function () {
+         $("#dikemas-content").removeClass('active');
+         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#belum-bayar-content").removeClass('active');
+         $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#dikirim-content").removeClass('active');
+         $("#pesanan-saya-tabs #dikirim").removeClass('border-b-2 border-red-500 text-red-500');
+
+         $("#pesanan-selesai-content").addClass('active');
+         $("#pesanan-saya-tabs #pesanan-selesai").addClass('border-b-2 border-red-500 text-red-500');
+    });
+    // End of pesanan selesai content
+
 
     //     cart
 
@@ -395,6 +486,24 @@
          $("#modal-detil-profile").removeClass('active');
     });
     // End of detil profile
+
+    //     Kelola alamat
+    $("#open-kelola-alamat").on('click', function () {
+         $("#modal-kelola-alamat").addClass('active');
+    });
+    $("#kelola-alamat-close").on('click', function () {
+         $("#modal-kelola-alamat").removeClass('active');
+    });
+    // End of kelola alamat
+
+    // Tambah Alamat
+    $("#open-tambah-alamat").on('click', function () {
+         $("#modal-tambah-alamat").addClass('active');
+    });
+    $("#tambah-alamat-close").on('click', function () {
+         $("#modal-tambah-alamat").removeClass('active');
+    });
+    // End of tambah alamat    
 
 
     function decrement(e) {

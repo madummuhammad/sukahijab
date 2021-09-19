@@ -601,7 +601,7 @@
                 <p>Total</p>
                 <p class="text-red-600">Rp. 213.500</p>
               </div>
-              <a
+              <a id="preview-sub-button"
                 class="bg-red-600 py-2 w-full text-center drop-shadow-2xl shadow-button text-white rounded-full">Lanjutkan</a>
             </div>
           </div>
@@ -662,13 +662,13 @@
             </div>
           </div>
           <div class="profile-group w-full mt-8 bg-white rounded-t-3xl px-8 pt-8 h-screen">
-            <div class="overflow-y-scroll  divide-y divide-solid divide-gray-300 h-96">
+            <div class="overflow-y-scroll  divide-y divide-solid divide-gray-300 h-96 scroll-hide">
               <div class="profile-pesanan pb-6" style="font-family: 'Inter', sans-serif;">
                 <div class="pesanan-title font-bold text-gray-500">
                   <h2>Pesanan Saya</h2>
                 </div>
                 <div class="pesanan-proses grid grid-cols-4 text-xs text-gray-500 mt-3">
-                  <div id="open-menunggu-pembayaran" class="pesanan-proses-item flex flex-col items-center">
+                  <div id="open-belum-bayar" class="pesanan-proses-item flex flex-col items-center">
                     <div class="proses-item-icon"><svg width="28" height="27" viewBox="0 0 28 27" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -701,7 +701,7 @@
                     </div>
                     <div class="proses-item-title justify-items-end">Belum Bayar</div>
                   </div>
-                  <div class="pesanan-proses-item flex flex-col items-center">
+                  <div id="open-dikemas" class="pesanan-proses-item flex flex-col items-center">
                     <div class="proses-item-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -718,7 +718,7 @@
                     </div>
                     <div class="proses-item-title">Dikemas</div>
                   </div>
-                  <div class="pesanan-proses-item flex flex-col items-center">
+                  <div id="open-dikirim" class="pesanan-proses-item flex flex-col items-center">
                     <div class="proses-item-icon"><svg width="28" height="28" viewBox="0 0 28 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0)">
@@ -738,7 +738,7 @@
                         </defs>
                       </svg>
                     </div>
-                    <div class="proses-item-title justify-items-end">Dikrim</div>
+                    <div class="proses-item-title justify-items-end">Dikirim</div>
                   </div>
                   <div class="pesanan-proses-item flex flex-col items-center">
                     <div class="proses-item-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"
@@ -910,16 +910,18 @@
     <!-- End of profile -->
 
     <!-- Detil Profile -->
-    <div id="modal-detil-profile" class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-100 to-yellow-200 z-20">
-      <div id="detil-profile-close" class="detil-profile-header flex items-center justify-between  mt-5 ml-5 fixed cursor-pointer w-6/12">
+    <div id="modal-detil-profile"
+      class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-100 to-yellow-200 z-20">
+      <div id="detil-profile-close"
+        class="detil-profile-header flex items-center justify-between  mt-5 ml-5 fixed cursor-pointer w-6/12">
         <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
             fill="#737373" />
         </svg>
         <h4 class="font-bold pl-5 text-center">Profile</h4>
       </div>
-      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
-        <div class="pembungkus h-screen">
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0">
+        <div class="pembungkus">
           <div class="detil-profile-content flex flex-col text-gray-500 overflow-y-scroll">
             <div class="detil-profile-foto flex justify-center items-center relative">
               <img class="rounded-full w-6/12 border-4 border-gray-300" src="public/img/product/content-1.jpg" alt="">
@@ -927,7 +929,7 @@
                 <img class="w-7" src="public/img/camera-icon.png" alt="">
               </a>
             </div>
-            <div class="card-detil-profile bg-white p-6 mt-5 mb-16 w-full">
+            <div class="card-detil-profile bg-white p-6 mt-5 w-full h-screen mb-0">
               <div class="group-input flex justify-between mb-6">
                 <label for="">Nama</label>
                 <input type="text" class="border-b-2 w-52">
@@ -949,6 +951,104 @@
                 <label for="">Username</label>
                 <input type="number" class="border-b-2 w-52">
               </div>
+              <!-- <div class="group-input flex justify-between mb-6">
+                <label for="">Provinsi</label>
+                <select class="border-b-2 w-52 bg-white focus:outline-none" name="" id="">
+                  <option value="" selected></option>
+                  <option value="">Laki-laki</option>
+                  <option value="">Perempuan</option>
+                </select> -->
+              <!-- <input type="text" class="border-b-2 w-64"> -->
+              <!-- </div> -->
+              <!-- <div class="group-input flex justify-between mb-6">
+                <label for="">Kota/kab</label>
+                <select class="border-b-2 w-52 bg-white" name="" id="">
+                  <option value="" selected></option>
+                  <option value="">Laki-laki</option>
+                  <option value="">Perempuan</option>
+                </select> -->
+              <!-- <input type="text" class="border-b-2 w-64"> -->
+              <!-- </div>
+              <div class="group-input flex justify-between mb-6">
+                <label for="">Kecamatan</label>
+                <select class="border-b-2 w-52 bg-white" name="" id="">
+                  <option value="" selected></option>
+                  <option value="">Laki-laki</option>
+                  <option value="">Perempuan</option>
+                </select>
+                <input type="text" class="border-b-2 w-64"> -->
+              <!-- </div> -->
+              <!-- <div class="group-input flex justify-between mb-6">
+                <label for="">Kode Pos</label>
+                <input type="number" class="border-b-2 w-52">
+              </div>
+              <div class="group-input flex justify-between mb-6">
+                <label for="">Alamat</label>
+                <input type="number" class="border-b-2 w-52">
+              </div> -->
+              <div class="group-input flex justify-center mb-6">
+                <a id="open-kelola-alamat" class="py-2 rounded-full text-white bg-red-600 w-1/2 text-center">Kelola
+                  Alamat</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of detil profile -->
+
+    <!-- Kelola alamat -->
+    <div id="modal-kelola-alamat"
+      class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-100 to-yellow-200 z-20">
+      <div id="kelola-alamat-close" class="kelola-alamat-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="font-bold pl-5">Alamat Saya</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+        <div class="pembungkus h-screen">
+          <div class="kelola-alamat-content flex flex-col text-gray-500 overflow-y-scroll pb-32">
+            <div class="card-promo bg-white p-3 mx-2 rounded-2xl mb-5 leading-7">
+              <h2 class="text-black justify-items-center font-bold">Bayu Rizqi
+              </h2>
+              <p class="">(+62) 81321119432</p>
+              <p class="">CImuncung RT 001/004 Kel Sukamulya Depan Kejaksaan Negeri Tasikmalaya</p>
+              <p>KOTA TASIKMALAYA - BUNGURSARI, JAWA BARAT, ID 46151</p>
+            </div>
+            <div class="card-promo bg-white p-3 rounded-2xl mb-5 mx-2">
+              <h2 class="text-black justify-items-center font-bold">Aulia <span class="text-red-500">[Utama]</span>
+              </h2>
+              <p class="">(+62) 81321119432</p>
+              <p class="">CImuncung RT 001/004 Kel Sukamulya Depan Kejaksaan Negeri Tasikmalaya</p>
+              <p>KOTA TASIKMALAYA - BUNGURSARI, JAWA BARAT, ID 46151</p>
+            </div>
+            <button id="open-tambah-alamat"
+              class="text-center bg-red-600 py-2 text-white mx-2 rounded-full shadow-button">Tambah Alamat</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of kelola alamat -->
+
+    <!-- Tambah alamat baru -->
+    <div id="modal-tambah-alamat"
+      class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-100 to-yellow-200 z-20">
+      <div id="tambah-alamat-close"
+        class="tambah-alamat-header flex items-center justify-between  mt-5 ml-5 fixed cursor-pointer">
+        <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+            fill="#737373" />
+        </svg>
+        <h4 class="font-bold pl-5 text-center">Tambah Alamat</h4>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0">
+        <div class="pembungkus">
+          <div class="tambah-alamat-content flex flex-col text-gray-500 overflow-y-scroll">
+            <div class="card-tambah-alamat bg-white p-6 mt-5 w-full h-screen mb-0">
               <div class="group-input flex justify-between mb-6">
                 <label for="">Provinsi</label>
                 <select class="border-b-2 w-52 bg-white focus:outline-none" name="" id="">
@@ -956,7 +1056,6 @@
                   <option value="">Laki-laki</option>
                   <option value="">Perempuan</option>
                 </select>
-                <!-- <input type="text" class="border-b-2 w-64"> -->
               </div>
               <div class="group-input flex justify-between mb-6">
                 <label for="">Kota/kab</label>
@@ -965,7 +1064,6 @@
                   <option value="">Laki-laki</option>
                   <option value="">Perempuan</option>
                 </select>
-                <!-- <input type="text" class="border-b-2 w-64"> -->
               </div>
               <div class="group-input flex justify-between mb-6">
                 <label for="">Kecamatan</label>
@@ -974,7 +1072,6 @@
                   <option value="">Laki-laki</option>
                   <option value="">Perempuan</option>
                 </select>
-                <!-- <input type="text" class="border-b-2 w-64"> -->
               </div>
               <div class="group-input flex justify-between mb-6">
                 <label for="">Kode Pos</label>
@@ -985,7 +1082,8 @@
                 <input type="number" class="border-b-2 w-52">
               </div>
               <div class="group-input flex justify-center mb-6">
-                <a class="py-2 rounded-full text-white bg-red-600 w-1/4 text-center" href="">Simpan</a>
+                <a id="simpan-tambah-alamat" class="py-2 rounded-full text-white bg-red-600 w-1/2 text-center">Simpan
+                  Alamat</a>
               </div>
             </div>
           </div>
@@ -993,22 +1091,32 @@
       </div>
 
     </div>
-    <!-- End of detil profile -->
+    <!-- End of tambah alamat baru -->
 
-    <!-- Menunggu Pembayaran -->
-    <div id="modal-menunggu-pembayaran"
+    <!-- Pesanan Saya -->
+    <div id="modal-pesanan-saya"
       class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
-      <div id="menunggu-pembayaran-close"
-        class="menunggu-pembayaran-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+      <div id="pesanan-saya-close" class="pesanan-saya-header flex items-center mt-5 ml-5 fixed cursor-pointer">
         <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
             fill="#737373" />
         </svg>
-        <h4 class="pl-5">Menunggu Pembayaran</h4>
+        <h4 class="pl-5">Pesanan Saya</h4>
       </div>
-      <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+      <div id="pesanan-saya-tabs" class="tabs mt-16 px-7">
+        <ul class="flex justify-between text-center border-b-2 border-grey-400 text-sm">
+          <li id="belum-bayar" class=" w-full"><a>Belum Bayar</a></li>
+          <li id="dikemas" class="border-b-2 w-full"><a>Dikemas</a></li>
+          <li id="dikirim" class="border-b-2 w-full"><a>Dikirim</a></li>
+          <li id="pesanan-selesai" class="border-b-2 w-full"><a>Selesai</a></li>
+        </ul>
+      </div>
+      <div class="pembungkus overflow-y-scroll mt-2 top-0 bottom-0 h-full">
         <div class="pembungkus h-screen">
-          <div class="menunggu-pembayaran-content mx-5 flex flex-col overflow-y-scroll pb-32">
+
+          <!-- Belum bayar content -->
+
+          <div id="belum-bayar-content" class="menunggu-pembayaran-content mx-5 flex flex-col overflow-y-scroll pb-32">
             <div class="card-menunggu-pembayaran bg-white rounded-2xl mb-5 pb-4 p-4 divide-y divide-y-2">
               <div class="menunggu-pembayaran-header flex justify-between items-center mb-2">
                 <div class="header-left flex items-center">
@@ -1093,6 +1201,132 @@
             </div>
 
           </div>
+
+          <!-- End of belum bayar content -->
+
+          <!-- Dikemas -->
+          <div id="dikemas-content" class="menunggu-pembayaran-content mx-5 flex flex-col overflow-y-scroll pb-32">
+            <div class="card-menunggu-pembayaran bg-white rounded-2xl mb-5 pb-4 p-4 divide-y divide-y-2">
+              <div class="menunggu-pembayaran-header flex justify-between items-center mb-2">
+                <div class="header-left flex items-center">
+                  <div
+                    class="header-left-logo rounded-full border-solid border-2 border-red-500 text-2xl text-center pb-1 text-red-500">
+                    <i class="px-2 fas fa-shopping-bag"></i>
+                  </div>
+                  <div class="header-left-text pl-2">
+                    <p class="text-xs text-gray-400">20 Jun 2021</p>
+                    <h2 class="font-bold text-sm">Sukahijab</h2>
+                  </div>
+                </div>
+                <div class="header-right text-xl text-gray-500"><i class="fas fa-ellipsis-v"></i></div>
+              </div>
+              <div class="menunggu-pembayaran-content pt-4">
+                <p class="text-center text-xs bg-yellow-100 py-1">Bayar Sebelum 27 Jun 2021, 00.23 WIB</p>
+                <div class="detil-menunggu-pembayaran flex justify-around pt-3">
+                  <div class="logo-bank w-1/4 mr-3">
+                    <img src="public/img/logo-bca.png" alt="">
+                  </div>
+                  <div class="detil w-full">
+                    <div class="flex justify-between text-xs">
+                      <div class="total">
+                        <p class="text-gray-400">Total</p>
+                        <p>115.500</p>
+                      </div>
+                      <div class="metode-pembayaran ">
+                        <p class="text-gray-400">Metode Pembayaran</p>
+                        <p>Bank</p>
+                      </div>
+                    </div>
+                    <div class="mt-2">
+                      <p class="text-xs text-gray-400">Transfer Ke</p>
+                      <h2 class="text-sm">3210678076 - Arya Anggara</h2>
+                    </div>
+                  </div>
+                </div>
+                <button class="w-full rounded-full bg-red-500 shadow py-2 text-white text-sm mt-4">Konfirmasi
+                  Pembayaran</button>
+              </div>
+            </div>
+            <div class="card-konfirmasi-pembayaran bg-white rounded-2xl mb-5 pb-4 p-4 divide-y divide-y-2">
+              <div class="menunggu-pembayaran-header flex justify-between items-center mb-2">
+                <div class="header-left flex items-center">
+                  <div
+                    class="header-left-logo rounded-full border-solid border-2 border-red-500 text-2xl text-center pb-1 text-red-500">
+                    <i class="px-2 fas fa-shopping-bag"></i>
+                  </div>
+                  <div class="header-left-text pl-2">
+                    <p class="text-xs text-gray-400">20 Jun 2021</p>
+                    <h2 class="font-bold text-sm">Sukahijab</h2>
+                  </div>
+                </div>
+                <div class="header-right text-xl text-gray-500"><i class="fas fa-ellipsis-v"></i></div>
+              </div>
+              <div class="menunggu-pembayaran-content pt-4">
+                <p class="text-center text-xs bg-yellow-100 py-1">Bayar Sebelum 27 Jun 2021, 00.23 WIB</p>
+                <button class="w-full rounded-full bg-red-500 shadow py-2 text-white text-sm mt-4">Konfirmasi
+                  Pembayaran</button>
+              </div>
+            </div>
+
+          </div>
+          <!-- End of dikemas -->
+
+          <!-- Dikirim -->
+          <div id="dikirim-content" class="menunggu-pembayaran-content mx-5 flex flex-col overflow-y-scroll pb-32">
+            <div class="card-konfirmasi-pembayaran bg-white rounded-2xl mb-5 pb-4 p-4 divide-y divide-y-2">
+              <div class="menunggu-pembayaran-header flex justify-between items-center mb-2">
+                <div class="header-left flex items-center">
+                  <div
+                    class="header-left-logo rounded-full border-solid border-2 border-red-500 text-2xl text-center pb-1 text-red-500">
+                    <i class="px-2 fas fa-shopping-bag"></i>
+                  </div>
+                  <div class="header-left-text pl-2">
+                    <p class="text-xs text-gray-400">20 Jun 2021</p>
+                    <h2 class="font-bold text-sm">Sukahijab</h2>
+                  </div>
+                </div>
+                <div class="header-right text-xl text-gray-500"><i class="fas fa-ellipsis-v"></i></div>
+              </div>
+              <div class="menunggu-pembayaran-content pt-4">
+                <p class="text-center text-xs bg-yellow-100 py-1">Bayar Sebelum 27 Jun 2021, 00.23 WIB</p>
+                <div class="detil-menunggu-pembayaran flex justify-around pt-3">
+                  <div class="logo-bank w-1/4 mr-3">
+                    <img src="public/img/logo-bca.png" alt="">
+                  </div>
+                  <div class="detil w-full">
+                    <div class="flex justify-between text-xs">
+                      <div class="total">
+                        <p class="text-gray-400">Total</p>
+                        <p>115.500</p>
+                      </div>
+                      <div class="metode-pembayaran ">
+                        <p class="text-gray-400">Metode Pembayaran</p>
+                        <p>Bank</p>
+                      </div>
+                    </div>
+                    <div class="mt-2">
+                      <p class="text-xs text-gray-400">Transfer Ke</p>
+                      <h2 class="text-sm">3210678076 - Arya Anggara</h2>
+                    </div>
+                  </div>
+                </div>
+                <button class="w-full rounded-full bg-red-500 shadow py-2 text-white text-sm mt-4">Konfirmasi
+                  Pembayaran</button>
+              </div>
+            </div>
+
+          </div>
+          <!-- End of dikirim -->
+
+          <!-- Pesanan Selesai -->
+          <div id="pesanan-selesai-content"
+            class="menunggu-pembayaran-content mx-5 flex flex-col overflow-y-scroll pb-32">
+            <div class="card-konfirmasi-pembayaran bg-white rounded-2xl mb-5 pb-4 p-4 divide-y divide-y-2">
+              Pesanan Dikirim
+            </div>
+          </div>
+          <!-- End of pesanan selesai -->
+
         </div>
       </div>
 
@@ -1149,7 +1383,7 @@
           <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
             fill="#737373" />
         </svg>
-        <h4 class="pl-5">Konfirmasi Pembayaran</h4>
+        <a href="" class="pl-5">Konfirmasi Pembayaran</a>
       </div>
       <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
         <div class="pembungkus h-screen">

@@ -249,20 +249,6 @@ footer li.active .logo-footer {
   transform: translateY(0);
 }
 
-#modal-menunggu-pembayaran {
-  font-family: 'Poppins', sans-serif;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.5s;
-  transform: translateY(100%);
-}
-
-#modal-menunggu-pembayaran.active {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-}
-
 #modal-cart {
   font-family: 'Poppins', sans-serif;
   visibility: hidden;
@@ -378,7 +364,10 @@ footer li.active .logo-footer {
 /* End of pembayaran */
 
 /* Preview , detil profile*/
-#modal-preview, #modal-detil-profile {
+#modal-preview,
+#modal-detil-profile,
+#modal-kelola-alamat,
+#modal-tambah-alamat {
   font-family: 'Poppins', sans-serif;
   opacity: 0;
   visibility: hidden;
@@ -386,7 +375,10 @@ footer li.active .logo-footer {
   transform: translateY(100%);
 }
 
-#modal-preview.active, #modal-detil-profile.active {
+#modal-preview.active,
+#modal-detil-profile.active,
+#modal-kelola-alamat.active,
+#modal-tambah-alamat.active {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -408,6 +400,51 @@ footer li.active .logo-footer {
 
 #preview-total .pembungkus-preview-total.active {
   transform: translateY(0);
+}
+
+/* Pesanan saya */
+#modal-pesanan-saya {
+  font-family: 'Poppins', sans-serif;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+#modal-pesanan-saya.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#belum-bayar-content, #dikemas-content, #dikirim-content, #pesanan-selesai-content{
+  font-family: 'Poppins', sans-serif;
+  visibility: hidden;
+  position: fixed;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateX(100%);
+}
+
+#belum-bayar-content.active, #dikemas-content.active, #dikirim-content.active,#pesanan-selesai-content.active{
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* End of pesanan saya */
+.overflow-y-scroll::-webkit-scrollbar{
+  display: none;
+}
+
+.overflow-y-scroll::-webkit-scrollbar{
+  -ms-overflow-style: none;  /* IE dan Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scroll-hide{
+  
 }
 
 /* End of preview */
@@ -443,6 +480,10 @@ input[type='number']::-webkit-outer-spin-button {
   box-shadow: 0px 50px 90px gray;
 }
 
-.shadow-button{
+.shadow-button {
   box-shadow: 0px 5px 10px gray;
+}
+
+.card-shadow {
+  box-shadow: 0px 2px 10px gray;
 }
