@@ -367,7 +367,9 @@ footer li.active .logo-footer {
 #modal-preview,
 #modal-detil-profile,
 #modal-kelola-alamat,
-#modal-tambah-alamat, .modal-detil-blog, .modal-detil-promo{
+#modal-tambah-alamat,
+.modal-detil-blog,
+.modal-detil-promo {
   font-family: 'Poppins', sans-serif;
   opacity: 0;
   visibility: hidden;
@@ -378,7 +380,9 @@ footer li.active .logo-footer {
 #modal-preview.active,
 #modal-detil-profile.active,
 #modal-kelola-alamat.active,
-#modal-tambah-alamat.active, .modal-detil-blog.active, .modal-detil-promo.active{
+#modal-tambah-alamat.active,
+.modal-detil-blog.active,
+.modal-detil-promo.active {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -417,7 +421,10 @@ footer li.active .logo-footer {
   transform: translateY(0);
 }
 
-#belum-bayar-content, #dikemas-content, #dikirim-content, #pesanan-selesai-content{
+#belum-bayar-content,
+#dikemas-content,
+#dikirim-content,
+#pesanan-selesai-content {
   font-family: 'Poppins', sans-serif;
   visibility: hidden;
   position: fixed;
@@ -426,7 +433,10 @@ footer li.active .logo-footer {
   transform: translateX(100%);
 }
 
-#belum-bayar-content.active, #dikemas-content.active, #dikirim-content.active,#pesanan-selesai-content.active{
+#belum-bayar-content.active,
+#dikemas-content.active,
+#dikirim-content.active,
+#pesanan-selesai-content.active {
   position: relative;
   visibility: visible;
   opacity: 1;
@@ -434,32 +444,29 @@ footer li.active .logo-footer {
 }
 
 /* End of pesanan saya */
-.overflow-y-scroll::-webkit-scrollbar{
+.overflow-y-scroll::-webkit-scrollbar {
   display: none;
 }
 
-.overflow-y-scroll::-webkit-scrollbar{
-  -ms-overflow-style: none;  /* IE dan Edge */
-  scrollbar-width: none;  /* Firefox */
+.overflow-y-scroll::-webkit-scrollbar {
+  -ms-overflow-style: none;
+  /* IE dan Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-.scroll-hide{
-  
-}
-
-/* End of preview */
-
-/* Detil Profile */
-/* .detil-profile-foto::after{
-  content: url('/public/img/camera-icon.png');
+/* Detil produk */
+.detil-produk{
   position: fixed;
-  left: 0;
-  top: 0;
-  height: fit-content;
-  display: block;
-} */
-/* End of detil profil */
-
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+.detil-produk.active{
+  position: absolute;
+  visibility: visible;
+  opacity: 1;
+}
 
 
 input[type='number']::-webkit-inner-spin-button,

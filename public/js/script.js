@@ -32,10 +32,13 @@
          }
     });
 
+    //     Detil Produk
+
     $('.owl-carousel.detil-produk-carousel').owlCarousel({
          loop: false,
          margin: 10,
          nav: false,
+         dots: ["<img src='public/img/product/content-1.jpg'>", "<img src='nextArrow.png'>"],
          responsive: {
               0: {
                    items: 1
@@ -48,6 +51,19 @@
               }
          }
     })
+    var owl = $('.owl-carousel.detil-produk-carousel');
+    var thumbnail = $("[data-toggle=thumbnail]");
+    for (let i = 0; i < thumbnail.length; i++) {
+         thumbnail[i].onclick = function () {
+              owl.trigger('to.owl.carousel', [i]);
+         }
+    }
+
+    $(".detil-produk-left").on('click',function(){
+     $(".detil-produk").removeClass('active');
+    });
+    //     End of detil produk
+
 
     $("#button-profile").on('click', function () {
          $("#profile").addClass("active");
@@ -60,13 +76,31 @@
          $("#content-profile").removeClass("active");
     })
 
+    //     produk
+    $(window).scroll(function () {
+         var wScroll = $(this).scrollTop();
+         var slideproduk = $(".thumbnail-slide-produk").offset().top;
+         var heaeder = $(".detil-produk-header").offset().top;
+         $(".img-detil-produk").css({
+              'transform': 'translate(0px,' + wScroll / 8 + '%)'
+         })
 
-    $(".produk").on('click', function () {
-         let target = $(".produk").data('target');
-         //     alert(target);
-         //     $(target).addClass('active');
+         if (wScroll > slideproduk * 3 / 4) {
+              $(".detil-produk-header").css('background-color', 'rgba(208,62,101,255)');
+         } else {
+              $(".detil-produk-header").css('background-color', 'rgba(208,62,101,0)');
+         }
+
+         if (wScroll > 2 / 4 * slideproduk) {
+              $(".img-detil-produk .background").removeClass('hidden');
+              $(".img-detil-produk .background").css('background-color', 'rgba(208,62,101,' + wScroll / slideproduk + ')');
+         } else {
+              $(".img-detil-produk .background").addClass('hidden');
+         }
 
     });
+    // end of produk
+
 
     // Cek Ongkir
     $("#cek-ongkir").on('click', function () {
@@ -562,10 +596,8 @@
               var id_target = $(this).data('target');
               $(id_target).addClass('active');
          }
-
-         // End of modal blog
-
     }
+    // End of modal blog
 
 
 
