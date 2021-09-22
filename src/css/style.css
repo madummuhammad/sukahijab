@@ -457,6 +457,7 @@ footer li.active .logo-footer {
 
 /* Detil produk */
 .detil-produk{
+  font-family: 'Poppins', sans-serif;
   position: fixed;
   visibility: hidden;
   opacity: 0;
