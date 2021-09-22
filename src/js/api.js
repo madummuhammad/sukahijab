@@ -98,14 +98,17 @@ function fetch_produk() {
 
 function fetch_about_us() {
 	$.ajax({
-			url: "https://sukahijabapi.neosantara.co.id/apimob/page/about_us",
-			type: "GET",
-			dataType: "JSON",
-			data: JSON.stringify({}),
-			success: function (data) {
-				for (var i = data['data'].length - 1; i >= 0; i--) {
-					$("#tampil_tentang_kami").append('<div id="modal-tentang-kami"class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20"><div id="tentang-kami-close" class="tentang-kami-header flex items-center mt-5 ml-5 fixed cursor-pointer"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"fill="#737373" /></svg><h4 class="pl-5">Tentang Sukahijab</h4></div><div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full"><div class="pembungkus h-screen"><div class="tentang-kami-content mx-5 flex flex-col overflow-y-scroll pb-32"><div class="card-tentang-kami bg-white rounded-2xl mb-5 pb-4 p-4"><div class="tentang-kami-img bg-red-600 rounded-2xl mb-4"><img class="rounded-xl" src="public/img/logo.png" alt=""></div><h2 class="text-lg font-bold text-center">Sukahijab</h2><p class="text-sm text-center">v 4.0.0</p><div class="mt-4 text-sm text-justify">'+data['data']+'</div></div></div></div></div></div>')
-				}
+		url: "https://sukahijabapi.neosantara.co.id/apimob/page/about_us",
+		type: "GET",
+		dataType: "JSON",
+		data: JSON.stringify({}),
+		success: function (data) {
+			for (var i = data['data'].length - 1; i >= 0; i--) {
+				$("#tampil_tentang_kami").append('<div id="modal-tentang-kami"class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20"><div id="tentang-kami-close" class="tentang-kami-header flex items-center mt-5 ml-5 fixed cursor-pointer"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"fill="#737373" /></svg><h4 class="pl-5">Tentang Sukahijab</h4></div><div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full"><div class="pembungkus h-screen"><div class="tentang-kami-content mx-5 flex flex-col overflow-y-scroll pb-32"><div class="card-tentang-kami bg-white rounded-2xl mb-5 pb-4 p-4"><div class="tentang-kami-img bg-red-600 rounded-2xl mb-4"><img class="rounded-xl" src="public/img/logo.png" alt=""></div><h2 class="text-lg font-bold text-center">Sukahijab</h2><p class="text-sm text-center">v 4.0.0</p><div class="mt-4 text-sm text-justify">' + data['data'] + '</div></div></div></div></div></div>')
+				$("#tentang-kami-close").on('click', function () {
+					$("#modal-tentang-kami").removeClass('active');
+				});
 			}
-		})
-	}
+		}
+	})
+}
