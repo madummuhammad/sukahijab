@@ -1,4 +1,7 @@
 $(document).ready(function () {
+	// kategory
+	fetch_category();
+	// End of kategory
 	// blog
 	fetch_blog();
 	// End of blog
@@ -11,6 +14,36 @@ $(document).ready(function () {
 	fetch_about_us();
 	// End of about us
 })
+
+function fetch_category() {
+	$.ajax({
+		url: "https://sukahijabapi.neosantara.co.id/apimob/category/index",
+		type: "GET",
+		dataType: "JSON",
+		data: JSON.stringify({}),
+		success: function (data) {
+			for (var i = data['data'].length - 1; i >= 0; i--) {
+				$("#tampil_category").append('<div class="item rounded-full h-16 w-14 mb-8 "><img class="rounded-full" src="https://sukahijab.co.id/img/category/s4/' + data['data'][i]['icon'] + '" alt=""><p class="text-xs text-center w-full text-gray-400">'+data['data'][i]['title']+'</p></div>')
+			}
+			$('.owl-carousel.category').owlCarousel({
+				loop: false,
+				margin: 1,
+				nav: false,
+				responsive: {
+					0: {
+						items: 5
+					},
+					600: {
+						items: 5
+					},
+					1000: {
+						items: 5
+					}
+				}
+			})
+		}
+	})
+}
 
 function fetch_blog() {
 	$.ajax({
