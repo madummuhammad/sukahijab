@@ -6,6 +6,10 @@ $(document).ready(function () {
 	// Produk
 	fetch_produk();
 	// end of produk
+
+	// About Us
+	fetch_about_us();
+	// End of about us
 })
 
 function fetch_blog() {
@@ -18,7 +22,7 @@ function fetch_blog() {
 			for (var i = data['data'].length - 1; i >= 0; i--) {
 				$("#tampil_blog").append('<div data-toggle="modal" data-target="#modal-detil-blog' + data['data'][i]['id'] + '" class="card-blog bg-white p-3 rounded-2xl mb-5"><h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Blog</h2><img class="rounded-xl mt-2" src="https://sukahijab.co.id/img/page/' + data['data'][i]['cover_img'] + '" alt=""><p class="text-justify">' + data['data'][i]['content'] + '</p><div class="card-blog-footer flex justify-start mt-2"><p>Dec 12, 2020 <i class="fas fa-circle"></i></p><p class="ml-2">Less than a minute</p></div></div>');
 
-				$("#tampil_detil_blog").append('<div id="modal-detil-blog' + data['data'][i]['id'] + '"class="modal-detil-blog fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20"><div class="detil-blog-close blog-header flex items-center mt-5 ml-5 fixed cursor-pointer"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"fill="#737373" /></svg><h4 class="font-bold pl-5">'+data['data'][i]['title']+'</h4></div><div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full"><div class="pembungkus h-screen"><div class="blog-content mx-4 flex flex-col text-gray-500 overflow-y-scroll pb-32"><div class="card-blog bg-white p-3 rounded-2xl mb-5 relative"><img class="rounded-xl" src="public/img/product/content-1.jpg" alt=""><div class="card-blog-header mt-2"><div class="detil-blog-icon flex justify-between"><div class="icon-left px-3 border-2 border-gray-400 rounded-full flex items-center py-1"><p class="text-sm"><i class="fas fa-circle text-gray-300 text-xs"></i> Promo</p></div><div class="icon-right flex"><div class="icon-view flex items-center"><i class="fas fa-eye"></i><p class="ml-2">2k+</p></div><div class="icon-like flex items-center ml-4"><i class="far fa-heart"></i><p class="ml-2">1k+</p></div></div></div><h2 class="t text-2xl text-black font-bold mb-3">Produk Baru Sukahijab</h2><p class="mb-3">Aug 21, 2021 - Sukahijab</p><div class="detil-blog-keterangan"><p>'+data['data'][i]['content']+'</p></div></div></div></div></div></div></div>');
+				$("#tampil_detil_blog").append('<div id="modal-detil-blog' + data['data'][i]['id'] + '"class="modal-detil-blog fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20"><div class="detil-blog-close blog-header flex items-center mt-5 ml-5 fixed cursor-pointer"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"fill="#737373" /></svg><h4 class="font-bold pl-5">' + data['data'][i]['title'] + '</h4></div><div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full"><div class="pembungkus h-screen"><div class="blog-content mx-4 flex flex-col text-gray-500 overflow-y-scroll pb-32"><div class="card-blog bg-white p-3 rounded-2xl mb-5 relative"><img class="rounded-xl" src="public/img/product/content-1.jpg" alt=""><div class="card-blog-header mt-2"><div class="detil-blog-icon flex justify-between"><div class="icon-left px-3 border-2 border-gray-400 rounded-full flex items-center py-1"><p class="text-sm"><i class="fas fa-circle text-gray-300 text-xs"></i> Promo</p></div><div class="icon-right flex"><div class="icon-view flex items-center"><i class="fas fa-eye"></i><p class="ml-2">2k+</p></div><div class="icon-like flex items-center ml-4"><i class="far fa-heart"></i><p class="ml-2">1k+</p></div></div></div><h2 class="t text-2xl text-black font-bold mb-3">Produk Baru Sukahijab</h2><p class="mb-3">Aug 21, 2021 - Sukahijab</p><div class="detil-blog-keterangan"><p>' + data['data'][i]['content'] + '</p></div></div></div></div></div></div></div>');
 
 				$(".detil-blog-close").on('click', function () {
 					$(".modal-detil-blog").removeClass('active');
@@ -91,3 +95,17 @@ function fetch_produk() {
 		}
 	})
 }
+
+function fetch_about_us() {
+	$.ajax({
+			url: "https://sukahijabapi.neosantara.co.id/apimob/page/about_us",
+			type: "GET",
+			dataType: "JSON",
+			data: JSON.stringify({}),
+			success: function (data) {
+				for (var i = data['data'].length - 1; i >= 0; i--) {
+					$("#tampil_tentang_kami").append('<div id="modal-tentang-kami"class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20"><div id="tentang-kami-close" class="tentang-kami-header flex items-center mt-5 ml-5 fixed cursor-pointer"><svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"fill="#737373" /></svg><h4 class="pl-5">Tentang Sukahijab</h4></div><div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full"><div class="pembungkus h-screen"><div class="tentang-kami-content mx-5 flex flex-col overflow-y-scroll pb-32"><div class="card-tentang-kami bg-white rounded-2xl mb-5 pb-4 p-4"><div class="tentang-kami-img bg-red-600 rounded-2xl mb-4"><img class="rounded-xl" src="public/img/logo.png" alt=""></div><h2 class="text-lg font-bold text-center">Sukahijab</h2><p class="text-sm text-center">v 4.0.0</p><div class="mt-4 text-sm text-justify">'+data['data']+'</div></div></div></div></div></div>')
+				}
+			}
+		})
+	}
