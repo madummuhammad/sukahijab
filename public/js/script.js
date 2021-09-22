@@ -34,34 +34,7 @@
 
     //     Detil Produk
 
-    $('.owl-carousel.detil-produk-carousel').owlCarousel({
-         loop: false,
-         margin: 10,
-         nav: false,
-         dots: ["<img src='public/img/product/content-1.jpg'>", "<img src='nextArrow.png'>"],
-         responsive: {
-              0: {
-                   items: 1
-              },
-              600: {
-                   items: 3
-              },
-              1000: {
-                   items: 5
-              }
-         }
-    })
-    var owl = $('.owl-carousel.detil-produk-carousel');
-    var thumbnail = $("[data-toggle=thumbnail]");
-    for (let i = 0; i < thumbnail.length; i++) {
-         thumbnail[i].onclick = function () {
-              owl.trigger('to.owl.carousel', [i]);
-         }
-    }
 
-    $(".detil-produk-left").on('click',function(){
-     $(".detil-produk").removeClass('active');
-    });
     //     End of detil produk
 
 
@@ -77,28 +50,25 @@
     })
 
     //     produk
-    $(window).scroll(function () {
-         var wScroll = $(this).scrollTop();
+    $(".pembungkus-detil-produk").scroll(function () {
          var slideproduk = $(".thumbnail-slide-produk").offset().top;
-         var heaeder = $(".detil-produk-header").offset().top;
+         var scroll = $(".pembungkus-detil-produk").scrollTop();
          $(".img-detil-produk").css({
-              'transform': 'translate(0px,' + wScroll / 8 + '%)'
+              'transform': 'translate(0px,' + scroll / 8 + '%)'
          })
+             if (scroll > slideproduk * 3 / 4) {
+                  $(".detil-produk-header").css('background-color', 'rgba(208,62,101,255)');
+             } else {
+                  $(".detil-produk-header").css('background-color', 'rgba(208,62,101,0)');
+             }
 
-         if (wScroll > slideproduk * 3 / 4) {
-              $(".detil-produk-header").css('background-color', 'rgba(208,62,101,255)');
-         } else {
-              $(".detil-produk-header").css('background-color', 'rgba(208,62,101,0)');
-         }
-
-         if (wScroll > 2 / 4 * slideproduk) {
-              $(".img-detil-produk .background").removeClass('hidden');
-              $(".img-detil-produk .background").css('background-color', 'rgba(208,62,101,' + wScroll / slideproduk + ')');
-         } else {
-              $(".img-detil-produk .background").addClass('hidden');
-         }
-
-    });
+             if (scroll > 2 / 4 * slideproduk) {
+                  $(".img-detil-produk .background").removeClass('hidden');
+                  $(".img-detil-produk .background").css('background-color', 'rgba(208,62,101,' + scroll / slideproduk + ')');
+             } else {
+                  $(".img-detil-produk .background").addClass('hidden');
+             }
+    })
     // end of produk
 
 
@@ -129,9 +99,6 @@
     });
     $("#blog-close").on('click', function () {
          $("#modal-blog").removeClass('active');
-    });
-    $(".detil-blog-close").on('click', function () {
-         $(".modal-detil-blog").removeClass('active');
     });
 
 

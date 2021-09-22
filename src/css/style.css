@@ -463,7 +463,7 @@ footer li.active .logo-footer {
   transition: 0.5s;
 }
 .detil-produk.active{
-  position: absolute;
+  position: fixed;
   visibility: visible;
   opacity: 1;
 }
