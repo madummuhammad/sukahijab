@@ -456,17 +456,41 @@ footer li.active .logo-footer {
 }
 
 /* Detil produk */
-.detil-produk{
+.detil-produk {
   font-family: 'Poppins', sans-serif;
   position: fixed;
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
 }
-.detil-produk.active{
+
+.detil-produk.active {
   position: fixed;
   visibility: visible;
   opacity: 1;
+}
+
+.footer-detil-produk-beli-sekarang,.footer-detil-produk-tambah-keranjang {
+  font-family: 'Poppins', sans-serif;
+  visibility: hidden;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.footer-detil-produk-beli-sekarang.active,.footer-detil-produk-tambah-keranjang.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.detil-produk.active .background{
+  transition: 0.5s;
+  visibility: hidden;
+}
+
+.detil-produk.active .background.active{
+  visibility: visible;
 }
 
 
@@ -494,4 +518,12 @@ input[type='number']::-webkit-outer-spin-button {
 
 .card-shadow {
   box-shadow: 0px 2px 10px gray;
+}
+
+.footer-detil-produk {
+  box-shadow: 0px 4px 20px gray;
+}
+
+.footer-detil-produk-beli-sekarang {
+  background-color: rgba(0, 0, 0, 0.5);
 }
