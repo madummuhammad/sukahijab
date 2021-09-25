@@ -2,6 +2,7 @@
          loop: true,
          margin: 10,
          nav: false,
+         autoplay:true,
          responsive: {
               0: {
                    items: 1
