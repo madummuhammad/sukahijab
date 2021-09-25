@@ -69,31 +69,6 @@
     </section>
     <section class="content section-two bg-gradient-to-br w-full from-pink-200 to-pink-400 bg-opacity-75  p-4 pb-20">
       <div id="tampil_produk" class="grid grid-cols-2 gap-2" style="font-family: 'Inter', sans-serif;">
-        <script>
-          var button_tambah = $("[data-action=tambah]");
-          var button_kurang = $("[data-action=kurang]");
-          for (let i = 0; i < button_tambah.length; i++) {
-            button_tambah[i].onclick = function () {
-              var id_target = $(this).data('target');
-              let v = $(id_target).val();
-              v++;
-              $(id_target).val(v);
-            }
-          }
-          for (let i = 0; i < button_kurang.length; i++) {
-            button_kurang[i].onclick = function () {
-              var id_target = $(this).data('target');
-              let v = $(id_target).val();
-              v--;
-              if (v < 0) {
-                $(id_target).val(0);
-              } else {
-                $(id_target).val(v);
-              }
-
-            }
-          }
-        </script>
       </div>
   </div>
   </section>
@@ -570,10 +545,6 @@
     class="profile fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-10 rounded-lg h-full">
     <div id="content-profile" class="content-profile bg-gradient-to-b from-transparent to-pink-700">
       <div class="header-content-profile mt-10">
-        <!-- <svg class="absolute mt-15 right-0 top-0" width="109" height="63" viewBox="0 0 109 63" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 26C0 26 1.93837 26.0381 3.5 26C27.2861 25.4199 44 0.5 69.5 0.5C95 0.5 109 26 109 26V63H0V26Z"
-              fill="#C4C4C4" fill-opacity="0.5" />
-          </svg> -->
         <button id="button-close" class="absolute right-8 pt-2">
           <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.5 0.5L10 9L1.5 0.5L0 2L10 12L20 2L18.5 0.5Z" fill="#737373" />
@@ -586,7 +557,24 @@
         </svg>
       </div>
       <div class="content absolute top-0 mt-7 left-0 right-0 pt-6">
-        <div class="profile-header grid grid-cols-3 w-full mx-2" style="font-family: 'Inter', sans-serif;">
+        <!-- Login dan Registrasi -->
+        <div class="header-login-registrasi flex justify-between items-center mx-7 py-12">
+          <div class="left text-4xl text-pink-700">
+            <button><i class="far fa-user-circle"></i></button>
+          </div>
+          <div class="right flex">
+            <div id="open-login"
+              class="open-login login mx-2 bg-gradient-to-tr from-pink-700 to-pink-400 text-white w-24 rounded-full h-10 flex items-center justify-center">
+              <p>Login</p>
+            </div>
+            <div id="open-registrasi"
+              class="open-registrasi login mx-2 border border-pink-700 rounded-full text-pink-700 w-24 h-10 flex items-center justify-center">
+              <p>Daftar</p>
+            </div>
+          </div>
+        </div>
+        <!-- End of login dan registrasi -->
+        <!-- <div class="profile-header grid grid-cols-3 w-full mx-2" style="font-family: 'Inter', sans-serif;">
           <div id="open-detil-profile" class="profile-description flex justify-center items-center  col-span-2">
             <div class="profile-image rounded-full  border-4 border-blue-400 w-20">
               <img class="rounded-full" src="public/img/da3caf20934ffbe330cb723cdeda910d.jpg" alt="">
@@ -615,7 +603,7 @@
             <p>Point</p>
             <p class="font-bold">179</p>
           </div>
-        </div>
+        </div> -->
         <div class="profile-group w-full mt-8 bg-white rounded-t-3xl px-8 pt-8 h-screen">
           <div class="overflow-y-scroll  divide-y divide-solid divide-gray-300 h-96 scroll-hide">
             <div class="profile-pesanan pb-6" style="font-family: 'Inter', sans-serif;">
@@ -863,6 +851,77 @@
 
   </div>
   <!-- End of profile -->
+
+  <!-- Halaman login -->
+  <div id="modal-halaman-login"
+    class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-400 to-yellow-200 z-20">
+    <div id="login-close" class="testimoni-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+      <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+          fill="#737373" />
+      </svg>
+      <h4 class="font-bold pl-5">Kembali</h4>
+    </div>
+    <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+      <div class="pembungkus h-screen">
+        <div class="testimoni-content mx-5 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+          <div class="img-login">
+            <img src="public/img/logo.png" alt="">
+          </div>
+          <div class="card-testimoni rounded-2xl mb-5 bg-white card-shadow">
+            <div class="login flex flex-col m-4">
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="email"
+                placeholder="Email/Username">
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="password"
+                placeholder="Password">
+              <button class="text-white button-shadow bg-red-600 py-1 rounded-full my-5"><i
+                  class="fas fa-sign-in-alt"></i> Masuk</button>
+              <a id="open-registrasi" class="open-registrasi text-right text-blue-500">Belum punya akun? Daftar disini!</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of halaman login -->
+
+  <!-- Halaman Registrasi -->
+  <div id="modal-halaman-registrasi"
+    class="fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-400 to-yellow-200 z-20">
+    <div id="registrasi-close" class="testimoni-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+      <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+          fill="#737373" />
+      </svg>
+      <h4 class="font-bold pl-5">Kembali</h4>
+    </div>
+    <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+      <div class="pembungkus h-screen">
+        <div class="testimoni-content mx-5 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+          <div class="img-login">
+            <img src="public/img/logo.png" alt="">
+          </div>
+          <div class="card-testimoni rounded-2xl mb-5 bg-white card-shadow">
+            <div class="login flex flex-col m-4">
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="name"
+                placeholder="Nama">
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="email"
+                placeholder="Email/Username">
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="password"
+                placeholder="Password">
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="confirm"
+                placeholder="Ulangi Password">
+              <button class="text-white button-shadow bg-red-600 py-1 rounded-full my-5"><i class="far fa-address-book"></i> Daftar</button>
+              <a class="open-login text-right text-blue-500">Ke Form Login!</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of halaman registrasi -->
 
   <!-- Detil Profile -->
   <div id="modal-detil-profile"

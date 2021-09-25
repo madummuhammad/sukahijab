@@ -68,6 +68,7 @@ footer li.active .logo-footer {
   transition: 0.5s;
 }
 
+
 #profile.active {
   opacity: 1;
   visibility: visible;
@@ -249,7 +250,7 @@ footer li.active .logo-footer {
   transform: translateY(0);
 }
 
-#modal-cart {
+#modal-cart, #modal-halaman-login, #modal-halaman-registrasi {
   font-family: 'Poppins', sans-serif;
   visibility: hidden;
   opacity: 0;
@@ -257,7 +258,7 @@ footer li.active .logo-footer {
   transform: translateX(100%);
 }
 
-#modal-cart.active {
+#modal-cart.active, #modal-halaman-login.active, #modal-halaman-registrasi.active {
   visibility: visible;
   opacity: 1;
   transform: translateX(0);
@@ -470,7 +471,8 @@ footer li.active .logo-footer {
   opacity: 1;
 }
 
-.footer-detil-produk-beli-sekarang,.footer-detil-produk-tambah-keranjang {
+.footer-detil-produk-beli-sekarang,
+.footer-detil-produk-tambah-keranjang {
   font-family: 'Poppins', sans-serif;
   visibility: hidden;
   transform: translateY(100%);
@@ -478,18 +480,19 @@ footer li.active .logo-footer {
   transition: 0.5s;
 }
 
-.footer-detil-produk-beli-sekarang.active,.footer-detil-produk-tambah-keranjang.active {
+.footer-detil-produk-beli-sekarang.active,
+.footer-detil-produk-tambah-keranjang.active {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
 
-.detil-produk.active .background{
+.detil-produk.active .background {
   transition: 0.5s;
   visibility: hidden;
 }
 
-.detil-produk.active .background.active{
+.detil-produk.active .background.active {
   visibility: visible;
 }
 

@@ -226,6 +226,27 @@
     $("#cart-close").on('click', function () {
          $("#modal-cart").removeClass('active');
     });
+    //     End of cart
+
+    //     Halaman login
+    $(".open-login").on('click', function () {
+         $("#modal-halaman-login").addClass('active');
+         $("#modal-halaman-registrasi").removeClass('active');
+    });
+    $("#login-close").on('click', function () {
+         $("#modal-halaman-login").removeClass('active');
+    });
+    // End of halaman login
+
+    //     Halaman registrasi
+    $(".open-registrasi").on('click', function () {
+         $("#modal-halaman-registrasi").addClass('active');
+         $("#modal-halaman-login").removeClass('active');
+    });
+    $("#registrasi-close").on('click', function () {
+         $("#modal-halaman-registrasi").removeClass('active');
+    });
+    // End of halaman registrasi
 
     //     Checkout
     $("#open-checkout").on('click', function () {
