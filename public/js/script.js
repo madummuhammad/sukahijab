@@ -2,7 +2,7 @@
          loop: true,
          margin: 10,
          nav: false,
-         autoplay:true,
+         autoplay: true,
          responsive: {
               0: {
                    items: 1
@@ -17,7 +17,7 @@
     })
 
 
-
+    //     Profile
     $("#button-profile").on('click', function () {
          $("#profile").addClass("active");
          $("#content-profile").addClass("active");
@@ -28,6 +28,7 @@
          $("#profile").removeClass("active");
          $("#content-profile").removeClass("active");
     })
+    //     End of profile
 
     //     produk
     $(".pembungkus-detil-produk").scroll(function () {
@@ -120,103 +121,214 @@
          $("#modal-tentang-kami").addClass('active');
     });
 
-    //     Menunggu Pembayaran
-    $("#pesanan-saya-close").on('click', function () {
-         $("#modal-pesanan-saya").removeClass('active');
-         $("#pesanan-saya-tabs li").removeClass('border-b-2 border-red-500 text-red-500');
-         $("#dikemas-content").removeClass('active');
-         $("#belum-bayar-content").removeClass('active');
-         $("#dikirim-content").removeClass('active');
-         $("#pesanan-selesai-content").removeClass('active');
-    });
 
-    $("#open-belum-bayar").on('click', function () {
-         $("#modal-pesanan-saya").addClass('active');
-         $("#belum-bayar-content").addClass('active');
-         $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
-    });
 
-    $("#open-konfirmasi-pembayaran").on('click', function () {
-         $("#modal-pesanan-saya").addClass('active');
-         $("#belum-bayar-content").addClass('active');
-         $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
-    });
+    $(document).ready(function () {
+         if (Cookies.get('token')) {
+              //     Jika telah login
+              $("#is-logged-in").prepend(`
+                  <div class="profile-header grid grid-cols-3 w-full mx-2" style="font-family: 'Inter', sans-serif;">
+          <div id="open-detil-profile" class="profile-description flex justify-center items-center  col-span-2">
+            <div class="profile-image rounded-full  border-4 border-blue-400 w-20">
+              <img class="rounded-full" src="public/img/da3caf20934ffbe330cb723cdeda910d.jpg" alt="">
+            </div>
+            <div class="profile-name pl-5">
+              <h4 class="font-bold">Citra Kirana</h4>
+              <p class="text text-gray-500">Tasik Malaya</p>
+            </div>
+          </div>
+          <div class="profile-whishlist flex justify-center items-center flex-col">
+            <div
+              class="profile-whishlist-heart bg-white rounded-full w-9 h-9 text-red-700 flex justify-center items-center">
+              <i class="fas fa-heart"></i></div>
+            <div class="porfile-whishlist-text text-xs">
+              <p class="pt-1">Whistlist ku</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile-saldo grid grid-cols-2 gap-2 mt-6 mx-12 text-white"
+          style="font-family: 'Inter', sans-serif;">
+          <div class="saldo bg-gradient-to-r from-pink-700 to-pink-500 rounded-md p-2">
+            <p>Saldo</p>
+            <p class="font-bold">Rp1.315.000</p>
+          </div>
+          <div class="point bg-gradient-to-tr from-blue-700 to-green-400 rounded-md p-2">
+            <p>Point</p>
+            <p class="font-bold">179</p>
+          </div>
+        </div>
+          `)
+              // Jika belum login
 
-    //     Belum bayar
-    $("#belum-bayar").on('click', function () {
-         $("#belum-bayar-content").addClass('active');
-         $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
+              //     Logout
+              $("#profile-logout").show();
 
-         $("#dikemas-content").removeClass('active');
-         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+              $("#profile-logout").on('click', function () {
+                   Cookies.remove('token');
+                   location.reload();
+              });
+              // End of logout
 
-         $("#dikirim-content").removeClass('active');
-         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+              // Konfirmasi pembayaran
+              $("#open-konfirmasi-pembayaran").on('click', function () {
+                   $("#modal-pesanan-saya").addClass('active');
+                   $("#belum-bayar-content").addClass('active');
+                   $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
+              });
+              //     End of konfirmasi pembayaran
 
-         $("#pesanan-selesai-content").removeClass('active');
-         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
-    });
-    //     End of belum bayar
+              //     Belum bayar
+              $("#pesanan-saya-close").on('click', function () {
+                   $("#modal-pesanan-saya").removeClass('active');
+                   $("#pesanan-saya-tabs li").removeClass('border-b-2 border-red-500 text-red-500');
+                   $("#dikemas-content").removeClass('active');
+                   $("#belum-bayar-content").removeClass('active');
+                   $("#dikirim-content").removeClass('active');
+                   $("#pesanan-selesai-content").removeClass('active');
+              });
 
-    //     Dikemas
-    $("#open-dikemas").on('click', function () {
-         $("#modal-pesanan-saya").addClass('active');
-         $("#dikemas-content").addClass('active');
-         $("#pesanan-saya-tabs #dikemas").addClass('border-b-2 border-red-500 text-red-500');
-    });
+              $("#open-belum-bayar").on('click', function () {
+                   $("#modal-pesanan-saya").addClass('active');
+                   $("#belum-bayar-content").addClass('active');
+                   $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
+              });
 
-    $("#dikemas").on('click', function () {
-         $("#dikemas-content").addClass('active');
-         $("#pesanan-saya-tabs #dikemas").addClass('border-b-2 border-red-500 text-red-500');
+              $("#belum-bayar").on('click', function () {
+                   $("#belum-bayar-content").addClass('active');
+                   $("#pesanan-saya-tabs #belum-bayar").addClass('border-b-2 border-red-500 text-red-500');
 
-         $("#belum-bayar-content").removeClass('active');
-         $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
+                   $("#dikemas-content").removeClass('active');
+                   $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
 
-         $("#dikirim-content").removeClass('active');
-         $("#pesanan-saya-tabs #dikirim").removeClass('border-b-2 border-red-500 text-red-500');
+                   $("#dikirim-content").removeClass('active');
+                   $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
 
-         $("#pesanan-selesai-content").removeClass('active');
-         $("#pesanan-saya-tabs #pesanan-selesai").removeClass('border-b-2 border-red-500 text-red-500');
-    });
-    // End of dikemas
+                   $("#pesanan-selesai-content").removeClass('active');
+                   $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+              });
+              //     End of belum bayar
 
-    //     Dikirim
-    $("#open-dikirim").on('click', function () {
-         $("#modal-pesanan-saya").addClass('active');
-         $("#dikirim-content").addClass('active');
-         $("#pesanan-saya-tabs #dikirim").addClass('border-b-2 border-red-500 text-red-500');
-    });
+              //     Dikemas
+              $("#open-dikemas").on('click', function () {
+                   $("#modal-pesanan-saya").addClass('active');
+                   $("#dikemas-content").addClass('active');
+                   $("#pesanan-saya-tabs #dikemas").addClass('border-b-2 border-red-500 text-red-500');
+              });
 
-    $("#dikirim").on('click', function () {
-         $("#dikemas-content").removeClass('active');
-         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+              $("#dikemas").on('click', function () {
+                   $("#dikemas-content").addClass('active');
+                   $("#pesanan-saya-tabs #dikemas").addClass('border-b-2 border-red-500 text-red-500');
 
-         $("#belum-bayar-content").removeClass('active');
-         $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
+                   $("#belum-bayar-content").removeClass('active');
+                   $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
 
-         $("#dikirim-content").addClass('active');
-         $("#pesanan-saya-tabs #dikirim").addClass('border-b-2 border-red-500 text-red-500');
+                   $("#dikirim-content").removeClass('active');
+                   $("#pesanan-saya-tabs #dikirim").removeClass('border-b-2 border-red-500 text-red-500');
 
-         $("#pesanan-selesai-content").removeClass('active');
-         $("#pesanan-saya-tabs #pesanan-selesai").removeClass('border-b-2 border-red-500 text-red-500');
-    });
-    // End of dikirim
+                   $("#pesanan-selesai-content").removeClass('active');
+                   $("#pesanan-saya-tabs #pesanan-selesai").removeClass('border-b-2 border-red-500 text-red-500');
+              });
+              // End of dikemas
 
-    //     Pesanan selesai content
-    $("#pesanan-selesai").on('click', function () {
-         $("#dikemas-content").removeClass('active');
-         $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+              //     Dikirim
+              $("#open-dikirim").on('click', function () {
+                   $("#modal-pesanan-saya").addClass('active');
+                   $("#dikirim-content").addClass('active');
+                   $("#pesanan-saya-tabs #dikirim").addClass('border-b-2 border-red-500 text-red-500');
+              });
 
-         $("#belum-bayar-content").removeClass('active');
-         $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
+              $("#dikirim").on('click', function () {
+                   $("#dikemas-content").removeClass('active');
+                   $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
 
-         $("#dikirim-content").removeClass('active');
-         $("#pesanan-saya-tabs #dikirim").removeClass('border-b-2 border-red-500 text-red-500');
+                   $("#belum-bayar-content").removeClass('active');
+                   $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
 
-         $("#pesanan-selesai-content").addClass('active');
-         $("#pesanan-saya-tabs #pesanan-selesai").addClass('border-b-2 border-red-500 text-red-500');
-    });
-    // End of pesanan selesai content
+                   $("#dikirim-content").addClass('active');
+                   $("#pesanan-saya-tabs #dikirim").addClass('border-b-2 border-red-500 text-red-500');
+
+                   $("#pesanan-selesai-content").removeClass('active');
+                   $("#pesanan-saya-tabs #pesanan-selesai").removeClass('border-b-2 border-red-500 text-red-500');
+              });
+              // End of dikirim
+
+              //     Pesanan selesai content
+              $("#pesanan-selesai").on('click', function () {
+                   $("#dikemas-content").removeClass('active');
+                   $("#pesanan-saya-tabs #dikemas").removeClass('border-b-2 border-red-500 text-red-500');
+
+                   $("#belum-bayar-content").removeClass('active');
+                   $("#pesanan-saya-tabs #belum-bayar").removeClass('border-b-2 border-red-500 text-red-500');
+
+                   $("#dikirim-content").removeClass('active');
+                   $("#pesanan-saya-tabs #dikirim").removeClass('border-b-2 border-red-500 text-red-500');
+
+                   $("#pesanan-selesai-content").addClass('active');
+                   $("#pesanan-saya-tabs #pesanan-selesai").addClass('border-b-2 border-red-500 text-red-500');
+              });
+              // End of pesanan selesai content
+         } else {
+              //     Login dan registrasi
+              $("#is-logged-in").prepend(`
+                        <div class="header-login-registrasi flex justify-between items-center mx-7 py-12">
+            <div class="left text-4xl text-pink-700">
+              <button><i class="far fa-user-circle"></i></button>
+            </div>
+            <div class="right flex">
+              <div id="open-login"
+                class="open-login login mx-2 bg-gradient-to-tr from-pink-700 to-pink-400 text-white w-24 rounded-full h-10 flex items-center justify-center">
+                <p>Login</p>
+              </div>
+              <div id="open-registrasi"
+                class="open-registrasi login mx-2 border border-pink-700 rounded-full text-pink-700 w-24 h-10 flex items-center justify-center">
+                <p>Daftar</p>
+              </div>
+            </div>
+          </div>
+              `);
+              // End of login dan registrasi
+
+              //     Profile-logout
+              $("#profile-logout").hide();
+              // End of profile logout
+
+              //     Halaman login
+              $(".open-login").on('click', function () {
+                   $("#modal-halaman-login").addClass('active');
+                   $("#modal-halaman-registrasi").removeClass('active');
+              });
+              $("#login-close").on('click', function () {
+                   $("#modal-halaman-login").removeClass('active');
+              });
+              // End of halaman login
+
+              //     Halaman registrasi
+              $(".open-registrasi").on('click', function () {
+                   $("#modal-halaman-registrasi").addClass('active');
+                   $("#modal-halaman-login").removeClass('active');
+              });
+              $("#registrasi-close").on('click', function () {
+                   $("#modal-halaman-registrasi").removeClass('active');
+              });
+              // End of halaman registrasi
+
+              $("#open-konfirmasi-pembayaran").on('click', function () {
+                   $("#modal-halaman-login").addClass('active');
+              });
+
+              $("#open-belum-bayar").on('click', function () {
+                   $("#modal-halaman-login").addClass('active');
+              });
+
+              $("#open-dikemas").on('click', function () {
+                   $("#modal-halaman-login").addClass('active');
+              });
+
+              $("#open-dikirim").on('click', function () {
+                   $("#modal-halaman-login").addClass('active');
+              });
+         }
+    })
 
 
     //     cart
@@ -228,26 +340,6 @@
          $("#modal-cart").removeClass('active');
     });
     //     End of cart
-
-    //     Halaman login
-    $(".open-login").on('click', function () {
-         $("#modal-halaman-login").addClass('active');
-         $("#modal-halaman-registrasi").removeClass('active');
-    });
-    $("#login-close").on('click', function () {
-         $("#modal-halaman-login").removeClass('active');
-    });
-    // End of halaman login
-
-    //     Halaman registrasi
-    $(".open-registrasi").on('click', function () {
-         $("#modal-halaman-registrasi").addClass('active');
-         $("#modal-halaman-login").removeClass('active');
-    });
-    $("#registrasi-close").on('click', function () {
-         $("#modal-halaman-registrasi").removeClass('active');
-    });
-    // End of halaman registrasi
 
     //     Checkout
     $("#open-checkout").on('click', function () {
