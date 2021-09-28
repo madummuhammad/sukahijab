@@ -863,16 +863,20 @@
             <img src="public/img/logo.png" alt="">
           </div>
           <div class="card-testimoni rounded-2xl mb-5 bg-white card-shadow">
-            <div class="login flex flex-col m-4">
+            <div class="registrasi flex flex-col m-4">
               <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="name"
                 placeholder="Nama">
+                <span id="invalid-regis-nama" class="text-xs text-red-600"></span>
               <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="email"
                 placeholder="Email/Username">
-              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="password"
+                <span id="invalid-regis-email" class="text-xs text-red-600"></span>
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="password" name="password"
                 placeholder="Password">
-              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="text" name="confirm"
+                <span id="invalid-regis-password" class="text-xs text-red-600"></span>
+              <input class="border-b my-2 outline-none focus:border-red-700 py-2" type="password" name="confirm"
                 placeholder="Ulangi Password">
-              <button class="text-white button-shadow bg-red-600 py-1 rounded-full my-5"><i
+                <span id="invalid-regis-confirm" class="text-xs text-red-600"></span>
+              <button id="button-registrasi" class="text-white button-shadow bg-red-600 py-1 rounded-full my-5"><i
                   class="far fa-address-book"></i> Daftar</button>
               <a class="open-login text-right text-blue-500">Ke Form Login!</a>
             </div>
@@ -1627,13 +1631,13 @@
     <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
       <div class="pembungkus h-screen">
         <div class="join-reseller-content mx-10 flex flex-col text-gray-500 overflow-y-scroll pb-32">
-          <div class="card-join-reseller rounded-2xl mb-5 text-gray-600">
+          <div id="card-join-reseller" class="card-join-reseller rounded-2xl mb-5 text-gray-600">
             <div class="join-reseller-list flex text-sm">
               <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">1</h3>
               <p>Daftar akun Anda diplatform Sukahijab</p>
             </div>
             <div class="join-reseller-divider h-9 bg-gray-600 w-0.5 m-3"></div>
-            <div class="join-reseller-list flex text-sm">
+            <!-- <div class="join-reseller-list flex text-sm">
               <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">2</h3>
               <p>Perbaharui data akun Anda</p>
             </div>
@@ -1641,7 +1645,7 @@
             <div class="join-reseller-list flex text-sm">
               <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full px-2 mr-2">3</h3>
               <p>Hubungi kami melalui Whatsapp, Telepon atau Email</p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

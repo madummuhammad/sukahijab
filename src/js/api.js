@@ -10,20 +10,53 @@ $(document).ready(function () {
 	fetch_produk();
 	// end of produk
 
+	// join reseller
+	// fetch_join_reseller();
+	// End of join reseller
+
 	// About Us
 	fetch_about_us();
 	// End of about us
 
-	// $.ajax({
-	// 	url: 'https://sukahijabapi.neosantara.co.id/apimob/profile/index',
-	// 	headers: {
-	// 		'Authorization': `Bearer` + Cookies.get('token'),
-	// 	},
-	// 	method: 'POST',
-	// 	success: function (data) {
-	// 		console.log('succes: ' + data);
-	// 	}
-	// });
+	let sendReq = (ev) => {
+		let url = 'https://sukahijabapi.neosantara.co.id/apimob/profile';
+		let token = JSON.parse(Cookies.get('token'));
+
+		let h = new Headers();
+
+		h.append(`Authentication`, `Bearer ` + token)
+
+		let req = new Request(url, {
+			method: 'GET',
+			mode: 'cors',
+			headers: h
+		});
+
+		fetch(req)
+			.then(resp => resp.json())
+			.then(data => {
+				console.log(data[0]);
+			})
+			.catch(err => {
+				console.error(err.message);
+			})
+	}
+	sendReq;
+
+	// 	$.ajax({
+	// 		url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
+	// 		headers:{
+	// 			'Authorization':'Bearer '+token
+	// 		},
+	// 		method: 'GET',
+	// 		contentType:'application/json',
+	// 		dataType:"json",
+	// 		success: function (response) {
+	// 		}
+
+	// 	});
+
+
 
 })
 
@@ -40,7 +73,7 @@ $("#button-login").on('click', function () {
 		},
 		success: function (response) {
 			if (response['status'] == true) {
-				Cookies.set('token', response['tokenJWT']);
+				Cookies.set('token', JSON.stringify(response['tokenJWT']));
 				location.reload();
 			} else {
 				if (email.val().length == 0) {
@@ -67,6 +100,66 @@ $("#button-login").on('click', function () {
 	})
 
 });
+
+$("#button-registrasi").on('click', function () {
+	var name = $("#modal-halaman-registrasi [name=name]");
+	var email = $("#modal-halaman-registrasi [name=email]");
+	var password = $("#modal-halaman-registrasi [name=password]");
+	var confirm = $("#modal-halaman-registrasi [name=confirm]");
+	$.ajax({
+		url: " https://sukahijabapi.neosantara.co.id/apimob/auth/register_post",
+		type: "POST",
+		data: {
+			name: name.val(),
+			email: email.val(),
+			password: password.val(),
+			confirm: confirm.val()
+		},
+		success: function (response) {
+			if (response['status'] == true) {
+				Cookies.set('token', JSON.stringify(response['tokenJWT']));
+				location.reload();
+			} else {
+				if (name.val().length == 0) {
+					$("#invalid-regis-nama").html('Masukah Nama Anda')
+				} else {
+					$("#invalid-regis-nama").html('')
+				}
+
+				if (email.val().length == 0) {
+					$("#invalid-regis-email").html('Masukah Email Anda')
+				} else {
+					$("#invalid-regis-email").html('')
+				}
+
+				if (password.val().length == 0) {
+					$("#invalid-regis-password").html('Masukah Password Anda')
+				} else {
+					$("#invalid-regis-password").html('')
+				}
+
+				if (confirm.val().length == 0) {
+					$("#invalid-regis-confirm").html('Masukah Konfirmasi Password')
+				} else {
+					$("#invalid-regis-confirm").html('')
+				}
+
+				if (password.val() !== confirm.val()) {
+					$("#invalid-regis-confirm").html('Masukah Konfirmasi Password Salah')
+				} else {
+					$("#invalid-regis-confirm").html('')
+				}
+
+				if (response['message'] == 'Email telah terdaftar. Silakan coba lagi') {
+					$("#invalid-regis-email").html(response['message'])
+				} else {
+					$("#invalid-regis-nama").html('')
+				}
+			}
+		}
+	})
+
+})
 
 
 function fetch_category() {
@@ -261,3 +354,19 @@ function fetch_about_us() {
 		}
 	})
 }
+
+// function fetch_join_reseller() {
+// 	$.ajax({
+// 		url: "https://sukahijabapi.neosantara.co.id/apimob/page/join_reseller_get",
+// 		type: "GET",
+// 		dataType: "JSON",
+// 		data: JSON.stringify({}),
+// 		success: function (data) {
+// 			$("#card-join-reseller").append(`<div class="join-reseller-list flex text-sm">
+//               <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">1</h3>
+//               <p>`+data['data']+`</p>
+//             </div>
+//             <div class="join-reseller-divider h-9 bg-gray-600 w-0.5 m-3"></div>`)
+// 		}
+// 	})
+// }
