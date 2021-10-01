@@ -55,21 +55,18 @@ $(document).ready(function () {
 	// }
 	// sendReq();
 
-	$.ajax({
-		url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
-		headers: {
-			'Authentication': 'Bearer ' + Cookies.get('token')
-		},
-		method: 'GET',
-		contentType: 'application/json',
-		dataType: "json",
-		success: function (response) {
-			console.log(response)
-		}
-	});
-
-
-
+	// $.ajax({
+	// 	url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
+	// 	headers: {
+	// 		'Authentication': 'Bearer ' + Cookies.get('token')
+	// 	},
+	// 	method: 'GET',
+	// 	contentType: 'application/json',
+	// 	dataType: "json",
+	// 	success: function (response) {
+	// 		console.log(response)
+	// 	}
+	// });
 })
 
 $("#button-login").on('click', function () {
@@ -243,8 +240,8 @@ function fetch_produk() {
 		dataType: "JSON",
 		data: JSON.stringify({}),
 		success: function (data) {
-			for (var i = data['data'].length - 1; i >= 0; i--) {
-				$("#tampil_produk").append('<div class="h-72 produk bg-white rounded-2xl relative" data-target="#detil-produk' + data['data'][i]['id'] + '" data-toggle="modal"><div class="product-image"><img class="rounded-2xl relative" src="public/img/product/content-1.jpg" alt="asdf"></div><div class="favourite-icon absolute top-1 right-1 bg-white p-2 rounded-full"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.775 0C16.6611 0 19 2.2973 19 5.51351C19 11.9459 11.875 15.6216 9.5 17C7.125 15.6216 0 11.9459 0 5.51351C0 2.2973 2.375 0 5.225 0C6.992 0 8.55 0.918919 9.5 1.83784C10.45 0.918919 12.008 0 13.775 0Z"fill="#EC2127" /></svg></div><div class="product-description p-3"><div class="product-title text-gray-700">' + data['data'][i]['title'] + '</div><div class="product-price text-pink-600">Rp.' + formatNumber(data['data'][i]['disp_price']) + ' <span class="line-through text-xs text-gray-400">Rp405.000</span></div><div class="product-start content"></div></div></div>');
+			for (let i = 0; i < data['data'].length; i++) {
+				$("#tampil_produk").append('<div class="h-72 produk bg-white rounded-2xl relative" data-target="#detil-produk' + data['data'][i]['id'] + '" data-toggle="modal"><div class="product-image"><img class="rounded-2xl relative" src="https://sukahijabapi.neosantara.co.id/img/s2/' + data['data'][i]['img_source'] + '" alt="' + data['data'][i]['img_source'] + '"></div><div class="favourite-icon absolute top-1 right-1 bg-white p-2 rounded-full"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.775 0C16.6611 0 19 2.2973 19 5.51351C19 11.9459 11.875 15.6216 9.5 17C7.125 15.6216 0 11.9459 0 5.51351C0 2.2973 2.375 0 5.225 0C6.992 0 8.55 0.918919 9.5 1.83784C10.45 0.918919 12.008 0 13.775 0Z"fill="#EC2127" /></svg></div><div class="product-description p-3"><div class="product-title text-gray-700">' + data['data'][i]['title'] + '</div><div class="product-price text-pink-600">Rp.' + formatNumber(data['data'][i]['disp_price']) + ' <span class="line-through text-xs text-gray-400">Rp405.000</span></div><div class="product-start content"></div></div></div>');
 
 				$("#tampil_detil_produk").append(`<div id="detil-produk` + data['data'][i]['id'] + `"
 				class="detil-produk bottom-0 right-0 left-0 top-0 bg-gray-200 z-20 fixed">
@@ -327,28 +324,13 @@ function fetch_produk() {
 					</div>
 					<div class="warna my-2 text-red-500">
 					  <p class="my-1 text-black">Pilih Warna</p>
-					  <div class="flex grid grid-cols-3 gap-2 justify-between text-center items-center">
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_warna" id for="warna1"
-							class="px-7 py-1">Merah</label><input class="hidden" type="radio" id="warna1" name="warna"></div>
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_warna" for="warna2"
-							class="px-7 py-1">Biru</label><input class="hidden" id="warna2" type="radio" name="warna"></div>
-						<div class="group border border-red-400 rounded-md "><label data-toggle="check_warna" for="warna3"
-							class="px-7 py-1">Hijau</label><input class="hidden" id="warna3" type="radio" name="warna"></div>
-						<div class="group  border border-red-400 rounded-md "><label data-toggle="check_warna" for="warna4"
-							class="px-7 py-1">Ungu</label><input class="hidden" id="warna4" type="radio" name="warna"></div>
+					  <div class="isi-warna flex grid grid-cols-3 gap-2 justify-between text-center items-center">
 					  </div>
 					</div>
 					<div class="ukuran my-2 text-red-500">
 					  <p class="my-1 text-black">Ukuran</p>
-					  <div class="flex grid grid-cols-3 gap-2 justify-between text-center items-center">
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_ukuran" id for="ukuran1"
-							class="px-7 py-1">M</label><input class="hidden" type="radio" id="ukuran1" name="ukuran"></div>
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_ukuran" for="ukuran2"
-							class="px-7 py-1">L</label><input class="hidden" id="ukuran2" type="radio" name="ukuran"></div>
-						<div class="group border border-red-400 rounded-md "><label data-toggle="check_ukuran" for="ukuran3"
-							class="px-7 py-1">XL</label><input class="hidden" id="ukuran3" type="radio" name="ukuran"></div>
-						<div class="group  border border-red-400 rounded-md "><label data-toggle="check_ukuran" for="ukuran4"
-							class="px-7 py-1">XXL</label><input class="hidden" id="ukuran4" type="radio" name="ukuran"></div>
+					  <div class="isi-ukuran flex grid grid-cols-3 gap-2 justify-between text-center items-center">
+
 					  </div>
 					</div>
 					<div class="quantity flex justify-start my-2">
@@ -370,8 +352,7 @@ function fetch_produk() {
 					  <p>Total</p>
 					  <h2 class="text-red-500 font-bold">Rp. 200.000</h2>
 					</div>
-					<div class="button flex w-full"><a
-						class="bg-red-500 shadow-button w-full text-center text-white py-2 rounded-full">Beli Sekarang</a></div>
+					<div class="button flex w-full"><a class="bg-red-500 shadow-button w-full text-center text-white py-2 rounded-full">Beli Sekarang</a></div>
 				  </div>
 				</div>
 				<div id="footer-detil-produk-tambah-keranjang` + data['data'][i]['id'] + `"
@@ -390,28 +371,13 @@ function fetch_produk() {
 					</div>
 					<div class="warna my-2 text-red-500">
 					  <p class="my-1 text-black">Pilih Warna</p>
-					  <div class="flex grid grid-cols-3 gap-2 justify-between text-center items-center">
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_warna" id for="warna1"
-							class="px-7 py-1">Merah</label><input class="hidden" type="radio" id="warna1" name="warna"></div>
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_warna" for="warna2"
-							class="px-7 py-1">Biru</label><input class="hidden" id="warna2" type="radio" name="warna"></div>
-						<div class="group border border-red-400 rounded-md "><label data-toggle="check_warna" for="warna3"
-							class="px-7 py-1">Hijau</label><input class="hidden" id="warna3" type="radio" name="warna"></div>
-						<div class="group  border border-red-400 rounded-md "><label data-toggle="check_warna" for="warna4"
-							class="px-7 py-1">Ungu</label><input class="hidden" id="warna4" type="radio" name="warna"></div>
+					  <div class="isi-warna flex grid grid-cols-3 gap-2 justify-between text-center items-center">
 					  </div>
 					</div>
 					<div class="ukuran my-2 text-red-500">
 					  <p class="my-1 text-black">Ukuran</p>
-					  <div class="flex grid grid-cols-3 gap-2 justify-between text-center items-center">
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_ukuran" id for="ukuran1"
-							class="px-7 py-1">M</label><input class="hidden" type="radio" id="ukuran1" name="ukuran"></div>
-						<div class="group border border-red-400 rounded-md"><label data-toggle="check_ukuran" for="ukuran2"
-							class="px-7 py-1">L</label><input class="hidden" id="ukuran2" type="radio" name="ukuran"></div>
-						<div class="group border border-red-400 rounded-md "><label data-toggle="check_ukuran" for="ukuran3"
-							class="px-7 py-1">XL</label><input class="hidden" id="ukuran3" type="radio" name="ukuran"></div>
-						<div class="group  border border-red-400 rounded-md "><label data-toggle="check_ukuran" for="ukuran4"
-							class="px-7 py-1">XXL</label><input class="hidden" id="ukuran4" type="radio" name="ukuran"></div>
+					  <div class="isi-ukuran flex grid grid-cols-3 gap-2 justify-between text-center items-center">
+						
 					  </div>
 					</div>
 					<div class="quantity flex justify-start my-2">
@@ -460,6 +426,7 @@ function fetch_produk() {
 
 				$(".detil-produk-left").on('click', function () {
 					$(".detil-produk").removeClass('active');
+					location.reload();
 				});
 
 
@@ -489,22 +456,6 @@ function fetch_produk() {
 				$(".detil-produk.active [data-toggle=modal]").on('click', function () {
 					$(".detil-produk.active .background").addClass('active');
 				});
-
-				var cek_warna = $("[data-toggle=check_warna]");
-				for (let i = 0; i < cek_warna.length; i++) {
-					cek_warna[i].onclick = function () {
-						$(".warna .group").removeClass('active bg-red-400 text-white');
-						$(this).parent().addClass('active bg-red-400 text-white');
-					}
-				}
-
-				var cek_ukuran = $("[data-toggle=check_ukuran]");
-				for (let i = 0; i < cek_ukuran.length; i++) {
-					cek_ukuran[i].onclick = function () {
-						$(".ukuran .group.active").removeClass('active bg-red-400 text-white');
-						$(this).parent().addClass('active bg-red-400 text-white');
-					}
-				}
 
 				var button_modal = $("[data-toggle=modal]");
 				for (let i = 0; i < button_modal.length; i++) {
@@ -537,22 +488,101 @@ function fetch_produk() {
 
 					}
 				}
+				$.ajax({
+					url: "https://sukahijabapi.neosantara.co.id/apimob/product/varian/" + data['data'][i]['id'],
+					type: "GET",
+					dataType: "JSON",
+					data: JSON.stringify({}),
+					success: function (response) {
+						const produk = response['data'];
+
+						const color = (produk) => {
+							const flag = {};
+							const unique = [];
+							produk.forEach((element) => {
+								if (!flag[element.Color]) {
+									flag[element.Color] = true;
+									unique.push(element);
+								}
+							});
+							return unique;
+						};
+
+						var array_warna = color(produk);
+						for (let index = 0; index < array_warna.length; index++) {
+							$("#detil-produk" + data['data'][i]['id'] + " .warna .isi-warna").append(`
+							<div class="group border border-red-400 rounded-md">
+							<label data-toggle="check_warna" for="warna` + index + data['data'][i]['id'] + `" class="py-1" data-id="` + array_warna[index]['id'] + `">` + array_warna[index]['Color'] + `</label>
+							<input class="hidden" type="radio" id="warna` + index + data['data'][i]['id'] + `" name="warna" value="l">
+							</div>
+							`)
+						}
+
+						var cek_warna = $("[data-toggle=check_warna]");
+						for (let i = 0; i < cek_warna.length; i++) {
+							cek_warna[i].onclick = function () {
+								$(".warna .group").removeClass('active bg-red-400 text-white');
+								$(this).parent().addClass('active bg-red-400 text-white');
+								$(".isi-ukuran .group").remove();
+								var value_warna = $(this).html();
+								var value_id = $(this).data('id');
+								perulangan_ukuran(value_warna, value_id);
+
+								function perulangan_ukuran(value_warna, value_id) {
+									for (let index = 0; index < data['data'].length; index++) {
+										$.ajax({
+											url: "https://sukahijabapi.neosantara.co.id/apimob/product/varian/" + data['data'][index]['id'],
+											type: "GET",
+											dataType: "JSON",
+											data: JSON.stringify({}),
+											success: function (response) {
+												array_ukuran = response['data'];
+												for (let index = 0; index < array_ukuran.length; index++) {
+													if (response['data'][index]['id'] == value_id && response['data'][index]['Color'] == value_warna) {
+														
+														$("#detil-produk" + value_id + " .ukuran .isi-ukuran").append(`
+														<div class="group border border-red-400 rounded-md">
+														<label data-toggle="check_ukuran" id for="ukuran1"
+														class="px-7 py-1">` + response['data'][index]['Size'] + `</label>
+														<input class="hidden" type="radio" id="ukuran1" name="ukuran">
+														</div>
+														`)
+														// $("#detil-produk" + value_id + " .ukuran .isi-ukuran div").remove();
+														// console.log(response['data'][index])
+													}
+												}
+												var cek_ukuran = $("[data-toggle=check_ukuran]");
+												for (let i = 0; i < cek_ukuran.length; i++) {
+													cek_ukuran[i].onclick = function () {
+														$(".ukuran .group.active").removeClass('active bg-red-400 text-white');
+														$(this).parent().addClass('active bg-red-400 text-white');
+													}
+												}
+											}
+										})
+									}
+								}
+
+							}
+						}
+					}
+				})
 			}
 		}
 	})
 }
 
-function fetch_detil_produk() {
-	$.ajax({
-		url: "https://sukahijabapi.neosantara.co.id/api/product",
-		type: "GET",
-		dataType: "JSON",
-		data: JSON.stringify({}),
-		success: function (response) {
-			console.log(response);
-		}
-	})
-}
+// function fetch_detil_produk() {
+// 	$.ajax({
+// 		url: "https://sukahijabapi.neosantara.co.id/api/product",
+// 		type: "GET",
+// 		dataType: "JSON",
+// 		data: JSON.stringify({}),
+// 		success: function (response) {
+// 			console.log(response);
+// 		}
+// 	})
+// }
 
 function fetch_slider() {
 	$.ajax({
@@ -565,7 +595,7 @@ function fetch_slider() {
 				$("#tampil_banner").append(
 					`<div class="owl-carousel banner owl-theme rounded-3xl shadow-lg">
 					<div class="item">
-					  <img class="rounded-xl" src="https://www.sukahijab.co.id/img/promo/`+data['data'][i]['cover_img']+`" alt="">
+					  <img class="rounded-xl" src="https://www.sukahijab.co.id/img/promo/` + data['data'][i]['cover_img'] + `" alt="`+ data['data'][i]['cover_img'] + `">
 					</div>
 				  </div> `
 				);
@@ -575,17 +605,17 @@ function fetch_slider() {
 					nav: false,
 					autoplay: true,
 					responsive: {
-						 0: {
-							  items: 1
-						 },
-						 600: {
-							  items: 3
-						 },
-						 1000: {
-							  items: 5
-						 }
+						0: {
+							items: 1
+						},
+						600: {
+							items: 3
+						},
+						1000: {
+							items: 5
+						}
 					}
-			   })
+				})
 			}
 		}
 	})
