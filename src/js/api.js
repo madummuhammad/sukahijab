@@ -17,8 +17,12 @@ $(document).ready(function () {
 	fetch_slider();
 
 	// join reseller
-	// fetch_join_reseller();
+	fetch_join_reseller();
 	// End of join reseller
+
+	// Cara Order
+	fetch_cara_order();
+	// End of cara order
 
 	// About Us
 	fetch_about_us();
@@ -54,17 +58,90 @@ $(document).ready(function () {
 	// 	})
 	// }
 	// sendReq();
+	// var form = new FormData();
+	// var settings = {
+	// 	"url": "https://sukahijabapi.neosantara.co.id/apimob/profile",
+	// 	"method": "GET",
+	// 	"timeout": 0,
+	// 	"headers": {
+	// 		"Authorization": "Bearer " + Cookies.get('token') + "",
+	// 		"Cookie": "auk7gefb3g7caob1g7krkq6jj9joj64q"
+	// 	},
+	// 	"processData": false,
+	// 	"mimeType": "multipart/form-data",
+	// 	"contentType": false,
+	// 	"data": form
+	// };
+
+	// $.ajax(settings).done(function (response) {
+	// 	console.log(response);
+	// });
+
+	// // const token = Cookies.get('token');
+	// fetch('https://sukahijabapi.neosantara.co.id/apimob/profile', {
+	// 		headers: {
+	// 			Authorization: `Bearer ${token}`
+	// 		}
+	// 	})
+	// 	.then(res => res.json())
+	// 	.then(json => console.log(json));
+
+	var url = "https://sukahijabapi.neosantara.co.id/apimob/profile";
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url);
+	
+	xhr.setRequestHeader("Accept", "application/json");
+	xhr.setRequestHeader("Authorization", "Bearer "+Cookies.get('token'));
+	
+	xhr.onreadystatechange = function () {
+	   if (xhr.readyState === 4) {
+		  console.log(xhr.status);
+		  console.log(xhr.responseText);
+	   }};
+	
+	xhr.send();
+	// $.ajax({
+	// 	url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
+	// 	type: 'GET',
+	// 	dataType: "json",
+	// 	headers:{
+	// 		"token":"Bearer "+Cookies.get('token')
+	// 	},
+	// 	proccesData:false,
+	// 	contentType: false,
+	// 	success: function (response) {
+	// 		console.log(response)
+	// 	}
+	// });
 
 	// $.ajax({
 	// 	url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
+	// 	type: 'GET',
+	// 	dataType: 'json',
 	// 	headers: {
-	// 		'Authentication': 'Bearer ' + Cookies.get('token')
+	// 		Authorization:"Bearer "+Cookies.get('token'),
 	// 	},
-	// 	method: 'GET',
-	// 	contentType: 'application/json',
-	// 	dataType: "json",
-	// 	success: function (response) {
-	// 		console.log(response)
+	// 	contentType:false,
+	// 	success: function (result) {
+	// 	   CallBack(result);
+	// 	},
+	// 	error: function (error) {
+
+	// 	}
+	// });
+
+
+	// $.ajax({
+	// 	type: "GET",
+	// 	url: "https://sukahijabapi.neosantara.co.id/apimob/profile",
+	// 	beforeSend: function (request) {
+	// 		request.setRequestHeader("Authorization", "Bearer " + Cookies.get('token'));
+	// 	},
+	// 	processData: false,
+	// 	ContentType: "application/json",
+	// 	success: function (msg) {
+	// 		console.log(msg);
 	// 	}
 	// });
 })
@@ -539,7 +616,7 @@ function fetch_produk() {
 												array_ukuran = response['data'];
 												for (let index = 0; index < array_ukuran.length; index++) {
 													if (response['data'][index]['id'] == value_id && response['data'][index]['Color'] == value_warna) {
-														
+
 														$("#detil-produk" + value_id + " .ukuran .isi-ukuran").append(`
 														<div class="group border border-red-400 rounded-md">
 														<label data-toggle="check_ukuran" id for="ukuran1"
@@ -595,7 +672,7 @@ function fetch_slider() {
 				$("#tampil_banner").append(
 					`<div class="owl-carousel banner owl-theme rounded-3xl shadow-lg">
 					<div class="item">
-					  <img class="rounded-xl" src="https://www.sukahijab.co.id/img/promo/` + data['data'][i]['cover_img'] + `" alt="`+ data['data'][i]['cover_img'] + `">
+					  <img class="rounded-xl" src="https://www.sukahijab.co.id/img/promo/` + data['data'][i]['cover_img'] + `" alt="` + data['data'][i]['cover_img'] + `">
 					</div>
 				  </div> `
 				);
@@ -638,18 +715,26 @@ function fetch_about_us() {
 	})
 }
 
-// function fetch_join_reseller() {
-// 	$.ajax({
-// 		url: "https://sukahijabapi.neosantara.co.id/apimob/page/join_reseller_get",
-// 		type: "GET",
-// 		dataType: "JSON",
-// 		data: JSON.stringify({}),
-// 		success: function (data) {
-// 			$("#card-join-reseller").append(`<div class="join-reseller-list flex text-sm">
-//               <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">1</h3>
-//               <p>`+data['data']+`</p>
-//             </div>
-//             <div class="join-reseller-divider h-9 bg-gray-600 w-0.5 m-3"></div>`)
-// 		}
-// 	})
-// }
+function fetch_join_reseller() {
+	$.ajax({
+		url: "https://sukahijabapi.neosantara.co.id/apimob/page/join_reseller_get",
+		type: "GET",
+		dataType: "JSON",
+		data: JSON.stringify({}),
+		success: function (data) {
+			$("#card-join-reseller").append(data['data'])
+		}
+	})
+}
+
+function fetch_cara_order() {
+	$.ajax({
+		url: "https://sukahijabapi.neosantara.co.id/apimob/page/step_order_get",
+		type: "GET",
+		dataType: "JSON",
+		data: JSON.stringify({}),
+		success: function (data) {
+			$("#card-cara-order").append(data['data'])
+		}
+	})
+}
