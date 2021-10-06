@@ -20,6 +20,10 @@ $(document).ready(function () {
 	fetch_join_reseller();
 	// End of join reseller
 
+	// Testimoni
+	fetch_testimoni();
+	// end of testimoni
+
 	// Cara Order
 	fetch_cara_order();
 	// End of cara order
@@ -28,122 +32,20 @@ $(document).ready(function () {
 	fetch_about_us();
 	// End of about us
 
-	// let sendReq = (ev) => {
-	// 	let url = 'https://sukahijabapi.neosantara.co.id/apimob/profile';
-	// 	let token = Cookies.get('token');
-
-	// 	let h = new Headers();
-
-	// h.append(
-	// 	"Authorization", "Bearer " + token,
-	// 	"Access-Control-Request-Headers", "*",
-	// 	"Access-Control-Request-Method", "*"
-	// 	);
-
-	// 	let req = new Request(url, {
-	// 		method: 'GET',
-	// 		mode: 'cors',
-	// 		headers: {
-	// 			"Authentication":"Bearer "+token
-	// 		},
-	// 	});
-
-	// 	fetch(req)
-	// 	.then(resp => resp.json())
-	// 	.then(data => {
-	// 		console.log(data[0]);
-	// 	})
-	// 	.catch(err => {
-	// 		console.error(err.message);
-	// 	})
-	// }
-	// sendReq();
-	// var form = new FormData();
-	// var settings = {
-	// 	"url": "https://sukahijabapi.neosantara.co.id/apimob/profile",
-	// 	"method": "GET",
-	// 	"timeout": 0,
-	// 	"headers": {
-	// 		"Authorization": "Bearer " + Cookies.get('token') + "",
-	// 		"Cookie": "auk7gefb3g7caob1g7krkq6jj9joj64q"
-	// 	},
-	// 	"processData": false,
-	// 	"mimeType": "multipart/form-data",
-	// 	"contentType": false,
-	// 	"data": form
-	// };
-
-	// $.ajax(settings).done(function (response) {
-	// 	console.log(response);
-	// });
-
-	// // const token = Cookies.get('token');
-	// fetch('https://sukahijabapi.neosantara.co.id/apimob/profile', {
-	// 		headers: {
-	// 			Authorization: `Bearer ${token}`
-	// 		}
-	// 	})
-	// 	.then(res => res.json())
-	// 	.then(json => console.log(json));
-
-	var url = "https://sukahijabapi.neosantara.co.id/apimob/profile";
-
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", url);
-	
-	xhr.setRequestHeader("Accept", "application/json");
-	xhr.setRequestHeader("Authorization", "Bearer "+Cookies.get('token'));
-	
-	xhr.onreadystatechange = function () {
-	   if (xhr.readyState === 4) {
-		  console.log(xhr.status);
-		  console.log(xhr.responseText);
-	   }};
-	
-	xhr.send();
-	// $.ajax({
-	// 	url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
-	// 	type: 'GET',
-	// 	dataType: "json",
-	// 	headers:{
-	// 		"token":"Bearer "+Cookies.get('token')
-	// 	},
-	// 	proccesData:false,
-	// 	contentType: false,
-	// 	success: function (response) {
-	// 		console.log(response)
-	// 	}
-	// });
-
-	// $.ajax({
-	// 	url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
-	// 	type: 'GET',
-	// 	dataType: 'json',
-	// 	headers: {
-	// 		Authorization:"Bearer "+Cookies.get('token'),
-	// 	},
-	// 	contentType:false,
-	// 	success: function (result) {
-	// 	   CallBack(result);
-	// 	},
-	// 	error: function (error) {
-
-	// 	}
-	// });
-
-
-	// $.ajax({
-	// 	type: "GET",
-	// 	url: "https://sukahijabapi.neosantara.co.id/apimob/profile",
-	// 	beforeSend: function (request) {
-	// 		request.setRequestHeader("Authorization", "Bearer " + Cookies.get('token'));
-	// 	},
-	// 	processData: false,
-	// 	ContentType: "application/json",
-	// 	success: function (msg) {
-	// 		console.log(msg);
-	// 	}
-	// });
+	$.ajax({
+		url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
+		type: 'GET',
+		beforeSend: function (xhr) {
+			xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get('token'));
+		},
+		data: {},
+		success: function (response) {
+			console.log(response)
+		},
+		error: function (err) {
+			console.log(err)
+		},
+	});
 })
 
 $("#button-login").on('click', function () {
@@ -735,6 +637,22 @@ function fetch_cara_order() {
 		data: JSON.stringify({}),
 		success: function (data) {
 			$("#card-cara-order").append(data['data'])
+		}
+	})
+}
+
+function fetch_testimoni() {
+	$.ajax({
+		url: "https://sukahijabapi.neosantara.co.id/apimob/page/testimonial_get",
+		type: "GET",
+		dataType: "JSON",
+		data: JSON.stringify({}),
+		success: function (data) {
+			for (let i = 0; i < data['data'].length; i++) {
+				$("#card-testimoni").append(`<img src="https://www.sukahijab.co.id/img/testimonial/` + data['data'][i]['img'] + `" alt="` + data['data'][i]['img'] + `">
+			`)
+			}
+
 		}
 	})
 }

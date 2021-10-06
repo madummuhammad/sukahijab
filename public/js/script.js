@@ -33,35 +33,37 @@
     })
     // end of produk
 
-
-    // Cek Ongkir
-    $("#cek-ongkir").on('click', function () {
-         $("#modal-cek-ongkir").addClass('active');
-    });
-    $("#cek-ongkir-close").on('click', function () {
-         $("#modal-cek-ongkir").removeClass('active');
-    });
-
-
-    // Promo
-    $("#open-promo").on('click', function () {
-         $("#modal-promo").addClass('active');
-    });
-    $("#promo-close").on('click', function () {
-         $("#modal-promo").removeClass('active');
-    });
-    $(".detil-promo-close").on('click', function () {
-         $(".modal-detil-promo").removeClass('active');
-    });
+    $(document).ready(function () {
+         // Cek Ongkir
+         $("#cek-ongkir").on('click', function () {
+              $("#modal-cek-ongkir").addClass('active');
+         });
+         $("#cek-ongkir-close").on('click', function () {
+              $("#modal-cek-ongkir").removeClass('active');
+         });
 
 
-    // Blog
-    $("#open-blog").on('click', function () {
-         $("#modal-blog").addClass('active');
-    });
-    $("#blog-close").on('click', function () {
-         $("#modal-blog").removeClass('active');
-    });
+         // Promo
+         $("#open-promo").on('click', function () {
+              $("#modal-promo").addClass('active');
+         });
+         $("#promo-close").on('click', function () {
+              $("#modal-promo").removeClass('active');
+         });
+         $(".detil-promo-close").on('click', function () {
+              $(".modal-detil-promo").removeClass('active');
+         });
+
+
+         // Blog
+         $("#open-blog").on('click', function () {
+              $("#modal-blog").addClass('active');
+         });
+         $("#blog-close").on('click', function () {
+              $("#modal-blog").removeClass('active');
+         });
+    })
+
 
 
     //     Konfirmasi Pembayaran

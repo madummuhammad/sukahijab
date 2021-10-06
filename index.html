@@ -758,7 +758,7 @@
                 </a>
               </div>
               <div class="profile-aksi-group py-6">
-                <a id="open-testimoni" class="cursor-pointer flex font-black items-center">
+                <a id="open-testimoni" class="flex font-black items-center">
                   <div class="aksi-icon pr-4">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -768,8 +768,6 @@
                         d="M16.9724 15.021C17.1148 14.9875 17.2639 14.9963 17.4013 15.0464C17.5388 15.0966 17.6585 15.1858 17.7459 15.3031C17.8333 15.4204 17.8844 15.5608 17.893 15.7068C17.9017 15.8528 17.8674 15.9982 17.7944 16.125C17.2021 17.1515 16.3499 18.0039 15.3234 18.5964C14.297 19.1889 13.1326 19.5005 11.9474 19.5C10.7623 19.5005 9.5979 19.1889 8.57146 18.5964C7.54503 18.0039 6.69276 17.1515 6.10045 16.125C6.02751 15.9982 5.99324 15.8528 6.00187 15.7068C6.0105 15.5608 6.06164 15.4204 6.149 15.3031C6.23636 15.1858 6.35613 15.0966 6.49355 15.0464C6.63098 14.9963 6.78006 14.9875 6.92245 15.021H6.92995L6.95545 15.0285L7.05595 15.051L7.43395 15.1335C7.75645 15.2025 8.20645 15.2955 8.71945 15.387C9.75895 15.573 11.0024 15.75 11.9474 15.75C12.8924 15.75 14.1374 15.573 15.1754 15.387C15.7323 15.2868 16.2869 15.1748 16.8389 15.051L16.9394 15.0285L16.965 15.0225L16.9724 15.0195V15.021ZM7.13395 6.84898C8.27845 4.71298 13.1639 6.66898 8.56195 12C1.81795 9.60598 5.03695 5.55298 7.13395 6.84898ZM16.8659 6.84898C18.9629 5.55298 22.1819 9.60598 15.4379 12C10.8374 6.66898 15.7229 4.71298 16.8659 6.84898Z"
                         fill="#FFC200" />
                     </svg>
-
-
                   </div>
                   <div class="aksi-title">Testimoni</div>
                 </a>
@@ -1637,7 +1635,7 @@
               <p>Daftar akun Anda diplatform Sukahijab</p>
             </div>
             <div class="join-reseller-divider h-9 bg-gray-600 w-0.5 m-3"></div> -->
-            <!-- <div class="join-reseller-list flex text-sm">
+              <!-- <div class="join-reseller-list flex text-sm">
               <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full mr-2">2</h3>
               <p>Perbaharui data akun Anda</p>
             </div>
@@ -1646,6 +1644,7 @@
               <h3 class="text-white h-6 w-6 text-center bg-red-600 rounded-full px-2 mr-2">3</h3>
               <p>Hubungi kami melalui Whatsapp, Telepon atau Email</p>
             </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -1666,8 +1665,8 @@
     <div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
       <div class="pembungkus h-screen">
         <div class="testimoni-content mx-10 flex flex-col text-gray-500 overflow-y-scroll pb-32">
-          <div class="card-testimoni rounded-2xl mb-5">
-
+          <div id="card-testimoni" class="card-testimoni rounded-2xl mb-5 flex flex-col items-center">
+            <!-- <img src="public/img/category/khimar.jpg" alt=""> -->
           </div>
         </div>
       </div>
@@ -1684,11 +1683,10 @@
 
   <!-- Detil Produk -->
   <div id="tampil_detil_produk">
-    
+
   </div>
 
   <!-- End of Detil Produk -->
-  </div>
   <script src="src/js/api.js"></script>
   <script src="public/js/owl.carousel.min.js"></script>
   <script src="public/js/script.js"></script>
