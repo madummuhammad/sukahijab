@@ -6,6 +6,10 @@ $(document).ready(function () {
 	fetch_blog();
 	// End of blog
 
+	// promo
+	fetch_promo();
+	// end of promo
+
 	// Produk
 	fetch_produk();
 	// end of produk
@@ -196,6 +200,93 @@ function fetch_blog() {
 					$(".modal-detil-blog").removeClass('active');
 				});
 
+				var button_modal = $("[data-toggle=modal]");
+				for (let i = 0; i < button_modal.length; i++) {
+					button_modal[i].onclick = function () {
+						var id_target = $(this).data('target');
+						$(id_target).addClass('active');
+					}
+				}
+			}
+
+		}
+	})
+}
+
+function fetch_promo() {
+	$.ajax({
+		url: "https://sukahijabapi.neosantara.co.id/apimob/slider/index",
+		type: "GET",
+		dataType: "JSON",
+		data: JSON.stringify({}),
+		success: function (data) {
+			for (var i = data['data'].length - 1; i >= 0; i--) {
+				$("#tampil_promo").prepend(`
+				<div data-toggle="modal" data-target="#modal-detil-promo` + data['data'][i]['id'] + `" class="card-promo bg-white p-3 rounded-2xl mb-5">
+				<h2 class="text-grey-500 text-sm justify-items-center font-bold"><i class="fas fa-circle"></i> Promo
+				</h2>
+				<img class="rounded-xl" src="https://www.sukahijab.co.id/img/promo/`+ data['data'][i]['cover_img'] +`" alt="`+data['data'][i]['cover_img']+`">
+				<p class="text-justify">` + data['data'][i]['title'] +`</p>
+			  </div>
+				`)
+
+				$("#tampil_detil_promo").prepend(`
+				<div id="modal-detil-promo` + data['data'][i]['id'] + `"
+				class="modal-detil-promo fixed bottom-0 right-0 left-0 top-0 bg-gradient-to-br from-pink-200 to-pink-200 z-20">
+				<div class="detil-promo-close blog-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+				  <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M11.5 18.5001L3 10.0001L11.5 1.50012L10 0.00012207L-4.76837e-06 10.0001L10 20.0001L11.5 18.5001Z"
+					  fill="#737373" />
+				  </svg>
+				  <h4 class="font-bold pl-5">` + data['data'][i]['title'] +`</h4>
+				</div>
+				<div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full">
+				  <div class="pembungkus h-screen">
+					<div class="blog-content mx-4 flex flex-col text-gray-500 overflow-y-scroll pb-32">
+					  <div class="card-promo bg-white p-3 rounded-2xl mb-5 relative">
+						<img class="rounded-xl" src="https://www.sukahijab.co.id/img/promo/`+ data['data'][i]['cover_img'] +`" alt="`+data['data'][i]['cover_img']+`">
+						<div class="card-promo-header mt-2">
+						  <div class="detil-blog-icon flex justify-between">
+							<div class="icon-left px-3 border-2 border-gray-400 rounded-full flex items-center py-1">
+							  <p class="text-sm"><i class="fas fa-circle text-gray-300 text-xs"></i> Promo</p>
+							</div>
+							<div class="icon-right flex">
+							  <div class="icon-view flex items-center">
+								<i class="fas fa-eye"></i>
+								<p class="ml-2">` + data['data'][i]['total_review'] +`</p>
+							  </div>
+							  <div class="icon-like flex items-center ml-4">
+								<i class="far fa-heart"></i>
+								<p class="ml-2">1k+</p>
+							  </div>
+							</div>
+						  </div>
+						  <h2 class="t text-2xl text-black font-bold mb-3">Produk Baru Sukahijab</h2>
+						  <p class="mb-3">`+ data['data'][i]['last_edited'] +` - `+ data['data'][i]['name'] +`</p>
+						  <div class="detil-promo-keterangan">
+							`+ data['data'][i]['content'] +`
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			
+			  </div>
+				`)
+				// Promo
+				$("#open-promo").on('click', function () {
+					$("#modal-promo").addClass('active');
+				});
+				$("#promo-close").on('click', function () {
+					$("#modal-promo").removeClass('active');
+				});
+				$(".detil-promo-close").on('click', function () {
+					$(".modal-detil-promo").removeClass('active');
+				});
+				// end of promo
+
+				console.log(data['data'])
 				var button_modal = $("[data-toggle=modal]");
 				for (let i = 0; i < button_modal.length; i++) {
 					button_modal[i].onclick = function () {

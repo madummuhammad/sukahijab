@@ -43,17 +43,6 @@
          });
 
 
-         // Promo
-         $("#open-promo").on('click', function () {
-              $("#modal-promo").addClass('active');
-         });
-         $("#promo-close").on('click', function () {
-              $("#modal-promo").removeClass('active');
-         });
-         $(".detil-promo-close").on('click', function () {
-              $(".modal-detil-promo").removeClass('active');
-         });
-
 
          // Blog
          $("#open-blog").on('click', function () {
@@ -109,38 +98,59 @@
     $(document).ready(function () {
          if (Cookies.get('token')) {
               //     Jika telah login
-              $("#is-logged-in").prepend(`
-                  <div class="profile-header grid grid-cols-3 w-full mx-2" style="font-family: 'Inter', sans-serif;">
-          <div id="open-detil-profile" class="profile-description flex justify-center items-center  col-span-2">
-            <div class="profile-image rounded-full  border-4 border-blue-400 w-20">
-              <img class="rounded-full" src="public/img/da3caf20934ffbe330cb723cdeda910d.jpg" alt="">
+              $.ajax({
+                   url: 'https://sukahijabapi.neosantara.co.id/apimob/profile',
+                   type: 'GET',
+                   beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get('token'));
+                   },
+                   data: {},
+                   success: function (response) {
+                        $("#is-logged-in").prepend(`
+                    <div class="profile-header grid grid-cols-3 w-full mx-2" style="font-family: 'Inter', sans-serif;">
+            <div id="open-detil-profile" class="profile-description flex justify-center items-center  col-span-2">
+              <div class="profile-image rounded-full  border-4 border-blue-400 w-20">
+                <img class="rounded-full" src="public/img/da3caf20934ffbe330cb723cdeda910d.jpg" alt="">
+              </div>
+              <div class="profile-name pl-5">
+                <h4 class="font-bold">` + response['data']['name'] + `</h4>
+                <p class="text text-gray-500">Tasik Malaya</p>
+              </div>
             </div>
-            <div class="profile-name pl-5">
-              <h4 class="font-bold">Citra Kirana</h4>
-              <p class="text text-gray-500">Tasik Malaya</p>
+            <div class="profile-whishlist flex justify-center items-center flex-col">
+              <div
+                class="profile-whishlist-heart bg-white rounded-full w-9 h-9 text-red-700 flex justify-center items-center">
+                <i class="fas fa-heart"></i></div>
+              <div class="porfile-whishlist-text text-xs">
+                <p class="pt-1">Whistlist ku</p>
+              </div>
             </div>
           </div>
-          <div class="profile-whishlist flex justify-center items-center flex-col">
-            <div
-              class="profile-whishlist-heart bg-white rounded-full w-9 h-9 text-red-700 flex justify-center items-center">
-              <i class="fas fa-heart"></i></div>
-            <div class="porfile-whishlist-text text-xs">
-              <p class="pt-1">Whistlist ku</p>
+          <div class="profile-saldo grid grid-cols-2 gap-2 mt-6 mx-12 text-white"
+            style="font-family: 'Inter', sans-serif;">
+            <div class="saldo bg-gradient-to-r from-pink-700 to-pink-500 rounded-md p-2">
+              <p>Saldo</p>
+              <p class="font-bold">` + response['data']['_saldo'] + `</p>
+            </div>
+            <div class="point bg-gradient-to-tr from-blue-700 to-green-400 rounded-md p-2">
+              <p>Point</p>
+              <p class="font-bold">` + response['data']['_point'] + `</p>
             </div>
           </div>
-        </div>
-        <div class="profile-saldo grid grid-cols-2 gap-2 mt-6 mx-12 text-white"
-          style="font-family: 'Inter', sans-serif;">
-          <div class="saldo bg-gradient-to-r from-pink-700 to-pink-500 rounded-md p-2">
-            <p>Saldo</p>
-            <p class="font-bold">Rp1.315.000</p>
-          </div>
-          <div class="point bg-gradient-to-tr from-blue-700 to-green-400 rounded-md p-2">
-            <p>Point</p>
-            <p class="font-bold">179</p>
-          </div>
-        </div>
-          `)
+            `);
+                        //     Detil profile
+                        $("#open-detil-profile").on('click', function () {
+                             $("#modal-detil-profile").addClass('active');
+                        });
+                        $("#detil-profile-close").on('click', function () {
+                             $("#modal-detil-profile").removeClass('active');
+                        });
+                        // End of detil profile
+                   },
+                   error: function (err) {
+                        console.log(err)
+                   },
+              });
               // Jika belum login
 
               //     Logout
@@ -557,15 +567,6 @@
          });
     });
     // End of preview
-
-    //     Detil profile
-    $("#open-detil-profile").on('click', function () {
-         $("#modal-detil-profile").addClass('active');
-    });
-    $("#detil-profile-close").on('click', function () {
-         $("#modal-detil-profile").removeClass('active');
-    });
-    // End of detil profile
 
     //     Kelola alamat
     $("#open-kelola-alamat").on('click', function () {
