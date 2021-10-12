@@ -44,7 +44,13 @@ $(document).ready(function () {
 		},
 		data: {},
 		success: function (response) {
-			console.log(response)
+			console.log(response);
+			$("#modal-detil-profile [name=name]").val(response['data']['name']);
+			$("#modal-detil-profile [name=male]").val(response['data']['male']);
+			$("#modal-detil-profile [name=email]").val(response['data']['email']);
+			$("#modal-detil-profile [name=phone]").val(response['data']['phone']);
+			$("#modal-detil-profile [name=username]").val(response['data']['username']);
+			$("#modal-detil-profile [name=password]").val(response['data']['password']); 
 		},
 		error: function (err) {
 			console.log(err)
@@ -92,6 +98,39 @@ $("#button-login").on('click', function () {
 	})
 
 });
+
+$("#button_update_profile").on('click',function(){
+	var name = $("#modal-detil-profile [name=name]");
+	var male = $("#modal-detil-profile [name=male]");
+	var email = $("#modal-detil-profile [name=email]");
+	var phone = $("#modal-detil-profile [name=phone]");
+	var username = $("#modal-detil-profile [name=username]");
+	var password = $("#modal-detil-profile [name=password]");
+
+	$.ajax({
+		url: "https://sukahijabapi.neosantara.co.id/apimob/profile/update_profile_post",
+		type: "POST",
+		data:{
+			name: name.val(),
+			male: male.val(),
+			email: email.val(),
+			username: username.val(),
+			password: password.val(),
+			phone: phone.val()
+		},
+		beforeSend: function (xhr) {
+			xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get('token'));
+		},
+		success: function (response){
+			if (response['status']==true) {
+				console.log(response);
+				location.reload();
+			}else{
+				alert('Mohon Lengkapi Data');
+			}
+		}
+	});
+})
 
 $("#button-registrasi").on('click', function () {
 	var name = $("#modal-halaman-registrasi [name=name]");
