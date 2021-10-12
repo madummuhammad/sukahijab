@@ -906,27 +906,36 @@
               <img class="w-7" src="public/img/camera-icon.png" alt="">
             </a>
           </div>
+          <div class="overflow-y-scroll  divide-y divide-solid divide-gray-300 h-96 scroll-hide">
           <div class="card-detil-profile bg-white p-6 mt-5 w-full h-screen mb-0">
             <div class="group-input flex justify-between mb-6">
               <label for="">Nama</label>
-              <input type="text" class="border-b-2 w-52 focus:outline-none">
+              <input type="text" class="border-b-2 w-52 focus:outline-none" name="name">
             </div>
             <div class="group-input flex justify-between mb-6">
               <label for="">Jenis Kelamin</label>
-              <select class="border-b-2 w-52 bg-white focus:outline-none" name="" id="">
+              <select class="border-b-2 w-52 bg-white focus:outline-none" name="male" id="select_male">
                 <option value="" selected></option>
-                <option value="">Laki-laki</option>
-                <option value="">Perempuan</option>
+                <option value="1">Laki-laki</option>
+                <option value="2">Perempuan</option>
               </select>
               <!-- <input type="text" class="border-b-2 w-64"> -->
             </div>
             <div class="group-input flex justify-between mb-6">
               <label for="">No Hp</label>
-              <input type="number" class="border-b-2 w-52 focus:outline-none">
+              <input type="number" class="border-b-2 w-52 focus:outline-none" name="phone">
             </div>
             <div class="group-input flex justify-between mb-6">
               <label for="">Username</label>
-              <input type="number" class="border-b-2 w-52 focus:outline-none">
+              <input type="email" class="border-b-2 w-52 focus:outline-none" name="username">
+            </div>
+            <div class="group-input flex justify-between mb-6">
+              <label for="">Email</label>
+              <input type="email" class="border-b-2 w-52 focus:outline-none" name="email">
+            </div>
+            <div class="group-input flex justify-between mb-6">
+              <label for="">Password</label>
+              <input type="password" class="border-b-2 w-52 focus:outline-none" name="password">
             </div>
             <!-- <div class="group-input flex justify-between mb-6">
                 <label for="">Provinsi</label>
@@ -964,10 +973,14 @@
                 <input type="number" class="border-b-2 w-52">
               </div> -->
             <div class="group-input flex justify-center mb-6">
+              <button id="button_update_profile" class="py-2 rounded-full text-white bg-red-600 w-1/2 text-center cursor-pointer">Submit</button>
+            </div>
+<!--              <div class="group-input flex justify-center mb-6">
               <a id="open-kelola-alamat" class="py-2 rounded-full text-white bg-red-600 w-1/2 text-center">Kelola
                 Alamat</a>
-            </div>
+            </div> -->
           </div>
+        </div>
         </div>
       </div>
     </div>
