@@ -132,6 +132,8 @@ $("#button_update_profile").on('click',function(){
 	});
 })
 
+
+
 $("#button-registrasi").on('click', function () {
 	var name = $("#modal-halaman-registrasi [name=name]");
 	var email = $("#modal-halaman-registrasi [name=email]");
@@ -339,6 +341,33 @@ function fetch_promo() {
 	})
 }
 
+// $("#tmb_cart").on('click', function(){
+// 					alert('tes');
+				// 	var pd_id = "20013009163824";
+				// 	var cl_id = "2001300923283";
+				// 	var sz_id = "2001300916384";
+				// 	var qty = 2;
+				// 	$.ajax({
+				// 	url: "https://sukahijabapi.neosantara.co.id/apimob/cart/add_product_post",
+				// 	dataType: "json",
+				// 	type: "POST",
+				// 	data:{
+				// 	pd_id: pd_id,
+				// 	cl_id: cl_id,
+				// 	sz_id: sz_id,
+				// 	qty: qty
+				// 	},
+				// beforeSend: function (xhr) {
+				// 	xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get('token'));
+				// },
+				// success: function (response){
+				// console.log(response);
+				// alert(response['status']);
+				// }
+				// });		
+// 			})
+
+
 function fetch_produk() {
 	function formatNumber(num) {
 		return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -473,6 +502,7 @@ function fetch_produk() {
 					<div class="header flex justify-start"><img class="h-24 rounded-lg mr-3"
 						src="public/img/product/content-1.jpg" alt="">
 					  <div class="keterangan">
+					  <input type="text" class="idproduct" value="` + data['data'][i]['id'] + `" >
 						<p>` + data['data'][i]['code'] + ` - ` + data['data'][i]['title'] + `</p>
 						<h2 class="font-bold text-red-600">Rp. 200.000</h2>
 						<p class="text-red-600"><span class="line-through text-gray-500">Rp 300.000</span> 49%</p>
@@ -498,7 +528,7 @@ function fetch_produk() {
 						  class=" w-20 rounded-l cursor-pointer outline-none text-red-600"><span
 							class="m-auto font-thin"></span><i class="fas fa-minus-circle"></i></button><input
 						  id="quantity_detil_produk_tambah_keranjang` + data['data'][i]['id'] + `" type="number"
-						  class="outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center bg-white"
+						  class="qty outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center bg-white"
 						  name="custom-input-number" value="0" disabled><button data-action="tambah"
 						  data-target="#quantity_detil_produk_tambah_keranjang` + data['data'][i]['id'] + `"
 						  class="h-full w-20 cursor-pointer text-red-600"><span class="m-auto font-thin text-center"></span><i
@@ -508,8 +538,7 @@ function fetch_produk() {
 					  <p>Total</p>
 					  <h2 class="text-red-500 font-bold">Rp. 200.000</h2>
 					</div>
-					<div class="button flex w-full"><a
-						class="bg-red-500 shadow-button w-full text-center text-white py-2 rounded-full">Tambah Keranjang</a>
+					<div class="button flex w-full" ><a class="btn-tmb-cart` + data['data'][i]['id'] + ` bg-red-500 shadow-button w-full text-center text-white py-2 rounded-full cursor-pointer">Tambah Keranjang</a>
 					</div>
 				  </div>
 				</div>
@@ -533,6 +562,8 @@ function fetch_produk() {
 					}
 				})
 
+
+
 				$(".detil-produk-left").on('click', function () {
 					$(".detil-produk").removeClass('active');
 					location.reload();
@@ -546,6 +577,29 @@ function fetch_produk() {
 						owl.trigger('to.owl.carousel', [i]);
 					}
 				}
+				
+				$(".btn-tmb-cart"+data['data'][i]['id']).on('click', function () {
+					var pd_id = data['data'][i]['id'];				
+					var color_id = $('input[name="warna"]:checked').val();
+					var size_id = $('input[name="ukuran"]:checked').val();
+					var qty = $('#quantity_detil_produk_tambah_keranjang' + data['data'][i]['id']).val();
+					$.ajax({
+						url: "https://sukahijabapi.neosantara.co.id/apimob/cart/add_product_post",
+						type: "POST",
+						data: {
+							pd_id: pd_id,
+							cl_id: color_id,
+							sz_id: size_id,
+							qty: qty
+						},
+						beforeSend: function(xhr) {
+							xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get('token'));
+						},
+						success: function(response){
+							console.log(response);
+						}
+					})
+				})
 
 				$(".footer-detil-produk-bs-close").on('click', function () {
 					$(".footer-detil-produk-beli-sekarang").removeClass('active');
@@ -565,6 +619,7 @@ function fetch_produk() {
 				$(".detil-produk.active [data-toggle=modal]").on('click', function () {
 					$(".detil-produk.active .background").addClass('active');
 				});
+
 
 				var button_modal = $("[data-toggle=modal]");
 				for (let i = 0; i < button_modal.length; i++) {
@@ -622,7 +677,7 @@ function fetch_produk() {
 							$("#detil-produk" + data['data'][i]['id'] + " .warna .isi-warna").append(`
 							<div class="group border border-red-400 rounded-md">
 							<label data-toggle="check_warna" for="warna` + index + data['data'][i]['id'] + `" class="py-1" data-id="` + array_warna[index]['id'] + `">` + array_warna[index]['Color'] + `</label>
-							<input class="hidden" type="radio" id="warna` + index + data['data'][i]['id'] + `" name="warna" value="l">
+							<input  class="hidden" type="radio" id="warna` + index + data['data'][i]['id'] + `" name="warna"  value="` + array_warna[index]['color_id'] + `">
 							</div>
 							`)
 						}
@@ -651,9 +706,9 @@ function fetch_produk() {
 
 														$("#detil-produk" + value_id + " .ukuran .isi-ukuran").append(`
 														<div class="group border border-red-400 rounded-md">
-														<label data-toggle="check_ukuran" id for="ukuran1"
+														<label data-toggle="check_ukuran" for="ukuran1"
 														class="px-7 py-1">` + response['data'][index]['Size'] + `</label>
-														<input class="hidden" type="radio" id="ukuran1" name="ukuran">
+														<input type="radio" class="hidden"  id="ukuran1" name="ukuran" value="`+ response['data'][index]['size_id'] + `">
 														</div>
 														`)
 														// $("#detil-produk" + value_id + " .ukuran .isi-ukuran div").remove();
@@ -665,6 +720,7 @@ function fetch_produk() {
 													cek_ukuran[i].onclick = function () {
 														$(".ukuran .group.active").removeClass('active bg-red-400 text-white');
 														$(this).parent().addClass('active bg-red-400 text-white');
+														// $("#ukuran1"+cek_ukuran[i]+"").attr('checked',true);
 													}
 												}
 											}
@@ -677,6 +733,7 @@ function fetch_produk() {
 					}
 				})
 			}
+			
 		}
 	})
 }
