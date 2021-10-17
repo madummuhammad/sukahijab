@@ -341,31 +341,6 @@ function fetch_promo() {
 	})
 }
 
-// $("#tmb_cart").on('click', function(){
-// 					alert('tes');
-				// 	var pd_id = "20013009163824";
-				// 	var cl_id = "2001300923283";
-				// 	var sz_id = "2001300916384";
-				// 	var qty = 2;
-				// 	$.ajax({
-				// 	url: "https://sukahijabapi.neosantara.co.id/apimob/cart/add_product_post",
-				// 	dataType: "json",
-				// 	type: "POST",
-				// 	data:{
-				// 	pd_id: pd_id,
-				// 	cl_id: cl_id,
-				// 	sz_id: sz_id,
-				// 	qty: qty
-				// 	},
-				// beforeSend: function (xhr) {
-				// 	xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get('token'));
-				// },
-				// success: function (response){
-				// console.log(response);
-				// alert(response['status']);
-				// }
-				// });		
-// 			})
 
 
 function fetch_produk() {
