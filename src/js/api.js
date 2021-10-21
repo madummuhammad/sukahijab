@@ -150,7 +150,8 @@ $("#button-registrasi").on('click', function () {
 		},
 		success: function (response) {
 			if (response['status'] == true) {
-				Cookies.set('token', JSON.stringify(response['tokenJWT']));
+				// Cookies.set('token', JSON.stringify(response['tokenJWT']));
+				Cookies.set('token', response['tokenJWT']);
 				location.reload();
 			} else {
 				if (name.val().length == 0) {
@@ -432,7 +433,7 @@ function fetch_produk() {
 					  <div class="keterangan">
 						<p>` + data['data'][i]['code'] + ` - ` + data['data'][i]['title'] + `</p>
 						<h2 class="font-bold text-red-600">Rp. 200.000</h2>
-						<p class="text-red-600"><span class="line-through text-gray-500">Rp 300.000</span> 49%</p>
+						<p class="text-red-600"><span class="line-through text-gray-500">Rp.`+data['data'][i]['disp_price']+`</span> 49%</p>
 					  </div>
 					</div>
 					<div class="warna my-2 text-red-500">
@@ -476,8 +477,7 @@ function fetch_produk() {
 					</div>
 					<div class="header flex justify-start"><img class="h-24 rounded-lg mr-3"
 						src="public/img/product/content-1.jpg" alt="">
-					  <div class="keterangan">
-					  <input type="text" class="idproduct" value="` + data['data'][i]['id'] + `" >
+					  <div class="keterangan">					  
 						<p>` + data['data'][i]['code'] + ` - ` + data['data'][i]['title'] + `</p>
 						<h2 class="font-bold text-red-600">Rp. 200.000</h2>
 						<p class="text-red-600"><span class="line-through text-gray-500">Rp 300.000</span> 49%</p>
@@ -817,4 +817,168 @@ function fetch_testimoni() {
 
 		}
 	})
+}
+//get cart
+
+fetch_cart();
+
+function fetch_cart(){
+	$.ajax({
+		url: " https://sukahijabapi.neosantara.co.id/apimob/cart/index",
+		type:"GET",
+		// dataType: "JSON",
+		// data: JSON.stringify({}),
+		beforeSend: function(xhr){
+			xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get("token"));			
+		},
+		success: function(data){
+			let result = '';
+			result += `<div class="pembungkus overflow-y-scroll mt-16 top-0 bottom-0 h-full bg-white">
+			<div class="pembungkus h-screen">
+			  <div class="cart-content mx-5 flex flex-col overflow-y-scroll pb-32">
+				<div class="card-cart bg-white rounded-2xl mb-5 pb-4 p-4">`;
+				for(let i=0; i<data['data'].length;i++){
+					var qty_upd=parseInt(data['data'][i]['price'])*parseInt(data['data'][i]['qty']);
+				  result+=`
+				  <div class="cart-list-group flex  w-full justify-around items-center mb-10">
+					<div class="checkbox pr-5">
+					  <input type="checkbox" name="checked-cart" class="form-checkbox h-5 w-5 text-red-600 border-gray-500 border-2" value="`+qty_upd+`">
+					</div>
+					<div class="cart-produk flex w-3/4  justify-around items-center">
+					  <img class="rounded-xl w-20 h-20" src="public/img/product/content-1.jpg" alt="">
+					  <div class="cart-produk-detil pl-5 w-full">
+						<p>`+data['data'][i]['title']+`</p>
+						<h2>Rp. `+data['data'][i]['price']+`</h2>
+					  </div>
+					</div>
+					<div class="cart-adding w-1/5">
+					  <div class="custom-number-input h-10 pt-2">
+						<div class="flex flex-row rounded-lg  bg-transparent">
+						  <button data-action="decrement`+data['data'][i]['id']+`" class=" w-20 rounded-l cursor-pointer outline-none text-red-600">
+							<span class="m-auto font-thin"></span>
+							<i class="fas fa-minus-circle"></i>
+						  </button>
+						  <input type="number"
+							class="outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center bg-white"
+							name="custom-input-number" id="number`+data['data'][i]['id']+`"  value="`+data['data'][i]['qty']+`" disabled>
+						  <button data-action="increment`+data['data'][i]['id']+`" class="h-full w-20 cursor-pointer text-red-600">
+							<span class="m-auto font-thin text-center"></span>
+							<i class="fas fa-plus-circle"></i>
+						  </button>
+						</div>
+					  </div>
+					</div>
+				  </div>`;
+				}
+			  result+=`</div>
+			</div> 
+		  </div>
+		  <div class="cart-footer fixed bottom-0 bg-white right-0 left-0 rounded-t-3xl p-7 ivide-y-2 text-gray-600">
+			<div class="cart-footer-header flex justify-between pb-5 ">
+			  <label for="">Pilih Semua</label>
+			  <input type="checkbox" name="checked-all" class="form-checkbox h-5 w-5 text-red-600 border-gray-500 border-2">
+			</div>
+			<div class="cart-footer-footer flex justify-between pt-4">
+			  <div class="total">
+				<p>Total</p>
+				<h2 class="total-price text-red-400">0</h2>
+			  </div>
+			  <a id="open-checkout"
+				class="button-checkout bg-red-600  rounded-full w-8/12 text-white text-center pt-3">Checkout</a>
+			</div>
+		  </div>`;	
+			$("#result").html(result);
+			$("input[name=checked-all]").on('change', function() {
+				if ($(this).is(':checked')) {
+				  $(this).attr('value', 'true');
+				  $('input[name=checked-cart]').prop("checked",true);
+				  var total=0;	
+				$("input[name=checked-cart]:checked").each(function() {
+					total += parseInt($(this).val());
+				});
+				$('.total-price').text("Rp. "+total);
+				} else {
+				  $(this).attr('value', 'false');
+				  $('input[name=checked-cart]').prop("checked",false);
+				  $('.total-price').text('0');
+				}
+			})
+			$("input[name=checked-cart]").on('change', function() {
+				if ($(this).is(':checked')) {
+				  var total_pcs=0;
+				$("input[name=checked-cart]:checked").each(function() {
+					total_pcs += parseInt($(this).val());
+				});
+				$('.total-price').text("Rp. "+total_pcs);
+				} else {
+				  $('.total-price').text('0');
+				}
+			})	
+			for(let j=0;j<data['data'].length;j++){
+				$('[data-action=increment'+data['data'][j]['id']+']').on('click',function(){
+					var value = parseInt(document.getElementById('number'+data['data'][j]['id']).value, 10);
+					value = isNaN(value) ? 0 : value;
+					value++;
+					document.getElementById('number'+data['data'][j]['id']).value = value;
+					var cart_id = data['data'][j]['id'];
+					$.ajax({
+						url: "https://sukahijabapi.neosantara.co.id/apimob/cart/add_qty_post",
+						type: "POST",
+						data:{
+							cart_id:cart_id,
+							qty:1
+						},
+						beforeSend: function(xhr){
+							xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get("token"));			
+						},
+						success: function(response){
+							console.log(response);
+						}
+					})
+				})			
+				$('[data-action=decrement'+data['data'][j]['id']+']').on('click',function(){
+					var value = parseInt(document.getElementById('number'+data['data'][j]['id']).value, 10);
+					var cart_id = data['data'][j]['id'];
+					value = isNaN(value) ? 0 : value;
+					value--;
+					if(value<1){
+						if(confirm("Qty pembelian Minimal 1. Apakah anda ingin menghapus cart?")==true)
+						{
+								$.ajax({
+									url: "https://sukahijabapi.neosantara.co.id/apimob/cart/delete_cart_post",
+									type: "POST",
+									data: {cart_id:cart_id},
+									beforeSend: function(xhr){
+										xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get("token"));
+									},
+									success: function(response){
+										console.log(response);
+										window.close();
+									}
+								})		
+						}else{
+							value=1;
+							window.close();
+						}
+					}else{
+					$.ajax({
+						url: "https://sukahijabapi.neosantara.co.id/apimob/cart/decrease_qty_post",
+						type: "POST",
+						data:{
+							cart_id:cart_id,
+							qty:1
+						},
+						beforeSend: function(xhr){
+							xhr.setRequestHeader('Authorization', 'bearer ' + Cookies.get("token"));			
+						},
+						success: function(response){
+							console.log(response);
+						}
+					})
+					}
+					document.getElementById('number'+data['data'][j]['id']).value = value;
+				})			
+			}
+		}
+	})	
 }
