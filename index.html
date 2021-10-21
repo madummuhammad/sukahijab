@@ -133,9 +133,7 @@
       </li>
     </ul>
   </footer>
-
-  <!-- Cart -->
-  <div id="modal-cart" class="fixed bottom-0 right-0 left-0 top-0 bg-red-500 z-20">
+  <!-- <div id="modal-cart" class="fixed bottom-0 right-0 left-0 top-0 bg-red-500 z-20">
     <div id="cart-close" class="cart-header flex items-center mt-5 ml-5 fixed cursor-pointer">
       <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -198,7 +196,7 @@
                     </button>
                     <input type="number"
                       class="outline-none focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center bg-white"
-                      name="custom-input-number" value="0" disabled>
+                      name="custom-input-number" id="number" value="0" disabled>
 
                     <button data-action="increment" class="h-full w-20 cursor-pointer text-red-600">
                       <span class="m-auto font-thin text-center"></span>
@@ -226,6 +224,20 @@
         <a id="open-checkout"
           class="button-checkout bg-red-600  rounded-full w-8/12 text-white text-center pt-3">Checkout</a>
       </div>
+    </div>
+  </div> -->
+
+  <!-- Cart -->
+  <div id="modal-cart" class="fixed bottom-0 right-0 left-0 top-0 bg-red-500 z-20">
+    <div id="cart-close" class="cart-header flex items-center mt-5 ml-5 fixed cursor-pointer">
+      <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97918 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM19 10.5L2 10.5V13.5L19 13.5V10.5Z"
+          fill="white" />
+      </svg>
+      <h4 class="pl-5 text-white">Cart</h4>
+    </div>
+    <div id="result">
     </div>
   </div>
   <!-- End of cart -->
